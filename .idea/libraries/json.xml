@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/lib/ext/json-20220320.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/ext/json-20220320-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
