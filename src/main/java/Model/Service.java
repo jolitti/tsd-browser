@@ -31,14 +31,21 @@ public record Service(
         for (int i = 0; i<serviceTypes.length(); i++) {
             l.add((String) serviceTypes.get(i));
         }
+        String tb;
+        try {
+            tb = o.getString("tob");
+        }
+        catch (JSONException je){
+            tb = null;
+        }
 
         return new Service(
                 o.getString("countryCode"),
                 o.getString("currentStatus"),
-                (String[]) l.toArray(),
+                l.toArray(new String[0]),
                 o.getInt("serviceId"),
                 o.getString("serviceName"),
-                o.getString("tob"),
+                tb, //o.getString("tob"),
                 o.getInt("tspId"),
                 o.getString("type")
 

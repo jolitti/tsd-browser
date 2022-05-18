@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public record TSP(
@@ -23,7 +24,7 @@ public record TSP(
         for(Object service: servicesArray)
             services.add(Service.buildServiceFromJsonObj((JSONObject) service));
 
-        JSONArray qServiceTypesArray = o.getJSONArray("qServicesTypes");
+        JSONArray qServiceTypesArray = o.getJSONArray("qServiceTypes");
         List<String> types = new ArrayList<>();
         for(Object type: qServiceTypesArray)
             types.add((String) type); //non troppo sicuro, sarebbe meglio fare una lista di jsonObjects
@@ -37,5 +38,20 @@ public record TSP(
                 o.getString("trustmark"),
                 o.getInt("tspId")
         );
+    }
+
+    public String toString(){
+        return new String(
+                this.countryCode +
+                "\n" +
+                this.name +
+                "\n" +
+                Arrays.toString(this.qServiceTypes) +
+                "\n" +
+                Arrays.toString(this.services) +
+                "\n" +
+                this.trustmark +
+                "\n" +
+                this.tspID);
     }
 }
