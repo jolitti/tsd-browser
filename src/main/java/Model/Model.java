@@ -17,7 +17,7 @@ public class Model {
     private List<TSP> providerList;
 
     public void makeTSPList(String url) throws IOException, JSONException {
-        JSONArray tspJsonArray = JSONReader.readJsonFromUrl(url);
+        JSONArray tspJsonArray = APIClient.readJsonFromUrl(url);
 
         //foreach oggetto nell'array, estrailo e chiama il costruttore di tsp
 
