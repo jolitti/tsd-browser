@@ -17,7 +17,7 @@ public record Service(
         String[] qServiceTypes
 ) {
 
-    public Service buildServiceFromJSONObject(JSONObject o) throws JSONException, ClassCastException{
+    public static Service buildServiceFromJSONObject(JSONObject o) throws JSONException, ClassCastException{
         JSONArray serviceTypes = o.getJSONArray("qServiceTypes");
         List<String> l = new ArrayList<>();
         for (int i = 0; i<serviceTypes.length(); i++) {
@@ -30,8 +30,8 @@ public record Service(
         String serviceName = o.getString("serviceName");
         String type = o.getString("type");
         String currentStatus = o.getString("currentStatus");
-        String tob = o.getString("tob");
-        String[] qServiceTypes = (String[]) l.toArray();
+        String tob = o.isNull("tob")? "" : o.getString("tob");
+        String[] qServiceTypes = l.toArray(l.toArray(new String[l.size()]));
 
         return new Service(
                 tspId,
