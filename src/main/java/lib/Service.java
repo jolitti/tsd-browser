@@ -17,22 +17,31 @@ public record Service(
         String[] qServiceTypes
 ) {
 
-    public static Service buildServiceFromJsonObj(JSONObject o) throws JSONException, ClassCastException{
+    public Service buildServiceFromJSONObject(JSONObject o) throws JSONException, ClassCastException{
         JSONArray serviceTypes = o.getJSONArray("qServiceTypes");
         List<String> l = new ArrayList<>();
         for (int i = 0; i<serviceTypes.length(); i++) {
             l.add((String) serviceTypes.get(i));
         }
 
+        int tspId = o.getInt("tspId");
+        int serviceId = o.getInt("serviceId");
+        String countryCode = o.getString("countryCode");
+        String serviceName = o.getString("serviceName");
+        String type = o.getString("type");
+        String currentStatus = o.getString("currentStatus");
+        String tob = o.getString("tob");
+        String[] qServiceTypes = (String[]) l.toArray();
+
         return new Service(
-                o.getInt("tspId"),
-                o.getInt("serviceId"),
-                o.getString("countryCode"),
-                o.getString("serviceName"),
-                o.getString("type"),
-                o.getString("currentStatus"),
-                o.getString("tob"),
-                (String[]) l.toArray()
-        );
+                tspId,
+                serviceId,
+                countryCode,
+                serviceName,
+                type,
+                currentStatus,
+                tob,
+                qServiceTypes
+                );
     }
 }
