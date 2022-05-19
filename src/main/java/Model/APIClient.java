@@ -12,9 +12,7 @@ public class APIClient {
     public static JSONArray readJsonFromUrl(String url) throws IOException, JSONException {
         try (InputStream is = new URL(url).openStream()) {
             JSONTokener tokener = new JSONTokener(is);
-            return new JSONArray(tokener);//ritorna array json che è costituito da tutto il file
-                                              //trasmesso dall'url
-                                              //nel caso specifico è un array di TSP
+            return new JSONArray(tokener);
         }
     }
 }

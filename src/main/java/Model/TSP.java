@@ -17,7 +17,8 @@ public record TSP(
         int tspID
 ){
 
-    public static TSP buildTSPFromJsonObj(JSONObject o) throws JSONException, ClassCastException
+    public static TSP buildTSPFromJsonObj(JSONObject o)
+            throws JSONException, ClassCastException
     {
         JSONArray servicesArray = o.getJSONArray("services");
         List<Service> services = new ArrayList<>();
@@ -40,7 +41,8 @@ public record TSP(
         );
     }
 
-    public String toString(){
+    public String toString()
+    {
         return new String(
                 this.countryCode +
                 "\n" +
