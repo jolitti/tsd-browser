@@ -44,4 +44,9 @@ public record Service(
                 qServiceTypes
                 );
     }
+
+    public boolean matches(ServiceFilter filter) {
+        // TODO
+        return false;
+    }
 }
