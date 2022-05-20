@@ -23,13 +23,14 @@ public class Model {
     private HashMap<String, List<TSP>> nations; //le chiavi sono "AT", "BE", ecc... che rappresentano le nazioni
 
 
-    public Model(String url) throws IOException, JSONException, NullPointerException
+    public Model(String url)
+        throws IOException, JSONException, NullPointerException
     {
         JSONArray tspJsonArray = APIClient.readJsonFromUrl(url);
         this.providers = new ArrayList<TSP>();
         this.nations = new HashMap<String, List<TSP>>();
             //foreach oggetto nell'array, estrailo e chiama il costruttore di tsp
-            for (Object tsp : tspJsonArray) {
+            for (Object tsp: tspJsonArray) {
                 TSP currentTSP = TSP.buildTSPFromJsonObj((JSONObject) tsp);
                 this.providers.add(currentTSP);
                 //popolo la tabella di hash

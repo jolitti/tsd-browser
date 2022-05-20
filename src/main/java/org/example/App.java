@@ -20,22 +20,29 @@ public class App
         HashMap<String, List<TSP>> NatList = mod.getNationLists();
         List<TSP> providers = mod.getProviders();
         List<TSP> BelgianProviders = mod.getProvidersByNation("BE");
+        int i=0;
+    for(TSP tsp: providers)
+        for(Service service: tsp.services())
+            i++;
 
-/*        System.out.println("\n Getter della lista di tutti i provider");
+    System.out.println("il numero di servizi è"+ i);
+
+    System.out.println(providers.size());
+      /*  System.out.println("\n Gequanti sono?" tter della lista di tutti i provider");
         for(Object tsp: providers){
             System.out.println(tsp.toString());
-        }
+        }*/
 
-        System.out.println("\n Getter della mappa delle nazioni, estraggo la Francia" +
+/*        System.out.println("\n Getter della mappa delle nazioni, estraggo la Francia" +
                 "e stampo un suo provider");
         HashMap<String, List<TSP>> NationMap = mod.getNationLists();
         System.out.println(NationMap.get("FR").get(3));
 */
 
-        System.out.println("\n Getter della lista dei provider belgi");
+   /*     System.out.println("\n Getter della lista dei provider belgi");
         for(Object tsp: BelgianProviders)
             System.out.println(tsp.toString());
-
+    */
 
     }
 }
