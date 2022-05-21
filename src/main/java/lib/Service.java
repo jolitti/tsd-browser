@@ -45,8 +45,9 @@ public record Service(
                 );
     }
 
-    public boolean matches(ServiceFilter filter) {
+/*    public boolean matches(ServiceFilter filter) {
         // TODO
+        //spostata nella classe service Database per diminuire il coupling: serivice esiste infdipendentemente dai filtri
         return false;
-    }
+    } */
 }

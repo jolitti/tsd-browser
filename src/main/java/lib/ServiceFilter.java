@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public record ServiceFilter (
     Optional<Set<String>> countries,
-    Optional<Set<String>> providers,
+    Optional<Set<Integer>> providers,
     Optional<Set<String>> types,
     Optional<Set<String>> statuses
     )
