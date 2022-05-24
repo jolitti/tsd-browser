@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added interface (to be implemented) and new method for Service">
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Moved javadoc comment">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ExampleServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lib/ServiceDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/ServiceDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,7 +104,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653043298481</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added comments to interface, implemented it into ServiceDatabase">
+      <created>1653407913713</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653407913713</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Moved javadoc comment">
+      <created>1653408017973</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653408017973</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +137,8 @@
     <MESSAGE value="Created Service object builder from JSONObject" />
     <MESSAGE value="Attempted refactor of service from jsonobj" />
     <MESSAGE value="Started a mockup of the query system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started a mockup of the query system" />
+    <MESSAGE value="Added comments to interface, implemented it into ServiceDatabase" />
+    <MESSAGE value="Moved javadoc comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved javadoc comment" />
   </component>
 </project>

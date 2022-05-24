@@ -55,7 +55,7 @@ public class ServiceDatabase implements ModelInterface
         return null; // TODO
     }
 
-    private static boolean matches(Service service, ServiceFilter filter){
+    public static boolean matches(Service service, ServiceFilter filter){
 
         boolean matchesCountry = false;
         boolean matchesTSP = false;
