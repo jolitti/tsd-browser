@@ -54,4 +54,30 @@ public class ServiceDatabase implements ModelInterface
     public List<Service> getServices(ServiceFilter filter) {
         return null; // TODO
     }
+
+    private static boolean matches(Service service, ServiceFilter filter){
+
+        boolean matchesCountry = false;
+        boolean matchesTSP = false;
+        boolean matchesType = false;
+        boolean matchesStatus = false;
+
+        if(filter.countries().isPresent())
+            matchesCountry =
+                    filter.countries().get().contains(service.countryCode());
+
+        if(filter.providers().isPresent())
+            matchesTSP =
+                    filter.providers().get().contains(service.tspId());
+
+        if(filter.types().isPresent())
+            matchesType =
+                    filter.types().get().contains(service.type());
+
+        if(filter.statuses().isPresent())
+            matchesStatus =
+                    filter.types().get().contains(service.currentStatus());
+
+        return matchesCountry && matchesTSP && matchesType && matchesStatus;
+    }
 }
