@@ -1,12 +1,14 @@
 package lib;
 
+import lib.interfaces.ModelInterface;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
-public class ServiceDatabase
+public class ServiceDatabase implements ModelInterface
 /**
  * Class that holds a record of all the services and can be queried via ServiceFilters
  */
@@ -34,18 +36,23 @@ public class ServiceDatabase
         }
     }
 
-    public List<Service> getServices(ServiceFilter filter)
-    /**
-     * Prototype of the query function.
-     * Very unoptimized, will only iterate
-     */
-    {
-        ArrayList<Service> answer = new ArrayList<>();
+    @Override
+    public Map<String, String> getCountryCodeToNames() {
+        return null; // TODO
+    }
 
-        for (Service s : services) {
-            // TODO: check if s respects the 4 parameters
-        }
+    @Override
+    public Map<Integer, String> getCodeToProviderNames() {
+        return null; // TODO
+    }
 
-        return answer;
+    @Override
+    public ServiceFilter getComplementaryFilter(ServiceFilter partial) {
+        return null; // TODO
+    }
+
+    @Override
+    public List<Service> getServices(ServiceFilter filter) {
+        return null; // TODO
     }
 }
