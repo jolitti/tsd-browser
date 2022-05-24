@@ -1,17 +1,16 @@
 package lib;
 
 import lib.interfaces.ModelInterface;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-public class ServiceDatabase implements ModelInterface
 /**
  * Class that holds a record of all the services and can be queried via ServiceFilters
  */
+public class ServiceDatabase implements ModelInterface
 {
     private List<Service> services;
 
