@@ -26,6 +26,6 @@ public class AppTest
 
     @Test
     public void shouldMatchFilter() {
-        assertTrue(ServiceDatabase.matches(ExampleServices.example,ExampleServices.nullFilter));
+        assertTrue(ExampleServices.nullFilter.matches(ExampleServices.example));
     }
 }

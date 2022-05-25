@@ -13,6 +13,8 @@ import java.util.Map;
 public class ServiceDatabase implements ModelInterface
 {
     private List<Service> services;
+    private Map<String,String> countryCodeMap;
+    private Map<Integer,String> providerIdMap;
 
     private HashSet<String> occurringCountries;
     private HashSet<Integer> occurringProviders;
@@ -22,8 +24,10 @@ public class ServiceDatabase implements ModelInterface
     /**
      * Initialize "database"
      */
-    public ServiceDatabase(List<Service> aServices) {
+    public ServiceDatabase(List<Service> aServices, Map<String,String> _countryCodeMap, Map<Integer,String> _providerIdMap) {
         services = aServices;
+        countryCodeMap = _countryCodeMap;
+        providerIdMap = _providerIdMap;
 
         for (Service s : services) {
             occurringCountries.add(s.countryCode());
@@ -37,12 +41,12 @@ public class ServiceDatabase implements ModelInterface
 
     @Override
     public Map<String, String> getCountryCodeToNames() {
-        return null; // TODO
+        return countryCodeMap; // TODO
     }
 
     @Override
     public Map<Integer, String> getCodeToProviderNames() {
-        return null; // TODO
+        return providerIdMap; // TODO
     }
 
     @Override
@@ -52,6 +56,11 @@ public class ServiceDatabase implements ModelInterface
 
     @Override
     public List<Service> getServices(ServiceFilter filter) {
-        return null; // TODO
+        ArrayList<Service> answer = new ArrayList<>();
+
+        for (Service s: services) {
+            if (filter.matches(s)) answer.add(s);
+        }
+        return answer;
     }
 }
