@@ -25,10 +25,10 @@ public class ServiceDatabase implements ModelInterface
     public ServiceDatabase(List<Service> aServices) {
         services = aServices;
 
-        for (Service s: services) {
+        for (Service s : services) {
             occurringCountries.add(s.countryCode());
             occurringProviders.add(s.tspId());
-            for (String type: s.qServiceTypes()) {
+            for (String type : s.qServiceTypes()) {
                 occurringServiceTypes.add(type);
             }
             occurringStatuses.add(s.currentStatus());
@@ -53,31 +53,5 @@ public class ServiceDatabase implements ModelInterface
     @Override
     public List<Service> getServices(ServiceFilter filter) {
         return null; // TODO
-    }
-
-    public static boolean matches(Service service, ServiceFilter filter){
-
-        boolean matchesCountry = false;
-        boolean matchesTSP = false;
-        boolean matchesType = false;
-        boolean matchesStatus = false;
-
-        if(filter.countries().isPresent())
-            matchesCountry =
-                    filter.countries().get().contains(service.countryCode());
-
-        if(filter.providers().isPresent())
-            matchesTSP =
-                    filter.providers().get().contains(service.tspId());
-
-        if(filter.types().isPresent())
-            matchesType =
-                    filter.types().get().contains(service.type());
-
-        if(filter.statuses().isPresent())
-            matchesStatus =
-                    filter.types().get().contains(service.currentStatus());
-
-        return matchesCountry && matchesTSP && matchesType && matchesStatus;
     }
 }
