@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public record Service(
@@ -17,11 +18,23 @@ public record Service(
         String[] qServiceTypes
 ) {
 
-
-
-/*    public boolean matches(ServiceFilter filter) {
-        // TODO
-        //spostata nella classe service Database per diminuire il coupling: serivice esiste infdipendentemente dai filtri
-        return false;
-    } */
+    public String toString() {
+        return new String(
+                this.tspId +
+                        "\n" +
+                        this.serviceId +
+                        "\n" +
+                        this.countryCode +
+                        "\n" +
+                        this.serviceName +
+                        "\n" +
+                        this.type +
+                        "\n" +
+                        this.currentStatus +
+                        "\n" +
+                        this.tob +
+                        "\n" +
+                        Arrays.toString(this.qServiceTypes)
+        );
+    }
 }
