@@ -23,7 +23,7 @@ public record ServiceFilter (
 
         boolean matchesCountry = true;
         boolean matchesTSP = true;
-        boolean matchesType = true;
+        boolean matchesQType = true;
         boolean matchesStatus = true;
 
         if(this.countries().isPresent())
@@ -35,14 +35,15 @@ public record ServiceFilter (
                     this.providers().get().contains(service.tspId());
 
         if(this.types().isPresent())
-            matchesType =
-                    this.types().get().contains(service.type());
-
+            for(String qType: service.qServiceTypes()) {
+                matchesQType = this.types().get().contains(qType);
+                if(matchesQType) break; //si ferma appena trova un QService che matcha
+            }
         if(this.statuses().isPresent())
             matchesStatus =
-                    this.types().get().contains(service.currentStatus());
+                    this.statuses().get().contains(service.currentStatus());
 
-        return matchesCountry && matchesTSP && matchesType && matchesStatus;
+        return matchesCountry && matchesTSP && matchesQType && matchesStatus;
     }
 }
 
