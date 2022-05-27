@@ -24,8 +24,8 @@ public class ExampleServices {
         return new ServiceFilter(
                 Optional.empty(),
                 Optional.empty(),
-                Optional.empty(),
-                Optional.ofNullable(types)
+                Optional.ofNullable(types),
+                Optional.empty()
         );
     }
     public static Service example = new Service(

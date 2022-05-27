@@ -26,10 +26,10 @@ public class ServiceDatabase implements ModelInterface
     /**
      * Initialize "database"
      */
-    public ServiceDatabase(List<Service> aServices, Map<String,String> _countryCodeMap, Map<Integer,String> _providerIdMap) {
+    public ServiceDatabase(List<Service> aServices, Map<String,String> aCountryCodeMap, Map<Integer,String> aProviderIdMap) {
         services = aServices;
-        countryCodeMap = _countryCodeMap;
-        providerIdMap = _providerIdMap;
+        countryCodeMap = aCountryCodeMap;
+        providerIdMap = aProviderIdMap;
 
         for (Service s : services) {
             occurringCountries.add(s.countryCode());
