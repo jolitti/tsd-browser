@@ -1,4 +1,4 @@
-package lib;
+package lib.internal;
 
 import org.json.JSONArray;
 import org.json.JSONException;

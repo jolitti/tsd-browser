@@ -1,5 +1,7 @@
-package lib;
+package lib.internal;
 
+import lib.Service;
+import lib.ServiceFilter;
 import lib.interfaces.ModelInterface;
 
 import java.util.ArrayList;
