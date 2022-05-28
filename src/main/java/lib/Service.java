@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public record Service(
@@ -17,37 +18,23 @@ public record Service(
         String[] qServiceTypes
 ) {
 
-    public static Service buildServiceFromJSONObject(JSONObject o) throws JSONException, ClassCastException{
-        JSONArray serviceTypes = o.getJSONArray("qServiceTypes");
-        List<String> l = new ArrayList<>();
-        for (int i = 0; i<serviceTypes.length(); i++) {
-            l.add((String) serviceTypes.get(i));
-        }
-
-        int tspId = o.getInt("tspId");
-        int serviceId = o.getInt("serviceId");
-        String countryCode = o.getString("countryCode");
-        String serviceName = o.getString("serviceName");
-        String type = o.getString("type");
-        String currentStatus = o.getString("currentStatus");
-        String tob = o.isNull("tob")? "" : o.getString("tob");
-        String[] qServiceTypes = l.toArray(l.toArray(new String[l.size()]));
-
-        return new Service(
-                tspId,
-                serviceId,
-                countryCode,
-                serviceName,
-                type,
-                currentStatus,
-                tob,
-                qServiceTypes
-                );
+    public String toString() {
+        return new String(
+                this.tspId +
+                        "\n" +
+                        this.serviceId +
+                        "\n" +
+                        this.countryCode +
+                        "\n" +
+                        this.serviceName +
+                        "\n" +
+                        this.type +
+                        "\n" +
+                        this.currentStatus +
+                        "\n" +
+                        this.tob +
+                        "\n" +
+                        Arrays.toString(this.qServiceTypes)
+        );
     }
-
-/*    public boolean matches(ServiceFilter filter) {
-        // TODO
-        //spostata nella classe service Database per diminuire il coupling: serivice esiste infdipendentemente dai filtri
-        return false;
-    } */
 }
