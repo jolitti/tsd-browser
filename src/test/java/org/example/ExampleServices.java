@@ -28,6 +28,14 @@ public class ExampleServices {
                 Optional.empty()
         );
     }
+    public static ServiceFilter quickCountryFilter(String... countries) {
+        return new ServiceFilter(
+                Optional.of(Set.of(countries)),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty()
+        );
+    }
     public static Service example = new Service(
             0,
             1,

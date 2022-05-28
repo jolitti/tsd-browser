@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Checkout_at_5_20_22,_11_28_AM_[Changes]" date="1653038890352" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_20_22,_11_28_AM_[Changes]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 5/20/22, 11:28 AM [Changes]" />
-  <binary>
-    <option name="BEFORE_PATH" value="out/artifacts/tsd_browser_jar/tsd-browser.jar" />
-    <option name="AFTER_PATH" value="out/artifacts/tsd_browser_jar/tsd-browser.jar" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_20_22,_11_28_AM_[Changes]/tsd-browser.jar" />
-  </binary>
-</changelist>
