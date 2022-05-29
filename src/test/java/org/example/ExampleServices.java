@@ -1,4 +1,4 @@
-package org.example;
+/*package org.example;
 import lib.Service;
 import lib.ServiceFilter;
 
@@ -48,3 +48,4 @@ public class ExampleServices {
             Optional.empty()
     );
 }
+*/
