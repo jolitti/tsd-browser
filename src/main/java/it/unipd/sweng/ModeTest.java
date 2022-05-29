@@ -37,8 +37,8 @@ public class ModeTest implements ModelInterface{
 
         LinkedList<String> type=new LinkedList<String>();
         type.add("time Stamp");
-        type.add("madonna ");
-        type.add("cristo");
+        type.add("pec ");
+        type.add("esign");
         Optional<List<String>>  ty= Optional.of(type);
 
         LinkedList<String> status=new LinkedList<String>();
