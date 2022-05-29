@@ -2,6 +2,7 @@ package org.example;
 import lib.Service;
 import lib.ServiceFilter;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -25,6 +26,17 @@ public class ExampleServices {
                 Optional.empty(),
                 Optional.empty(),
                 Optional.ofNullable(types),
+                Optional.empty()
+        );
+    }
+
+    public static ServiceFilter quickQTypeFilter(String... types) {
+        Set<String> typeSet = new HashSet<>();
+        for (String t: types) typeSet.add(t);
+        return new ServiceFilter(
+                Optional.empty(),
+                Optional.empty(),
+                Optional.ofNullable(typeSet),
                 Optional.empty()
         );
     }

@@ -1,13 +1,13 @@
 package org.example;
 
-import static org.junit.Assert.assertTrue;
-
 import lib.Service;
 import lib.ServiceFilter;
 import lib.internal.ServiceDatabase;
 import org.junit.Test;
 
 import java.util.*;
+
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -40,7 +40,7 @@ public class AppTest
     }
 
     @Test
-    public void shouldMatchComplementary() {
+    public void shouldMatchComplementaryCountries() {
         Service it = ExampleServices.quickServiceGen(0,"IT","on",new String[]{"A"});
         Service fr = ExampleServices.quickServiceGen(1,"FR","on",new String[]{"B"});
         List<Service> list = new ArrayList<>(Arrays.asList(it,fr));
@@ -48,7 +48,57 @@ public class AppTest
         ServiceDatabase db = new ServiceDatabase(list,new HashMap<>(),new HashMap<>());
         ServiceFilter filter = ExampleServices.quickCountryFilter("IT");
 
-        assertTrue(db.getComplementaryFilter(filter).types().get().contains("A"));
+        ServiceFilter complementary = db.getComplementaryFilter(filter);
 
+        // Complementary tests follow
+        assertTrue(complementary.providers().get().contains(0));
+
+        assertTrue(complementary.countries().get().contains("IT"));
+        assertFalse(complementary.countries().get().contains("FR"));
+
+        assertTrue(complementary.types().get().contains("A"));
+        assertFalse(complementary.types().get().contains("B"));
+    }
+
+    @Test
+    public void shouldMatchComplementaryTypes() {
+        Service ab = ExampleServices.quickServiceGen(0,"SP","on",new String[]{"A","B"});
+        Service ac = ExampleServices.quickServiceGen(1,"DE","on",new String[]{"A","C"});
+        Service abc = ExampleServices.quickServiceGen(2,"PO","on",new String[]{"A","B","C"});
+        List<Service> list = new ArrayList<>(Arrays.asList(ab,ac,abc));
+
+        ServiceDatabase db = new ServiceDatabase(list,new HashMap<>(),new HashMap<>());
+
+        // "A" filter complementary test
+        ServiceFilter aFilter = ExampleServices.quickQTypeFilter("A");
+        ServiceFilter aComplementary = db.getComplementaryFilter(aFilter);
+        Set<String> aComplCountries = aComplementary.countries().get();
+
+        assertTrue(aComplCountries.contains("SP"));
+        assertTrue(aComplCountries.contains("DE"));
+        assertTrue(aComplCountries.contains("PO"));
+
+        // "B" filter complementary test
+        ServiceFilter bFilter = ExampleServices.quickQTypeFilter("B");
+        ServiceFilter bComplementary = db.getComplementaryFilter(bFilter);
+        Set<String> bComplCountries = bComplementary.countries().get();
+
+        assertTrue(bComplCountries.contains("SP"));
+        assertFalse(bComplCountries.contains("DE"));
+        assertTrue(bComplCountries.contains("PO"));
+    }
+
+    @Test
+    public void shouldFilterServices() {
+        Service ab = ExampleServices.quickServiceGen(0,"SP","on",new String[]{"A","B"});
+        Service ac = ExampleServices.quickServiceGen(1,"DE","on",new String[]{"A","C"});
+        Service abc = ExampleServices.quickServiceGen(2,"PO","on",new String[]{"A","B","C"});
+        List<Service> list = new ArrayList<>(Arrays.asList(ab,ac,abc));
+
+        ServiceDatabase db = new ServiceDatabase(list,new HashMap<>(),new HashMap<>());
+
+        List<Service> filtered = db.getServices(ExampleServices.quickQTypeFilter("A"));
+
+        assertEquals(3, filtered.size());
     }
 }
