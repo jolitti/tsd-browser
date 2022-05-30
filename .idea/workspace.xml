@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added and partially tested complementary calculation">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_05_22,_16_03_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_05_22,_16_03_[Changes]1/tsd-browser.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_05_22__16_03__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/doc/common_ground/ModelInterface.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/common_ground/ModelSpawner.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/common_ground/Service.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/common_ground/ServiceFilter.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ExampleServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ExampleServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/ModelSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/ModelSpawner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="29HXdpSOV980h9bKKGibtebBtgJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -69,6 +73,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc/common_ground" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="lib.internal" />
     </key>

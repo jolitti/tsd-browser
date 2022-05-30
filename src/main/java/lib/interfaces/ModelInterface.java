@@ -16,7 +16,7 @@ public interface ModelInterface {
      * are completed with every parameter where adding just that to the filter is sure to
      * still maintain a valid one
      * @param partial the partially filled filter
-     * @return
+     * @return filter filled with all the valid new options
      */
     public ServiceFilter getComplementaryFilter(ServiceFilter partial);
 

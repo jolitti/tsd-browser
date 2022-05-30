@@ -20,4 +20,9 @@ public class ModelSpawner {
 
         return null; // TODO
     };
+
+    /**
+     * The constructor is hidden to make the class static
+     */
+    private ModelSpawner() {};
 }
