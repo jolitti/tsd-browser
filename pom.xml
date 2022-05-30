@@ -42,12 +42,12 @@
       <dependency>
           <groupId>org.openjfx</groupId>
           <artifactId>javafx-base</artifactId>
-          <version>11</version>
+          <version>18</version>
       </dependency>
       <dependency>
           <groupId>org.openjfx</groupId>
           <artifactId>javafx-fxml</artifactId>
-          <version>11</version>
+          <version>18</version>
       </dependency>
     <!-- https://mvnrepository.com/artifact/org.controlsfx/controlsfx -->
     <dependency>
