@@ -1,4 +1,5 @@
 package it.unipd.sweng;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,16 +53,42 @@ public class MainController implements Initializable {
         //stato
         nationCCB.setTitle("nation");
         //nationCCB.addEventHandler(ComboBox.ON_HIDDEN,event -> {test();});
+      nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
+          @Override
+          public void onChanged(ListChangeListener.Change<? extends String> nat) {
+              checkall(nationCCB,nat);
+          }
+      });
+
 
         //provider
         tspCCB.setTitle("tsp");
+        tspCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
+            @Override
+            public void onChanged(ListChangeListener.Change<? extends String> prov) {
+                checkall(tspCCB,prov);
+            }
+        });
 
         //tipo di servizio
         typeCCB.setTitle("type");
+        typeCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
+            @Override
+            public void onChanged(ListChangeListener.Change<? extends String> ty) {
+                checkall(typeCCB,ty);
+            }
+        });
+
 
 
         //stato del servizi
         statusCCB.setTitle("status");
+        statusCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
+            @Override
+            public void onChanged(ListChangeListener.Change<? extends String> stat) {
+                checkall(statusCCB,stat);
+            }
+        });
 
         setFilters(full);
     }
@@ -150,18 +177,50 @@ public class MainController implements Initializable {
     public void setFilters(ServiceFilter filter)
     {
         ObservableList<String> nations = FXCollections.observableArrayList(filter.countries().get());
+        nations.add(0,"select all");
         nationCCB.getItems().addAll(nations);
 
         ObservableList<Integer> tsp = FXCollections.observableArrayList(filter.providers().get());
+        tsp.add(0,9999);// TODO 9999 usato come "selectall" perche per ora sono int, da cambiare appena ho la mappa
         tspCCB.getItems().addAll(tsp);
 
         ObservableList<String> types = FXCollections.observableArrayList(filter.types().get());
+        types.add(0,"select all");
         typeCCB.getItems().addAll(types);
 
         ObservableList<String> status = FXCollections.observableArrayList(filter.statuses().get());
+        status.add(0,"select all");
         statusCCB.getItems().addAll(status);
 
 
+
+    }
+
+    public void test()
+    {
+        System.out.println("www");
+    }
+
+    public void checkall(CheckComboBox ccb, ListChangeListener.Change change)
+    {
+        change.next();
+       if(change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0)))
+       {//getAddedSubList da errore di out of bound exceptions ma penso sia per un bug in controlsfx DA VERIFICARE 
+           for(int i=1;i<ccb.getItems().size();i++)
+           {
+              if(ccb.getCheckModel().isChecked(i))
+              {
+                  ccb.getCheckModel().clearCheck(i);
+              }
+           }
+       }
+       else
+       {
+           if(ccb.getCheckModel().isChecked(0)&& change.getRemovedSize()==0)
+           {
+               ccb.getCheckModel().clearCheck(0);
+           }
+       }
     }
 
 }
