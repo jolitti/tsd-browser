@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/doc/common_ground/ModelInterface.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/common_ground/ModelSpawner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/common_ground/Service.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/common_ground/ServiceFilter.md" afterDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Began work on documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/common_ground/ServiceFilter.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/common_ground/ServiceFilter.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lib/ModelSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/ModelSpawner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653729692026</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Began work on documentation">
+      <created>1653927945168</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653927945168</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +175,7 @@
     <MESSAGE value="Moved javadoc comment" />
     <MESSAGE value="Implemented most ServiceDatabase functions" />
     <MESSAGE value="Added and partially tested complementary calculation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added and partially tested complementary calculation" />
+    <MESSAGE value="Began work on documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Began work on documentation" />
   </component>
 </project>

@@ -45,5 +45,16 @@ public record ServiceFilter (
 
         return matchesCountry && matchesTSP && matchesQType && matchesStatus;
     }
+
+    /**
+     * A ServiceDatabase interrogated with this filter will return each Service
+     * instance it contains
+     */
+    public static final ServiceFilter nullFilter = new ServiceFilter(
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty()
+    );
 }
 

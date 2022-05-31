@@ -1,7 +1,9 @@
 package org.example;
 
+import lib.ModelSpawner;
 import lib.Service;
 import lib.ServiceFilter;
+import lib.interfaces.ModelInterface;
 import lib.internal.ServiceDatabase;
 import org.junit.Test;
 
@@ -100,5 +102,13 @@ public class AppTest
         List<Service> filtered = db.getServices(ExampleServices.quickQTypeFilter("A"));
 
         assertEquals(3, filtered.size());
+    }
+
+    @Test
+    public void shouldBuildDatabase() throws java.io.IOException {
+        ModelInterface db = ModelSpawner.getModelInstance();
+        List<Service> services = db.getServices(ServiceFilter.nullFilter);
+
+        assertTrue(services.size() > 100);
     }
 }
