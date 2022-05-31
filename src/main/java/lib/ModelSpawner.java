@@ -56,10 +56,10 @@ public class ModelSpawner {
         db = new ServiceDatabase(holder.services(),countryCodeMap,holder.tspIDtoNameMap());
 
         return db;
-    };
+    }
 
     /**
      * The constructor is hidden to make the class static
      */
-    private ModelSpawner() {};
+    private ModelSpawner() {}
 }

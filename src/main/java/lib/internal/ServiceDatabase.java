@@ -11,9 +11,9 @@ import java.util.*;
  */
 public class ServiceDatabase implements ModelInterface
 {
-    private List<Service> services;
-    private Map<String,String> countryCodeMap;
-    private Map<Integer,String> providerIdMap;
+    private final List<Service> services;
+    private final Map<String,String> countryCodeMap;
+    private final Map<Integer,String> providerIdMap;
 
     /**
      * Initialize "database"

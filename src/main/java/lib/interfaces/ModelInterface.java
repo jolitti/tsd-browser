@@ -8,8 +8,8 @@ import java.util.Map;
 
 public interface ModelInterface {
 
-    public Map<String,String> getCountryCodeToNames(); // Es: "FR" to "France"
-    public Map<Integer,String> getCodeToProviderNames(); // Integer provider code to actual name
+    Map<String,String> getCountryCodeToNames(); // Es: "FR" to "France"
+    Map<Integer,String> getCodeToProviderNames(); // Integer provider code to actual name
 
     /**
      * Given a partially filled ServiceFilter, return a filter where the null fields
@@ -18,13 +18,13 @@ public interface ModelInterface {
      * @param partial the partially filled filter
      * @return filter filled with all the valid new options
      */
-    public ServiceFilter getComplementaryFilter(ServiceFilter partial);
+    ServiceFilter getComplementaryFilter(ServiceFilter partial);
 
     /**
      * Get a list of all the Services that satisfy the given filter
      * @param filter the filter (partial or complete) that services must satisfy
      * @return list of Services that conform to filter
      */
-    public List<Service> getServices(ServiceFilter filter);
+    List<Service> getServices(ServiceFilter filter);
 
 }
