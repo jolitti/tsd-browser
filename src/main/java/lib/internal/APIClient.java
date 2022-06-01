@@ -28,12 +28,16 @@ public class APIClient {
 
         for(int i=0; i<tspJsonArray.length(); i++){
             JSONObject tsp = (JSONObject) tspJsonArray.get(i);
-            tspMap.put((Integer) tsp.get("tspId"),(String) tsp.get("name"));     //scorro i tsp e aggiungo la entry nella mappa degli id-nomi
 
-            JSONArray serviceArray = (JSONArray) tsp.get("services");
-            for(Object serviceObject: serviceArray) {                            //per ogni oggetto tsp scorro la lista dei suoi servizi e creo i Service
+            // We iterate the provider list, adding the id-name pair into the map
+            tspMap.put((Integer) tsp.get("tspId"),(String) tsp.get("name"));
+
+            JSONArray serviceArray = tsp.getJSONArray("services");
+            for(Object serviceObject: serviceArray) {
+                // Create a Service object for each service in the provider object's "services" field
                 Service service = buildServiceFromJSONObject((JSONObject) serviceObject);
-                serviceList.add(service);                                        //e li aggiungo alla lista
+                // Add the newly created Service into the list
+                serviceList.add(service);
             }
         }
 
@@ -43,27 +47,20 @@ public class APIClient {
 
 
     /**
-     *
+     * One of the two parts of the dialogue with the external API
      * @param url url to the api
      * @return a map containing countryCode-CountryName pairs
      */
     public static Map<String,String> getCountryMap(String url) throws IOException, JSONException {
         JSONArray countryArray = readJsonFromUrl(url);
-        Map<String,String> countryMap = new TreeMap<>();
+        Map<String, String> countryMap = new TreeMap<>();
 
-        for(int i=0; i<countryArray.length(); i++){
+        for (int i = 0; i < countryArray.length(); i++) {
             JSONObject country = (JSONObject) countryArray.get(i);
             countryMap.put((String) country.get("countryCode"), (String) country.get("countryName"));
         }
         return countryMap;
     }
-
-
-
-
-
-
-
 
     /**
      * Queries the API and gets the JSON array from url
@@ -94,7 +91,7 @@ public class APIClient {
         for (int i = 0; i<serviceTypes.length(); i++)
             qServiceTypes[i] = (String) serviceTypes.get(i);
 
-        //bug nella libreria json che non permette di leggere valori null
+        // There is an org.json but that prevents the reading of a null object
         String tb;
         try { tb = o.getString("tob)"); }
         catch(JSONException je){ tb = "/NULL"; }
@@ -111,4 +108,9 @@ public class APIClient {
                         qServiceTypes);
     }
 
+    /**
+     * This is a static utility class, we want to prevent
+     * others from initializing it
+     */
+    private APIClient() {}
 }
