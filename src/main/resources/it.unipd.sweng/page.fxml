@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,16 +14,6 @@
 <?import org.controlsfx.control.CheckComboBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unipd.sweng.MainController">
-   <top>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust List Navigator" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
-   </top>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -68,7 +57,7 @@
                         <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
                     </rowConstraints>
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nazione" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nation" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="2" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Types" GridPane.columnIndex="3" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" GridPane.columnIndex="4" />
@@ -80,4 +69,17 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeScene" text="Home" textAlignment="CENTER" />
+            <Pane prefHeight="60.0" prefWidth="0.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust List Navigator" textAlignment="CENTER" wrappingWidth="392.203125" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

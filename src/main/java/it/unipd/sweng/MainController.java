@@ -17,6 +17,11 @@ import java.util.List;
 import lib.ServiceFilter;
 import lib.Service;
 import lib.interfaces.ModelInterface;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.controlsfx.control.IndexedCheckModel;
+
 public class MainController implements Initializable {
 
     @FXML
@@ -32,7 +37,8 @@ public class MainController implements Initializable {
 
     @FXML
     private GridPane serviceGP;
-
+    @FXML
+    private Button homeButton;
     private ModelInterface model;
 
 
@@ -52,7 +58,7 @@ public class MainController implements Initializable {
 
         //stato
         nationCCB.setTitle("nation");
-        //nationCCB.addEventHandler(ComboBox.ON_HIDDEN,event -> {test();});
+        //nationCCB.addEventHandler(ComboBox.ON_HIDDEN,event -> {setSelected();});
       nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
           @Override
           public void onChanged(ListChangeListener.Change<? extends String> nat) {
@@ -91,6 +97,7 @@ public class MainController implements Initializable {
         });
 
         setFilters(full);
+
     }
 
     public void SearchByFilters()
@@ -117,6 +124,35 @@ public class MainController implements Initializable {
         printServices(services);
 
 
+    }
+
+    public void initFilters(IndexedCheckModel[] models)
+    {
+
+
+
+        for (Object state:models[0].getCheckedItems()
+        ) {
+            nationCCB.getCheckModel().check(state);
+
+        }
+        for (Object provider:models[1].getCheckedItems()
+        ) {
+            tspCCB.getCheckModel().check(provider);
+
+        }
+        for (Object type:models[2].getCheckedItems()
+        ) {
+            typeCCB.getCheckModel().check(type);
+
+        }
+        for (Object status:models[3].getCheckedItems()
+        ) {
+            statusCCB.getCheckModel().check(status);
+
+        }
+
+        printFilters();
 
     }
 
@@ -214,35 +250,37 @@ public class MainController implements Initializable {
         statusCCB.getItems().addAll(status);
 
     }
-
-    public void test()
-    {
-        System.out.println("www");
-    }
-
-    public void checkall(CheckComboBox ccb, ListChangeListener.Change change)
-    {
+    public void checkall(CheckComboBox ccb, ListChangeListener.Change change) {
         change.next();
-       if(change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0)))
-       {//getAddedSubList da errore di out of bound exceptions ma penso sia per un bug in controlsfx DA VERIFICARE 
-           for(int i=1;i<ccb.getItems().size();i++)
-           {
-              if(ccb.getCheckModel().isChecked(i))
-              {
-                  ccb.getCheckModel().clearCheck(i);
-              }
-           }
-       }
-       else
-       {
-           if(ccb.getCheckModel().isChecked(0)&& change.getRemovedSize()==0)
-           {
-               ccb.getCheckModel().clearCheck(0);
-           }
-       }
+        if (change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0))) {//getAddedSubList da errore di out of bound exceptions ma penso sia per un bug in controlsfx DA VERIFICARE
+            for (int i = 1; i < ccb.getItems().size(); i++) {
+                if (ccb.getCheckModel().isChecked(i)) {
+                    ccb.getCheckModel().clearCheck(i);
+                }
+            }
+        } else {
+            if (ccb.getCheckModel().isChecked(0) && change.getRemovedSize() == 0) {
+                ccb.getCheckModel().clearCheck(0);
+            }
+        }
     }
 
-}
+        public void homeScene()throws IOException
+        {
+            Stage stage;
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/it.unipd.sweng/StartPage.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage=(Stage)homeButton.getScene().getWindow();
+
+            stage.setScene(scene);
+            stage.show();
+        }
+
+
+
+    }
+
+
 
 
 
