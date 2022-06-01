@@ -31,7 +31,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="search" mnemonicParsing="false" onAction="#SearchByFilters" prefHeight="25.0" prefWidth="93.0" text="Search" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <Button fx:id="search" mnemonicParsing="false" onAction="#searchByFilters" prefHeight="25.0" prefWidth="93.0" text="Search" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                   <CheckComboBox fx:id="nationCCB" prefHeight="26.0" prefWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <CheckComboBox fx:id="tspCCB" prefHeight="26.0" prefWidth="103.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <CheckComboBox fx:id="typeCCB" prefHeight="26.0" prefWidth="103.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
@@ -73,7 +73,7 @@
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeScene" text="Home" textAlignment="CENTER" />
-            <Pane prefHeight="60.0" prefWidth="0.0" />
+            <Pane prefHeight="60.0" prefWidth="107.0" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust List Navigator" textAlignment="CENTER" wrappingWidth="392.203125" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="48.0" />

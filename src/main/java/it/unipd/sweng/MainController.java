@@ -100,7 +100,7 @@ public class MainController implements Initializable {
 
     }
 
-    public void SearchByFilters()
+    public void searchByFilters()
     {
 
         /*
@@ -153,6 +153,7 @@ public class MainController implements Initializable {
         }
 
         printFilters();
+        searchByFilters();
 
     }
 
