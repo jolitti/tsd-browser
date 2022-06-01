@@ -32,8 +32,7 @@ public class ExampleServices {
     }
 
     public static ServiceFilter quickQTypeFilter(String... types) {
-        Set<String> typeSet = new HashSet<>();
-        typeSet.addAll(Arrays.asList(types));
+        Set<String> typeSet = new HashSet<>(Arrays.asList(types));
         return new ServiceFilter(
                 Optional.empty(),
                 Optional.empty(),

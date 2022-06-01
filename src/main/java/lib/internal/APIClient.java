@@ -22,8 +22,8 @@ public class APIClient {
      */
     public static DataHolder getData(String url) throws IOException, JSONException {
         JSONArray tspJsonArray = readJsonFromUrl(url);
-        List<Service> serviceList = new ArrayList<Service>();
-        Map<Integer,String> tspMap = new TreeMap<Integer,String>();
+        List<Service> serviceList = new ArrayList<>();
+        Map<Integer,String> tspMap = new TreeMap<>();
         //SortedMap<String,String> countryMap = new TreeMap<String,String>();
 
         for(int i=0; i<tspJsonArray.length(); i++){
@@ -49,7 +49,7 @@ public class APIClient {
      */
     public static Map<String,String> getCountryMap(String url) throws IOException, JSONException {
         JSONArray countryArray = readJsonFromUrl(url);
-        Map<String,String> countryMap = new TreeMap<String,String>();
+        Map<String,String> countryMap = new TreeMap<>();
 
         for(int i=0; i<countryArray.length(); i++){
             JSONObject country = (JSONObject) countryArray.get(i);
@@ -69,8 +69,8 @@ public class APIClient {
      * Queries the API and gets the JSON array from url
      * @param url url of the api
      * @return a JSONArray containing all TSPs.
-     * @throws IOException
-     * @throws JSONException
+     * @throws IOException if API or user is offline
+     * @throws JSONException if invalid JSON object is returned
      */
     private static JSONArray readJsonFromUrl(String url) throws IOException, JSONException {
         try (InputStream is = new URL(url).openStream()) {
@@ -86,7 +86,7 @@ public class APIClient {
      * @param o JSONObject Java object
      * @return a Service Java object
      * @throws JSONException if json is not correctly formatted
-     * @throws ClassCastException
+     * @throws ClassCastException if serviceTypes is not a String
      */
     private static Service buildServiceFromJSONObject(JSONObject o) throws JSONException, ClassCastException{
         JSONArray serviceTypes = o.getJSONArray("qServiceTypes");
