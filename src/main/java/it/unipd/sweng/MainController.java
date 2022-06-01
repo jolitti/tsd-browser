@@ -9,12 +9,13 @@ import org.controlsfx.control.CheckComboBox;
 import javafx.collections.FXCollections;
 import java.io.IOException;
 import java.net.URL;
+import javafx.scene.text.Text;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import static it.unipd.sweng.ModelSpawner.getModelInstance;
 import java.util.List;
-
 import lib.ServiceFilter;
+import lib.Service;
 import lib.interfaces.ModelInterface;
 public class MainController implements Initializable {
 
@@ -27,11 +28,10 @@ public class MainController implements Initializable {
     @FXML
     private CheckComboBox statusCCB;
     @FXML
-    private GridPane table;
-    @FXML
-    private TextArea txtArea;
-    @FXML
     private TreeView selectedFilters;
+
+    @FXML
+    private GridPane serviceGP;
 
     private ModelInterface model;
 
@@ -112,8 +112,11 @@ public class MainController implements Initializable {
 
         ServiceFilter filter=new ServiceFilter(natList,tspList,typesList,statusList);
 
-        model.getServices(filter);
+        List<Service>services=model.getServices(filter);
         printFilters();
+        printServices(services);
+
+
 
     }
 
@@ -174,6 +177,24 @@ public class MainController implements Initializable {
     }
 
 
+    public void printServices(List<Service> services)
+    {
+        String oldSp="";
+        int i=1;
+        for (Service service:services)
+        {
+            serviceGP.add(new Text(service.countryCode()),0,i);
+            serviceGP.add(new Text(String.valueOf(service.tspId())),1,i);
+            serviceGP.add(new Text(service.serviceName()),2,i);
+            serviceGP.add(new Text(service.type()),3,i);
+            serviceGP.add(new Text(service.currentStatus()),4,i);
+            i++;
+        }
+
+
+    }
+
+
     public void setFilters(ServiceFilter filter)
     {
         ObservableList<String> nations = FXCollections.observableArrayList(filter.countries().get());
@@ -191,8 +212,6 @@ public class MainController implements Initializable {
         ObservableList<String> status = FXCollections.observableArrayList(filter.statuses().get());
         status.add(0,"select all");
         statusCCB.getItems().addAll(status);
-
-
 
     }
 

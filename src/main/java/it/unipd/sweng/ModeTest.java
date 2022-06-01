@@ -55,12 +55,14 @@ public class ModeTest implements ModelInterface{
     @Override
     public List<Service> getServices(ServiceFilter filter) {
 
-        System.out.println(filter.countries().toString());
-        System.out.println(filter.providers().toString());
-        System.out.println(filter.types().toString());
-        System.out.println(filter.statuses().toString());
+        LinkedList<Service> services =new LinkedList<Service>();
 
-        return  null;
+        services.add(new Service(0,0,"ita","servizio ita 1","pec","granted","tob1",null));
+        services.add(new Service(0,1,"ita","servizio ita 2","esign","witdrawn","tob2",null));
+        services.add(new Service(1,2,"spa","servizio spa 1","pec","granted","tob3",null));
+        services.add(new Service(1,3,"spa","servizio spa 2","boh","granted","tob4",null));
+        return services;
+
     }
 
 
