@@ -14,7 +14,7 @@ public record Service(
 ) {
 
     public String toString() {
-        return new String(
+        return (
                 this.tspId +
                         "\n" +
                         this.serviceId +

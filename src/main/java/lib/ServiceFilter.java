@@ -8,12 +8,31 @@ import java.util.*;
  For each option, if the value is None it means we aren't filtering based on that parameter
  */
 public record ServiceFilter (
-    Optional<List<String>> countries,
-    Optional<List<Integer>> providers,
-    Optional<List<String>> types,
-    Optional<List<String>> statuses
+    Optional<Set<String>> countries,
+    Optional<Set<Integer>> providers,
+    Optional<Set<String>> types,
+    Optional<Set<String>> statuses
     )
 {
+    public static ServiceFilter filterFromLists(
+            Optional<List<String>> nat,
+            Optional<List<Integer>> t,
+            Optional<List<String>> ty,
+            Optional<List<String>> st) {
+
+        Optional<Set<String>> countries = nat.isPresent()?
+                Optional.of(new HashSet<>(nat.get())) : Optional.empty();
+        Optional<Set<Integer>> ids = t.isPresent()?
+                Optional.of(new HashSet<>(t.get())) : Optional.empty();
+        Optional<Set<String>> states = ty.isPresent()?
+                Optional.of(new HashSet<>(ty.get())) : Optional.empty();
+        Optional<Set<String>> serviceTypes = st.isPresent()?
+                Optional.of(new HashSet<>(st.get())) : Optional.empty();
+
+        return new ServiceFilter(
+                countries,ids,states,serviceTypes
+        );
+    }
     //private static Set<String> acceptedFilterTypes = Set.of("country","provider","type","status");
 
     public boolean matches(Service service){
@@ -42,5 +61,12 @@ public record ServiceFilter (
 
         return matchesCountry && matchesTSP && matchesQType && matchesStatus;
     }
+
+    public static final ServiceFilter nullFilter = new ServiceFilter(
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty()
+    );
 }
 

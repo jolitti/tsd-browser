@@ -48,7 +48,7 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        ServiceFilter full = model.getComplementaryFilter(new ServiceFilter(null, null, null, null));
+        ServiceFilter full = model.getComplementaryFilter(ServiceFilter.nullFilter);
 
         //stato
         nationCCB.setTitle("nation");
@@ -110,7 +110,7 @@ public class MainController implements Initializable {
         Optional<List<String>> typesList=Optional.of(types);
         Optional<List<String>> statusList=Optional.of(status);
 
-        ServiceFilter filter=new ServiceFilter(natList,tspList,typesList,statusList);
+        ServiceFilter filter= ServiceFilter.filterFromLists(natList,tspList,typesList,statusList);
 
         model.getServices(filter);
         printFilters();

@@ -47,7 +47,7 @@ public class ModeTest implements ModelInterface{
         Optional<List<String>> st= Optional.of(status);
 
 
-         ServiceFilter filter= new ServiceFilter(nat,t,ty,st);
+         ServiceFilter filter= ServiceFilter.filterFromLists(nat, t, ty, st);
          return filter;
 
     }
