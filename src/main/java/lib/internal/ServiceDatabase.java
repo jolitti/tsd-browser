@@ -1,7 +1,7 @@
 package lib.internal;
 
-import lib.Service;
 import lib.ServiceFilter;
+import lib.Service;
 import lib.interfaces.ModelInterface;
 
 import java.util.*;
@@ -59,12 +59,12 @@ public class ServiceDatabase implements ModelInterface
         }
 
         // Substitute null parameters with ones from the partial filter
-        countries = countries.isPresent()? countries : partial.countries();
-        providers = providers.isPresent()? providers : partial.providers();
-        types = types.isPresent()? types : partial.types();
-        statuses = statuses.isPresent()? statuses : partial.statuses();
+        countries = countries.isPresent()? countries : partial.getCountriesSet();
+        providers = providers.isPresent()? providers : partial.getProvidersSet();
+        types = types.isPresent()? types : partial.getTypesSet();
+        statuses = statuses.isPresent()? statuses : partial.getStatusesSet();
 
-        return new ServiceFilter(countries,providers,types,statuses);
+        return ServiceFilter.buildFilterFromSets(countries,providers,types,statuses);
     }
 
     @Override

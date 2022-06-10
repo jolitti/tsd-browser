@@ -1,8 +1,8 @@
 package org.example;
 
+import lib.ServiceFilter;
 import lib.ModelSpawner;
 import lib.Service;
-import lib.ServiceFilter;
 import lib.interfaces.ModelInterface;
 import lib.internal.ServiceDatabase;
 import org.junit.Test;
@@ -28,6 +28,19 @@ public class AppTest
     @Test
     public void shouldMatchFilter() {
         assertTrue(ExampleServices.nullFilter.matches(ExampleServices.example));
+    }
+
+    @Test
+    public void shouldGenerateSets() {
+        ArrayList<String> aCountries = new ArrayList<String>(Arrays.asList("IT","FR"));
+        ServiceFilter filter = new ServiceFilter(
+                Optional.of(aCountries),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty());
+
+        assertTrue(filter.getCountriesSet().isPresent());
+        assertFalse(filter.getProvidersSet().isPresent());
     }
 
     @Test
@@ -70,11 +83,12 @@ public class AppTest
         List<Service> list = new ArrayList<>(Arrays.asList(ab,ac,abc));
 
         ServiceDatabase db = new ServiceDatabase(list,new HashMap<>(),new HashMap<>());
+        assertEquals(db.getServices(ServiceFilter.nullFilter).size(),3);
 
         // "A" filter complementary test
         ServiceFilter aFilter = ExampleServices.quickQTypeFilter("A");
         ServiceFilter aComplementary = db.getComplementaryFilter(aFilter);
-        Set<String> aComplCountries = aComplementary.countries().get();
+        Set<String> aComplCountries = aComplementary.getCountriesSet().get();
 
         assertTrue(aComplCountries.contains("SP"));
         assertTrue(aComplCountries.contains("DE"));
@@ -83,7 +97,7 @@ public class AppTest
         // "B" filter complementary test
         ServiceFilter bFilter = ExampleServices.quickQTypeFilter("B");
         ServiceFilter bComplementary = db.getComplementaryFilter(bFilter);
-        Set<String> bComplCountries = bComplementary.countries().get();
+        Set<String> bComplCountries = bComplementary.getCountriesSet().get();
 
         assertTrue(bComplCountries.contains("SP"));
         assertFalse(bComplCountries.contains("DE"));

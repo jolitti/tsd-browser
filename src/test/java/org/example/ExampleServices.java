@@ -1,6 +1,6 @@
 package org.example;
-import lib.Service;
 import lib.ServiceFilter;
+import lib.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -23,7 +23,7 @@ public class ExampleServices {
     }
 
     public static ServiceFilter quickQTypeFilter(Set<String> types) {
-        return new ServiceFilter(
+        return ServiceFilter.buildFilterFromSets(
                 Optional.empty(),
                 Optional.empty(),
                 Optional.ofNullable(types),
@@ -33,7 +33,7 @@ public class ExampleServices {
 
     public static ServiceFilter quickQTypeFilter(String... types) {
         Set<String> typeSet = new HashSet<>(Arrays.asList(types));
-        return new ServiceFilter(
+        return ServiceFilter.buildFilterFromSets(
                 Optional.empty(),
                 Optional.empty(),
                 Optional.of(typeSet),
@@ -41,7 +41,7 @@ public class ExampleServices {
         );
     }
     public static ServiceFilter quickCountryFilter(String... countries) {
-        return new ServiceFilter(
+        return ServiceFilter.buildFilterFromSets(
                 Optional.of(Set.of(countries)),
                 Optional.empty(),
                 Optional.empty(),

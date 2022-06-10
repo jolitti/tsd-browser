@@ -1,53 +1,101 @@
 package lib;
 
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
-/**
- Class that represents a particular filter for a service database query.
+public class ServiceFilter {
 
- For each option, if the value is None it means we aren't filtering based on that parameter
- */
-public record ServiceFilter (
-    Optional<Set<String>> countries,
-    Optional<Set<Integer>> providers,
-    Optional<Set<String>> types,
-    Optional<Set<String>> statuses
-    )
-{
-    //private static Set<String> acceptedFilterTypes = Set.of("country","provider","type","status");
+    private final Optional<List<String>> countries;
+    private final Optional<List<Integer>> providers;
+    private final Optional<List<String>> types;
+    private final Optional<List<String>> statuses;
 
-    public boolean matches(Service service){
+    private Optional<Set<String>> countriesSet;
+    private Optional<Set<Integer>> providersSet;
+    private Optional<Set<String>> typesSet;
+    private Optional<Set<String>> statusesSet;
 
-        boolean matchesCountry = true;
-        boolean matchesTSP = true;
-        boolean matchesQType = true;
-        boolean matchesStatus = true;
+    public Optional<List<String>> countries() { return countries; }
+    public Optional<Set<String>> getCountriesSet() { return countriesSet; }
 
-        if(this.countries().isPresent())
-            matchesCountry =
-                    this.countries().get().contains(service.countryCode());
+    public Optional<List<Integer>> providers() { return providers; }
+    public Optional<Set<Integer>> getProvidersSet() { return providersSet; }
 
-        if(this.providers().isPresent())
-            matchesTSP =
-                    this.providers().get().contains(service.tspId());
+    public Optional<List<String>> types() { return types; }
+    public Optional<Set<String>> getTypesSet() { return typesSet; }
 
-        if(this.types().isPresent())
-            for(String qType: service.qServiceTypes()) {
-                matchesQType = this.types().get().contains(qType);
-                if(matchesQType) break; //si ferma appena trova un QService che matcha
-            }
-        if(this.statuses().isPresent())
-            matchesStatus =
-                    this.statuses().get().contains(service.currentStatus());
+    public Optional<List<String>> statuses() { return statuses; }
+    public Optional<Set<String>> getStatusesSet() { return statusesSet; }
 
-        return matchesCountry && matchesTSP && matchesQType && matchesStatus;
+
+
+
+
+    public ServiceFilter(
+            Optional<List<String>> aCountries,
+            Optional<List<Integer>> aProviders,
+            Optional<List<String>> aTypes,
+            Optional<List<String>> aStatuses
+    ) {
+        // Basic assignment
+        countries = aCountries;
+        providers = aProviders;
+        types = aTypes;
+        statuses = aStatuses;
+
+        // Functional-style assignment of sets
+        // (as recommended by intellij)
+        countriesSet = countries.map(HashSet::new);
+        providersSet = providers.map(HashSet::new);
+        typesSet = types.map(HashSet::new);
+        statusesSet = statuses.map(HashSet::new);
     }
 
-    /**
-     * A ServiceDatabase interrogated with this filter will return each Service
-     * instance it contains
-     */
+    public static ServiceFilter buildFilterFromSets(
+            Optional<Set<String>> aCountriesSet,
+            Optional<Set<Integer>> aProvidersSet,
+            Optional<Set<String>> aTypesSet,
+            Optional<Set<String>> aStatusesSet
+    ) {
+        // Functional-style assignment of lists
+        Optional<List<String>> aCountries = aCountriesSet.map(ArrayList::new);
+        Optional<List<Integer>> aProviders = aProvidersSet.map(ArrayList::new);
+        Optional<List<String>> aTypes = aTypesSet.map(ArrayList::new);
+        Optional<List<String>> aStatuses = aStatusesSet.map(ArrayList::new);
+
+        return new ServiceFilter(aCountries,aProviders,aTypes,aStatuses);
+    }
+
+    public boolean matches(Service s) {
+        // What follows is a series of guard clauses:
+        // for each parameter, if the filter is present and
+        // the parameter isn't in it, the match doesn't happen
+
+        if (countriesSet.isPresent())
+            if (!countriesSet.get().contains(s.countryCode()))
+                return false;
+
+        if (providersSet.isPresent())
+            if (!providersSet.get().contains(s.tspId()))
+                return false;
+
+        if (typesSet.isPresent()) {
+            boolean atLeastOnePresent = false;
+
+            for (String type : s.qServiceTypes())
+                if (typesSet.get().contains(type))
+                    atLeastOnePresent = true;
+
+            if (!atLeastOnePresent) return false;
+        }
+
+        if (statusesSet.isPresent())
+            if (!statusesSet.get().contains(s.currentStatus()))
+                return false;
+
+        // Having exhausted all possible negative options
+        return true;
+    }
+
     public static final ServiceFilter nullFilter = new ServiceFilter(
             Optional.empty(),
             Optional.empty(),
@@ -55,4 +103,3 @@ public record ServiceFilter (
             Optional.empty()
     );
 }
-
