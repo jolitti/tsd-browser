@@ -16,6 +16,8 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Trusted List");
         stage.setScene(scene);
+        stage.setMinWidth(640);
+        stage.setMinHeight(500);
         stage.show();
 
     }

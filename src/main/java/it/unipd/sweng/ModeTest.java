@@ -24,7 +24,7 @@ public class ModeTest implements ModelInterface{
     public ServiceFilter getComplementaryFilter(ServiceFilter partial) {
 
         LinkedList<String> nations=new LinkedList<String>();
-        nations.add("italia");
+        nations.add("Belgio");
         nations.add("spagna");
         nations.add("uk");
         Optional<List<String>>  nat= Optional.of(nations);

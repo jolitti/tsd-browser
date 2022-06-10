@@ -113,7 +113,7 @@ public class MainController implements Initializable {
         ObservableList status=statusCCB.getCheckModel().getCheckedItems();
 
         Optional<List<String>> natList=Optional.of(nations);
-        Optional<List<Integer>> tspList=Optional.of(tsp);
+        Optional<List<Integer>> tspList=Optional.of(tsp);//TODO deve passare da integer a string
         Optional<List<String>> typesList=Optional.of(types);
         Optional<List<String>> statusList=Optional.of(status);
 
@@ -128,9 +128,6 @@ public class MainController implements Initializable {
 
     public void initFilters(IndexedCheckModel[] models)
     {
-
-
-
         for (Object state:models[0].getCheckedItems()
         ) {
             nationCCB.getCheckModel().check(state);
@@ -221,7 +218,7 @@ public class MainController implements Initializable {
         for (Service service:services)
         {
             serviceGP.add(new Text(service.countryCode()),0,i);
-            serviceGP.add(new Text(String.valueOf(service.tspId())),1,i);
+            serviceGP.add(new Text(String.valueOf(service.tspId())),1,i);//TODO è impostato per lavorarecon gli int
             serviceGP.add(new Text(service.serviceName()),2,i);
             serviceGP.add(new Text(service.type()),3,i);
             serviceGP.add(new Text(service.currentStatus()),4,i);
