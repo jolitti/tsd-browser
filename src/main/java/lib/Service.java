@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import java.util.Arrays;
+
+import java.util.Arrays;
+
 public record Service(
         int tspId,
         int serviceId,
@@ -19,7 +23,7 @@ public record Service(
 ) {
 
     public String toString() {
-        return new String(
+        return (
                 this.tspId +
                         "\n" +
                         this.serviceId +

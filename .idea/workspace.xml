@@ -5,45 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Implemented most ServiceDatabase functions">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/AT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/BE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/BG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/CY.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/CZ.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/DE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/DK.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/EE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/EL.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ES.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/FI.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/FR.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/HR.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/HU.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/IE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/IS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/IT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/LI.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/LT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/LU.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/LV.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/MT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/NL.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/NO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/PL.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/PT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SI.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SK.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/UK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lib/LegacyServiceFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/ModeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/ModeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/ModeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/ModelSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/ModelSpawner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/internal/APIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/internal/APIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/internal/DataHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/internal/DataHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,24 +61,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/alessandrobarel/Desktop/tsd-browser",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alessandrobarel/Desktop/tsd-browser&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -163,7 +138,10 @@
       <option name="presentableId" value="Default" />
       <updated>1652771077134</updated>
       <workItem from="1654182076967" duration="165000" />
-      <workItem from="1654865105430" duration="10604000" />
+      <workItem from="1654865105430" duration="10764000" />
+      <workItem from="1654889093815" duration="7195000" />
+      <workItem from="1655902666488" duration="183000" />
+      <workItem from="1655903175920" duration="10427000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>

@@ -14,4 +14,10 @@ module it.unipd.sweng {
 
     opens it.unipd.sweng to javafx.fxml;
     exports it.unipd.sweng;
+    exports lib.interfaces;
+    opens lib.interfaces to javafx.fxml;
+    exports lib.internal;
+    opens lib.internal to javafx.fxml;
+    exports lib;
+    opens lib to javafx.fxml;
 }
