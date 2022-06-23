@@ -81,7 +81,7 @@ public class StartPageController implements Initializable {
 
         //initialisng state checkComboBox
         nationCCB.setTitle("nation");
-        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
+        //nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         //adding a listner to implement the select all function
         nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
@@ -358,10 +358,45 @@ public class StartPageController implements Initializable {
             p.add(providerid.get(tsp.get(i)));
         }
 
+        if(n.isEmpty())
+        {
+            Optional<List<String>> natList=Optional.empty();
+        }
+        else
+        {
+            Optional<List<String>> natList = Optional.of(n);
+        }
 
-        Optional<List<String>> natList = Optional.of(n);
-        Optional<List<Integer>> tspList = Optional.of(p);
-        Optional<List<String>> typesList = Optional.of(types);
+        if(n.isEmpty())
+        {
+            Optional<List<String>> tspList=Optional.empty();
+        }
+        else
+        {
+            Optional<List<Integer>> tspList = Optional.of(p);
+        }
+
+        if(n.isEmpty())
+        {
+            Optional<List<String>> typesList = Optional.of(types);
+        }
+        else
+        {
+            Optional<List<Integer>> typesList = Optional.of(p);
+        }
+
+        if(n.isEmpty())
+        {
+            Optional<List<String>> typesList = Optional.of(types);
+        }
+        else
+        {
+            Optional<List<String>> statusList = Optional.of(status);
+        }
+
+
+
+
         Optional<List<String>> statusList = Optional.of(status);
 
         ServiceFilter filter = new ServiceFilter(natList, tspList, typesList, statusList);
