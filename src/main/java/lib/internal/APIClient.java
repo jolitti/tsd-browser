@@ -1,6 +1,7 @@
 package lib.internal;
 
 import lib.Service;
+import lib.internal.DataHolder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -99,14 +100,14 @@ public class APIClient {
         System.out.println(o.getInt("tspId") + " " + o.getInt("serviceId"));
 
         return new Service(
-                        o.getInt("tspId"),
-                        o.getInt("serviceId"),
-                        o.getString("countryCode"),
-                        o.getString("serviceName"),
-                        o.getString("type"),
-                        o.getString("currentStatus"),
-                        tb,
-                        qServiceTypes);
+                o.getInt("tspId"),
+                o.getInt("serviceId"),
+                o.getString("countryCode"),
+                o.getString("serviceName"),
+                o.getString("type"),
+                o.getString("currentStatus"),
+                tb,
+                qServiceTypes);
     }
 
     /**

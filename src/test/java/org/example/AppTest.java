@@ -1,4 +1,4 @@
-package org.example;
+/*package org.example;
 
 import lib.ServiceFilter;
 import lib.ModelSpawner;
@@ -14,11 +14,15 @@ import static org.junit.Assert.*;
 /**
  * Unit test for simple App.
  */
+
+/*
 public class AppTest 
 {
     /**
      * Rigorous Test :-)
      */
+
+/*
     @Test
     public void shouldAnswerWithTrue()
     {
@@ -126,3 +130,4 @@ public class AppTest
         assertTrue(services.size() > 100);
     }
 }
+*/
