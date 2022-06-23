@@ -271,11 +271,11 @@ public class MainController implements Initializable {
         }
 
         //create a list with the data and adds it to the ccb adding a select all box
-        ObservableList<Integer> tsp = FXCollections.observableArrayList(filter.providers().get());
-        tsp.add(0, 9999);
+        ObservableList<String> tsp = FXCollections.observableArrayList(filter.providers().get());
+        tsp.add(0, "slect all");
         //providers need to be converted from id to name
-        for (int item : tsp) {
-            if (item == 9999) {
+        for (Object item : tsp) {
+            if (item == "select all") {
                 tspCCB.getItems().add("select all");
             } else {
                 tspCCB.getItems().add(providersName.get(item));
@@ -381,7 +381,7 @@ public class MainController implements Initializable {
         }
 
         Optional<List<String>> natList;
-        Optional<List<Integer>> tspList;
+        Optional<List<String>> tspList;
         Optional<List<String>> typesList;
         Optional<List<String>> statusList;
         if (n.isEmpty()) {
