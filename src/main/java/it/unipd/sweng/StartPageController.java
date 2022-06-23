@@ -142,7 +142,7 @@ public class StartPageController implements Initializable {
         for(String state: filter.countries().get()) {
             FileInputStream input = null;
             try {
-                input = new FileInputStream("/Users/alessandrobarel/Desktop/tsd-browser/src/main/resources/images/"+state+".png");
+                input = new FileInputStream("src/main/resources/images/"+state+".png");
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
