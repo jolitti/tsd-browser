@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Arrays;
 
 public record Service(
-        int tspId,
+        String tspId,
         int serviceId,
         String countryCode,
         String serviceName,

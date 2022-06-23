@@ -24,14 +24,14 @@ public class APIClient {
     public static DataHolder getData(String url) throws IOException, JSONException {
         JSONArray tspJsonArray = readJsonFromUrl(url);
         List<Service> serviceList = new ArrayList<>();
-        Map<Integer,String> tspMap = new TreeMap<>();
+        Map<String,String> tspMap = new TreeMap<>();
         //SortedMap<String,String> countryMap = new TreeMap<String,String>();
 
         for(int i=0; i<tspJsonArray.length(); i++){
             JSONObject tsp = (JSONObject) tspJsonArray.get(i);
 
             // We iterate the provider list, adding the id-name pair into the map
-            tspMap.put((Integer) tsp.get("tspId"),(String) tsp.get("name"));
+            tspMap.put( tsp.get("countryCode") + " " + tsp.get("tspId"),(String) tsp.get("name"));
 
             JSONArray serviceArray = tsp.getJSONArray("services");
             for(Object serviceObject: serviceArray) {
@@ -97,9 +97,11 @@ public class APIClient {
         try { tb = o.getString("tob)"); }
         catch(JSONException je){ tb = "/NULL"; }
 
+        String idstring = o.getString("countryCode") + " " + o.getInt("tspId");
+
 
         return new Service(
-                o.getInt("tspId"),
+                idstring,
                 o.getInt("serviceId"),
                 o.getString("countryCode"),
                 o.getString("serviceName"),

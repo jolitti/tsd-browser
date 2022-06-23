@@ -9,7 +9,7 @@ import java.util.Map;
 public interface ModelInterface {
 
     Map<String,String> getCountryCodeToNames(); // Es: "FR" to "France"
-    Map<Integer,String> getCodeToProviderNames(); // Integer provider code to actual name
+    Map<String,String> getCodeToProviderNames(); // Integer provider code to actual name
 
     /**
      * Given a partially filled ServiceFilter, return a filter where the null fields

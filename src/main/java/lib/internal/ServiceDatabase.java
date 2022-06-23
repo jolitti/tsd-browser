@@ -13,12 +13,12 @@ public class ServiceDatabase implements ModelInterface
 {
     private final List<Service> services;
     private final Map<String,String> countryCodeMap;
-    private final Map<Integer,String> providerIdMap;
+    private final Map<String,String> providerIdMap;
 
     /**
      * Initialize "database"
      */
-    public ServiceDatabase(List<Service> aServices, Map<String,String> aCountryCodeMap, Map<Integer,String> aProviderIdMap) {
+    public ServiceDatabase(List<Service> aServices, Map<String,String> aCountryCodeMap, Map<String,String> aProviderIdMap) {
         services = aServices;
         countryCodeMap = aCountryCodeMap;
         providerIdMap = aProviderIdMap;
@@ -30,7 +30,7 @@ public class ServiceDatabase implements ModelInterface
     }
 
     @Override
-    public Map<Integer, String> getCodeToProviderNames() {
+    public Map<String, String> getCodeToProviderNames() {
         return providerIdMap; // TODO
     }
 
@@ -39,7 +39,7 @@ public class ServiceDatabase implements ModelInterface
         // Construct complementary parameters for new filter
         Optional<Set<String>> countries = partial.countries().isPresent()?
                 Optional.empty(): Optional.of(new HashSet<>());
-        Optional<Set<Integer>> providers = partial.providers().isPresent()?
+        Optional<Set<String>> providers = partial.providers().isPresent()?
                 Optional.empty(): Optional.of(new HashSet<>());
         Optional<Set<String>> types = partial.types().isPresent()?
                 Optional.empty(): Optional.of(new HashSet<>());

@@ -5,20 +5,20 @@ import java.util.*;
 public class ServiceFilter {
 
     private final Optional<List<String>> countries;
-    private final Optional<List<Integer>> providers;
+    private final Optional<List<String>> providers;
     private final Optional<List<String>> types;
     private final Optional<List<String>> statuses;
 
     private Optional<Set<String>> countriesSet;
-    private Optional<Set<Integer>> providersSet;
+    private Optional<Set<String>> providersSet;
     private Optional<Set<String>> typesSet;
     private Optional<Set<String>> statusesSet;
 
     public Optional<List<String>> countries() { return countries; }
     public Optional<Set<String>> getCountriesSet() { return countriesSet; }
 
-    public Optional<List<Integer>> providers() { return providers; }
-    public Optional<Set<Integer>> getProvidersSet() { return providersSet; }
+    public Optional<List<String>> providers() { return providers; }
+    public Optional<Set<String>> getProvidersSet() { return providersSet; }
 
     public Optional<List<String>> types() { return types; }
     public Optional<Set<String>> getTypesSet() { return typesSet; }
@@ -32,7 +32,7 @@ public class ServiceFilter {
 
     public ServiceFilter(
             Optional<List<String>> aCountries,
-            Optional<List<Integer>> aProviders,
+            Optional<List<String>> aProviders,
             Optional<List<String>> aTypes,
             Optional<List<String>> aStatuses
     ) {
@@ -52,13 +52,13 @@ public class ServiceFilter {
 
     public static ServiceFilter buildFilterFromSets(
             Optional<Set<String>> aCountriesSet,
-            Optional<Set<Integer>> aProvidersSet,
+            Optional<Set<String>> aProvidersSet,
             Optional<Set<String>> aTypesSet,
             Optional<Set<String>> aStatusesSet
     ) {
         // Functional-style assignment of lists
         Optional<List<String>> aCountries = aCountriesSet.map(ArrayList::new);
-        Optional<List<Integer>> aProviders = aProvidersSet.map(ArrayList::new);
+        Optional<List<String>> aProviders = aProvidersSet.map(ArrayList::new);
         Optional<List<String>> aTypes = aTypesSet.map(ArrayList::new);
         Optional<List<String>> aStatuses = aStatusesSet.map(ArrayList::new);
 

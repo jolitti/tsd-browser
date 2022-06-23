@@ -12,5 +12,5 @@ import java.util.Map;
  */
 public record DataHolder(
         List<Service> services,
-        Map<Integer,String> tspIDtoNameMap
+        Map<String,String> tspIDtoNameMap
 ) {}
