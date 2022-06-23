@@ -96,6 +96,7 @@ public class APIClient {
         try { tb = o.getString("tob)"); }
         catch(JSONException je){ tb = "/NULL"; }
 
+        System.out.println(o.getInt("tspId") + " " + o.getInt("serviceId"));
 
         return new Service(
                         o.getInt("tspId"),

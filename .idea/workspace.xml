@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Fixed other minor problems signaled by intellij">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lib/LegacyServiceFilter.java" afterDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Changed inner workings of ServiceFilter to accomodate lists">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/FilterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/interfaces/ModelInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ExampleServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ExampleServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/internal/APIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/internal/APIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654075845546</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Changed inner workings of ServiceFilter to accomodate lists">
+      <created>1654874799618</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654874799618</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +208,7 @@
     <MESSAGE value="Finished mid-classes documentation, completed DB initialization, wrote test for it (it passes)" />
     <MESSAGE value="Fixed minor problems signaled by intellij" />
     <MESSAGE value="Fixed other minor problems signaled by intellij" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed other minor problems signaled by intellij" />
+    <MESSAGE value="Changed inner workings of ServiceFilter to accomodate lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed inner workings of ServiceFilter to accomodate lists" />
   </component>
 </project>
