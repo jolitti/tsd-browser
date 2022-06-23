@@ -114,7 +114,7 @@ public class MainController implements Initializable {
 
     public void searchByFilters() {
 
-        ServiceFilter filter=getFilter();
+        ServiceFilter filter = getFilter();
         //use the newly created filter to make a query to thw model
         List<Service> services = model.getServices(filter);
         //create the tree representing the filters
@@ -238,7 +238,8 @@ public class MainController implements Initializable {
 
 
     public void printServices(List<Service> services) {
-        System.out.println(services.toString());
+        //TODO provare a implementare con scrollpane
+       // System.out.println(services.toString());
         String oldSp = "";
         int i = 1;
         for (Service service : services) {
@@ -333,13 +334,11 @@ public class MainController implements Initializable {
     }
 
 
-    public ServiceFilter getFilter()
-    {
+    public ServiceFilter getFilter() {
          /*
         takes the selected filters and creates a ServiceFilter
          */
-        //TODO gestire la conversione inversa di nation tsp da nome a id
-        //TODO gestire coversione di tsp da nome a id
+        //TODO capire come funziona getComplementary filters
         ObservableList nations;
         ObservableList tsp;
         ObservableList types;
@@ -381,27 +380,35 @@ public class MainController implements Initializable {
             p.add(providerid.get(tsp.get(i)));
         }
 
+        Optional<List<String>> natList;
+        Optional<List<Integer>> tspList;
+        Optional<List<String>> typesList;
+        Optional<List<String>> statusList;
+        if (n.isEmpty()) {
+            natList = Optional.empty();
+        } else {
+            natList = Optional.of(n);
+        }
 
-        Optional<List<String>> natList = Optional.of(n);
-        Optional<List<Integer>> tspList = Optional.of(p);
-        Optional<List<String>> typesList = Optional.of(types);
-        Optional<List<String>> statusList = Optional.of(status);
+        if (p.isEmpty()) {
+            tspList = Optional.empty();
+        } else {
+            tspList = Optional.of(p);
+        }
+
+        if (types.isEmpty()) {
+            typesList = Optional.empty();
+        } else {
+            typesList = Optional.of(types);
+        }
+
+        if (status.isEmpty()) {
+            statusList = Optional.empty();
+        } else {
+            statusList = Optional.of(status);
+        }
 
         ServiceFilter filter = new ServiceFilter(natList, tspList, typesList, statusList);
         return filter;
     }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-

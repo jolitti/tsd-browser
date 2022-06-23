@@ -49,6 +49,9 @@ public class ServiceDatabase implements ModelInterface
         // Iterate on services, add only parameters that match onto existing sets
         for (Service s: services) {
             if (partial.matches(s)) {
+
+                System.out.println(s.tspId());
+
                 if (countries.isPresent()) countries.get().add(s.countryCode());
                 if (providers.isPresent()) providers.get().add(s.tspId());
                 if (types.isPresent()) {

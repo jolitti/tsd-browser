@@ -81,7 +81,7 @@ public class StartPageController implements Initializable {
 
         //initialisng state checkComboBox
         nationCCB.setTitle("nation");
-        //nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
+        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         //adding a listner to implement the select all function
         nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
@@ -173,6 +173,7 @@ public class StartPageController implements Initializable {
         tspCCB.getCheckModel().clearChecks();
         typeCCB.getCheckModel().clearChecks();
         statusCCB.getCheckModel().clearChecks();
+        nationCCB.getItems().add(nationName.get(state));
         nationCCB.getCheckModel().check(nationName.get(state));
         //TODO verificare se è compatibile con complementarita dei filtri es selezione bandiare di provider che per la compleementarita dei filtri e sparito dalla ccb
         //makes the query
@@ -282,7 +283,7 @@ public class StartPageController implements Initializable {
     }
 
     public void getComplementaryFilters()
-    {   //TODO una volta resi complementari i filtri essi devono mantenere il loro check model
+    {   //TODO una volta resi complementari i filtri essi devono mantenere il loro check models
         IndexedCheckModel nations=nationCCB.getCheckModel();
         IndexedCheckModel tsp=tspCCB.getCheckModel();
         IndexedCheckModel types=typeCCB.getCheckModel();
@@ -295,6 +296,21 @@ public class StartPageController implements Initializable {
         statusCCB.getItems().clear();
 
         setFilters(model.getComplementaryFilter(filter));
+
+        //TODO
+        /*
+        System.out.println(filter.countries());
+        System.out.println(filter.providers());
+        System.out.println(filter.types());
+        System.out.println(filter.statuses());
+        System.out.println("---------");
+        System.out.println(model.getComplementaryFilter(filter).countries());
+        System.out.println(model.getComplementaryFilter(filter).providers());
+        System.out.println(model.getComplementaryFilter(filter).types());
+        System.out.println(model.getComplementaryFilter(filter).statuses());
+         */
+
+
         IndexedCheckModel[] models=new IndexedCheckModel[4];
         models[0]=nations;
         models[1]=tsp;
@@ -358,46 +374,45 @@ public class StartPageController implements Initializable {
             p.add(providerid.get(tsp.get(i)));
         }
 
+        Optional<List<String>> natList;
+        Optional<List<Integer>> tspList;
+        Optional<List<String>> typesList;
+        Optional<List<String>> statusList;
         if(n.isEmpty())
         {
-            Optional<List<String>> natList=Optional.empty();
+            natList=Optional.empty();
         }
         else
         {
-            Optional<List<String>> natList = Optional.of(n);
+             natList = Optional.of(n);
         }
 
-        if(n.isEmpty())
+        if(p.isEmpty())
         {
-            Optional<List<String>> tspList=Optional.empty();
+            tspList=Optional.empty();
         }
         else
         {
-            Optional<List<Integer>> tspList = Optional.of(p);
+            tspList = Optional.of(p);
         }
 
-        if(n.isEmpty())
+        if(types.isEmpty())
         {
-            Optional<List<String>> typesList = Optional.of(types);
+             typesList = Optional.empty();
         }
         else
         {
-            Optional<List<Integer>> typesList = Optional.of(p);
+             typesList = Optional.of(types);
         }
 
-        if(n.isEmpty())
+        if(status.isEmpty())
         {
-            Optional<List<String>> typesList = Optional.of(types);
+            statusList = Optional.empty();
         }
         else
         {
-            Optional<List<String>> statusList = Optional.of(status);
+            statusList = Optional.of(status);
         }
-
-
-
-
-        Optional<List<String>> statusList = Optional.of(status);
 
         ServiceFilter filter = new ServiceFilter(natList, tspList, typesList, statusList);
         return filter;
