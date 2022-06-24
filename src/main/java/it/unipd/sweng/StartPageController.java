@@ -3,6 +3,7 @@ package it.unipd.sweng;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -81,7 +82,7 @@ public class StartPageController implements Initializable {
 
         //initialisng state checkComboBox
         nationCCB.setTitle("nation");
-        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
+        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(nationCCB);});
 
         //adding a listner to implement the select all function
         nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
@@ -94,6 +95,7 @@ public class StartPageController implements Initializable {
 
         //initialising provider checkComboBox
         tspCCB.setTitle("tsp");
+        tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(tspCCB);});
         //adding a listner to implement the select all function
         tspCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -104,6 +106,7 @@ public class StartPageController implements Initializable {
 
         //initialising service type checkComboBox
         typeCCB.setTitle("type");
+        typeCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(typeCCB);});
         //adding a listner to implement the select all function
         typeCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -116,6 +119,7 @@ public class StartPageController implements Initializable {
 
         //initialising status checkComboBox
         statusCCB.setTitle("status");
+        statusCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(statusCCB);});
         //adding a listner to implement the select all function
         statusCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -282,12 +286,14 @@ public class StartPageController implements Initializable {
         stage.show();
     }
 
-    public void getComplementaryFilters()
+    public void getComplementaryFilters(CheckComboBox box)
     {   //TODO una volta resi complementari i filtri essi devono mantenere il loro check models
         IndexedCheckModel nations=nationCCB.getCheckModel();
         IndexedCheckModel tsp=tspCCB.getCheckModel();
         IndexedCheckModel types=typeCCB.getCheckModel();
         IndexedCheckModel status=statusCCB.getCheckModel();
+
+        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size() - 1));
 
         ServiceFilter filter=getFilter();
         nationCCB.getItems().clear();
@@ -296,6 +302,12 @@ public class StartPageController implements Initializable {
         statusCCB.getItems().clear();
 
         setFilters(model.getComplementaryFilter(filter));
+
+        box.getItems().clear();
+        for (String item:backUp
+             ) {
+            box.getItems().add(item);
+        }
 
         //TODO
         /*
