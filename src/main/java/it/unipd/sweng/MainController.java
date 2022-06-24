@@ -71,7 +71,7 @@ public class MainController implements Initializable {
 
         //stato
         nationCCB.setTitle("nation");
-        //nationCCB.addEventHandler(ComboBox.ON_HIDDEN,event -> {setSelected();});
+        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(nationCCB);});
         nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends String> nat) {
@@ -82,6 +82,8 @@ public class MainController implements Initializable {
 
         //provider
         tspCCB.setTitle("tsp");
+        tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(tspCCB);});
+
         tspCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends String> prov) {
@@ -91,6 +93,8 @@ public class MainController implements Initializable {
 
         //tipo di servizio
         typeCCB.setTitle("type");
+        typeCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(typeCCB);});
+
         typeCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends String> ty) {
@@ -101,6 +105,8 @@ public class MainController implements Initializable {
 
         //stato del servizi
         statusCCB.setTitle("status");
+        statusCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(statusCCB);});
+
         statusCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends String> stat) {
@@ -147,10 +153,6 @@ public class MainController implements Initializable {
             statusCCB.getCheckModel().check(status);
 
         }
-
-        //execute the query started in the start page
-        searchByFilters();
-
     }
 
 
@@ -272,7 +274,7 @@ public class MainController implements Initializable {
 
         //create a list with the data and adds it to the ccb adding a select all box
         ObservableList<String> tsp = FXCollections.observableArrayList(filter.providers().get());
-        tsp.add(0, "slect all");
+        tsp.add(0, "select all");
         //providers need to be converted from id to name
         for (Object item : tsp) {
             if (item == "select all") {
@@ -324,6 +326,54 @@ public class MainController implements Initializable {
         //changes the scene to the startPage one and sets the stage
         stage.setScene(scene);
         stage.show();
+    }
+
+
+    public void getComplementaryFilters(CheckComboBox box)
+    {   //TODO una volta resi complementari i filtri essi devono mantenere il loro check models
+        IndexedCheckModel nations=nationCCB.getCheckModel();
+        IndexedCheckModel tsp=tspCCB.getCheckModel();
+        IndexedCheckModel types=typeCCB.getCheckModel();
+        IndexedCheckModel status=statusCCB.getCheckModel();
+
+        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size() - 1));
+
+        ServiceFilter filter=getFilter();
+        nationCCB.getItems().clear();
+        tspCCB.getItems().clear();
+        typeCCB.getItems().clear();
+        statusCCB.getItems().clear();
+
+        setFilters(model.getComplementaryFilter(filter));
+
+        box.getItems().clear();
+        for (String item:backUp
+        ) {
+            box.getItems().add(item);
+        }
+
+        //TODO
+        /*
+        System.out.println(filter.countries());
+        System.out.println(filter.providers());
+        System.out.println(filter.types());
+        System.out.println(filter.statuses());
+        System.out.println("---------");
+        System.out.println(model.getComplementaryFilter(filter).countries());
+        System.out.println(model.getComplementaryFilter(filter).providers());
+        System.out.println(model.getComplementaryFilter(filter).types());
+        System.out.println(model.getComplementaryFilter(filter).statuses());
+         */
+
+
+        IndexedCheckModel[] models=new IndexedCheckModel[4];
+        models[0]=nations;
+        models[1]=tsp;
+        models[2]=types;
+        models[3]=status;
+        initFilters(models);
+
+
     }
 
 

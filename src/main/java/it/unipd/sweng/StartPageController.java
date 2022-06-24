@@ -193,7 +193,6 @@ public class StartPageController implements Initializable {
         //create a list with the data and adds it to the ccb adding a select all box
 
         ObservableList<String> nations = FXCollections.observableArrayList(filter.countries().get());
-        System.out.println(nations);
         nations.add(0,"select all");
         //nations need to be converted from id to name
         for (String item:nations) {
@@ -281,13 +280,15 @@ public class StartPageController implements Initializable {
         models[3]=status;
         //launch a method in the new controller passing the models
         controller.initFilters(models);//lencia il metodono nel MainController
+        //launhes the query in the new controller
+        controller.searchByFilters();
         //sets and show the new scene
         stage.setScene(scene);
         stage.show();
     }
 
     public void getComplementaryFilters(CheckComboBox box)
-    {   //TODO una volta resi complementari i filtri essi devono mantenere il loro check models
+    {
         IndexedCheckModel nations=nationCCB.getCheckModel();
         IndexedCheckModel tsp=tspCCB.getCheckModel();
         IndexedCheckModel types=typeCCB.getCheckModel();
@@ -344,7 +345,7 @@ public class StartPageController implements Initializable {
          /*
         takes the selected filters and creates a ServiceFilter
          */
-        //TODO capire come funziona getComplementary filters
+        //TODO certe combinazioni di filtri generano complementari vuote capire perches
         ObservableList nations;
         ObservableList tsp;
         ObservableList types;
