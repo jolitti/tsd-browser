@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
@@ -49,6 +50,9 @@ public class StartPageController implements Initializable {
 
    @FXML
    private FlowPane flags;
+
+   @FXML
+   private TextArea aaa;
 
    private ModelInterface model;
     private Map providersName;
@@ -289,21 +293,27 @@ public class StartPageController implements Initializable {
 
     public void getComplementaryFilters(CheckComboBox box)
     {
-        IndexedCheckModel nations=nationCCB.getCheckModel();
-        IndexedCheckModel tsp=tspCCB.getCheckModel();
-        IndexedCheckModel types=typeCCB.getCheckModel();
-        IndexedCheckModel status=statusCCB.getCheckModel();
+        ObservableList nations=copy(nationCCB.getCheckModel().getCheckedItems());
+        ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
+        ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
+        ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
+        System.out.println(status);
 
-        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size() - 1));
+        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size()));
 
         ServiceFilter filter=getFilter();
+        System.out.println(filter.statuses());
+        nationCCB.getCheckModel().clearChecks();
         nationCCB.getItems().clear();
+        tspCCB.getCheckModel().clearChecks();
         tspCCB.getItems().clear();
+        typeCCB.getCheckModel().clearChecks();
         typeCCB.getItems().clear();
+        statusCCB.getCheckModel().clearChecks();
         statusCCB.getItems().clear();
 
         setFilters(model.getComplementaryFilter(filter));
-
+        System.out.println(filter.statuses());
         box.getItems().clear();
         for (String item:backUp
              ) {
@@ -311,7 +321,7 @@ public class StartPageController implements Initializable {
         }
 
         //TODO
-
+        System.out.println("filtri");
         System.out.println(filter.countries());
         System.out.println(filter.providers());
         System.out.println(filter.types());
@@ -324,7 +334,10 @@ public class StartPageController implements Initializable {
 
 
 
-        IndexedCheckModel[] models=new IndexedCheckModel[4];
+
+
+
+        ObservableList[] models=new ObservableList[4];
         models[0]=nations;
         models[1]=tsp;
         models[2]=types;
@@ -350,31 +363,33 @@ public class StartPageController implements Initializable {
         ObservableList tsp;
         ObservableList types;
         ObservableList status;
+        System.out.println(".......getFilter......");
+        System.out.println(statusCCB.getCheckModel().getCheckedItems());
         //creates observable list with all the checked nations
         if (nationCCB.getCheckModel().isChecked(0)) {
             nations = allCheck(nationCCB);
         } else { //if select all is checked adds all the nations of the ccb
-            nations = nationCCB.getCheckModel().getCheckedItems();
+            nations = copy(nationCCB.getCheckModel().getCheckedItems());
         }
         //creates observable list with all the checked tsp
         if (tspCCB.getCheckModel().isChecked(0)) {
             tsp = allCheck(tspCCB);
         } else {//if select all is checked adds all the tsps of the ccb
-            tsp = tspCCB.getCheckModel().getCheckedItems();
+            tsp = copy(tspCCB.getCheckModel().getCheckedItems());
         }
 
         //creates observable list with all the checked types
         if (typeCCB.getCheckModel().isChecked(0)) {
             types = allCheck(typeCCB);
         } else {//if select all is checked adds all the types of the ccb
-            types = typeCCB.getCheckModel().getCheckedItems();
+            types = copy(typeCCB.getCheckModel().getCheckedItems());
         }
 
         //creates observable list with all the checked statuses
         if (statusCCB.getCheckModel().isChecked(0)) {
             status = allCheck(statusCCB);
         } else {//if select all is checked adds all the statuses of the ccb
-            status = statusCCB.getCheckModel().getCheckedItems();
+            status = copy(statusCCB.getCheckModel().getCheckedItems());
         }
 
         List n = new LinkedList();
@@ -426,38 +441,70 @@ public class StartPageController implements Initializable {
         {
             statusList = Optional.of(status);
         }
-
+        System.out.println(statusList);
+        System.out.println("------getFilter----");
         ServiceFilter filter = new ServiceFilter(natList, tspList, typesList, statusList);
         return filter;
     }
 
-    public void initFilters(IndexedCheckModel[] models) {
-        for (Object state : models[0].getCheckedItems()
+    public void initFilters(ObservableList[] models) {
+        for (Object state : models[0]
         ) {
             if(nationCCB.getItems().contains(state))
             nationCCB.getCheckModel().check(state);
 
         }
-        for (Object provider : models[1].getCheckedItems()
+        for (Object provider : models[1]
         ) {
             if(tspCCB.getItems().contains(provider))
             tspCCB.getCheckModel().check(provider);
 
         }
-        for (Object type : models[2].getCheckedItems()
+        for (Object type : models[2]
         ) {
             if(typeCCB.getItems().contains(type))
             typeCCB.getCheckModel().check(type);
 
         }
-        for (Object status : models[3].getCheckedItems()
+        for (Object status : models[3]
         ) {
-            if(statusCCB.getItems().contains(status))
-            statusCCB.getCheckModel().check(status);
+            if(statusCCB.getItems().contains(status)) {
+                statusCCB.getCheckModel().check(status);
+            }
 
         }
+        System.out.println("checkmodels");
+        System.out.println(nationCCB.getCheckModel().getCheckedItems());
+        System.out.println(tspCCB.getCheckModel().getCheckedItems());
+        System.out.println(typeCCB.getCheckModel().getCheckedItems());
+        System.out.println(statusCCB.getCheckModel().getCheckedItems());
+        //TODO togliere
+        stampaTest();
 
     }
+
+    public void stampaTest()
+    {
+        aaa.setText(nationCCB.getItems().toString()+"\n" +
+                    nationCCB.getCheckModel().getCheckedItems()+"\n"+
+                tspCCB.getItems().toString()+"\n"+
+                tspCCB.getCheckModel().getCheckedItems()+"\n"+
+                typeCCB.getItems().toString()+"\n"+
+                typeCCB.getCheckModel().getCheckedItems()+"\n"+
+                statusCCB.getItems().toString()+"\n"+
+                statusCCB.getCheckModel().getCheckedItems()+"\n");
+    }
+
+    public ObservableList copy(ObservableList list)
+    {
+        ObservableList ret=FXCollections.observableArrayList();
+        for (Object item: list
+             ) {
+            ret.add(item);
+        }
+        return ret;
+    }
+
 
 
 

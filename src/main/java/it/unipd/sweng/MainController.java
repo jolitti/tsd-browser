@@ -197,7 +197,7 @@ public class MainController implements Initializable {
                 }
             } else {
                 for (Object provider : tsp) {
-                    natTree.getChildren().add(new TreeItem(provider));
+                    tspTree.getChildren().add(new TreeItem(provider));
                 }
             }
             root.getChildren().add(tspTree);
