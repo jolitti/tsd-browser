@@ -61,6 +61,8 @@ public class StartPageController implements Initializable {
     private Map nationId;
     private Map providerid;
 
+    private ServiceFilter fullFilter;
+
 
 
     @Override
@@ -83,6 +85,7 @@ public class StartPageController implements Initializable {
         providerid = new TreeMap();
         //creating a complete filter for initialisation
         ServiceFilter full = model.getComplementaryFilter(ServiceFilter.nullFilter);
+        fullFilter=full;
 
         //initialisng state checkComboBox
         nationCCB.setTitle("nation");
@@ -292,12 +295,16 @@ public class StartPageController implements Initializable {
         stage.show();
     }
 
-    public void getComplementaryFilters(CheckComboBox box)
+   /* public void getComplementaryFilters(CheckComboBox box)
     {
         ObservableList nations=copy(nationCCB.getCheckModel().getCheckedItems());
+        ObservableList nationsitems=copy(nationCCB.getItems());
         ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
+        ObservableList tspItems=copy(tspCCB.getItems());
         ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
+        ObservableList typesItems=copy(typeCCB.getItems());
         ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
+        ObservableList statusItems=copy(statusCCB.getItems());
         System.out.println(status);
 
         ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size()));
@@ -332,6 +339,74 @@ public class StartPageController implements Initializable {
         System.out.println(model.getComplementaryFilter(filter).providers());
         System.out.println(model.getComplementaryFilter(filter).types());
         System.out.println(model.getComplementaryFilter(filter).statuses());
+        ObservableList[] models=new ObservableList[4];
+        models[0]=nations;
+        models[1]=tsp;
+        models[2]=types;
+        models[3]=status;
+        initFilters(models);
+    }
+
+    */
+
+
+    public void getComplementaryFilters(CheckComboBox box)
+    {
+        ObservableList nations=copy(nationCCB.getCheckModel().getCheckedItems());
+        ObservableList nationsItems=toNationId(copy(nationCCB.getItems()));
+        ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
+        ObservableList tspItems=toTspId(copy(tspCCB.getItems()));
+        ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
+        ObservableList typesItems=copy(typeCCB.getItems());
+        ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
+        ObservableList statusItems=copy(statusCCB.getItems());
+        System.out.println(status);
+
+        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size()));
+
+        ServiceFilter filter=getFilter();
+
+        ServiceFilter natFilter=new ServiceFilter(filter.countries(), Optional.empty(), Optional.empty(), Optional.empty());
+        ServiceFilter tspFilter=new ServiceFilter(Optional.empty(), filter.providers(), Optional.empty(), Optional.empty());
+        ServiceFilter typeFilter=new ServiceFilter(Optional.empty(), Optional.empty(), filter.types(), Optional.empty());
+        ServiceFilter statusFilter=new ServiceFilter(Optional.empty(), Optional.empty(), Optional.empty(), filter.statuses());
+
+
+
+        ServiceFilter nationsResult=model.getComplementaryFilter(natFilter);
+        ServiceFilter tspResult=model.getComplementaryFilter(tspFilter);
+        ServiceFilter typeResult=model.getComplementaryFilter(typeFilter);
+        ServiceFilter statusResult=model.getComplementaryFilter(statusFilter);
+
+        List auxNat=intersection(fullFilter.countries(),tspResult.countries(),typeResult.countries(),statusResult.countries());
+        List auxTsp=intersection(nationsResult.providers(),fullFilter.providers(),typeResult.providers(),statusResult.providers());
+        List auxType=intersection(nationsResult.types(),tspResult.types(),fullFilter.types(),statusResult.types());
+        List auxStat=intersection(nationsResult.statuses(),tspResult.statuses(),typeResult.statuses(),fullFilter.statuses());
+
+        ServiceFilter finFilter=new ServiceFilter(Optional.of(auxNat),Optional.of(auxTsp),Optional.of(auxType),Optional.of(auxStat));
+        System.out.println(filter.statuses());
+        nationCCB.getCheckModel().clearChecks();
+        nationCCB.getItems().clear();
+        tspCCB.getCheckModel().clearChecks();
+        tspCCB.getItems().clear();
+        typeCCB.getCheckModel().clearChecks();
+        typeCCB.getItems().clear();
+        statusCCB.getCheckModel().clearChecks();
+        statusCCB.getItems().clear();
+
+        setFilters(finFilter);
+        System.out.println(filter.statuses());
+        //TODO
+        System.out.println("filtri");
+        System.out.println(filter.countries());
+        System.out.println(filter.providers());
+        System.out.println(filter.types());
+        System.out.println(filter.statuses());
+        System.out.println("---------");
+        System.out.println(finFilter.countries());
+        System.out.println(finFilter.providers());
+        System.out.println(finFilter.types());
+        System.out.println(finFilter.statuses());
 
 
 
@@ -347,6 +422,104 @@ public class StartPageController implements Initializable {
 
 
     }
+
+
+    ObservableList toNationId(ObservableList nat)
+    {
+        ObservableList ret=FXCollections.observableArrayList();
+        for (Object n:nat)
+        {
+            if(n!="select all")
+            ret.add(nationId.get(n));
+        }
+        return ret;
+    }
+
+    ObservableList toTspId(ObservableList tsp)
+    {
+        ObservableList ret=FXCollections.observableArrayList();
+        for (Object t:tsp)
+        {
+            if(t!="select all")
+            ret.add(providerid.get(t));
+        }
+        return ret;
+    }
+    public List intersection(Optional o1,Optional o2,Optional o3,Optional o4)
+    {
+        List l1=new ArrayList();
+        List l2=new ArrayList();
+        List l3=new ArrayList();
+        List l4=new ArrayList();
+
+        if(o2.isPresent())
+        {
+            l1=(List) o1.get();
+        }
+        if(o2.isPresent())
+        {
+            l2=(List) o2.get();
+        }
+        if(o3.isPresent())
+        {
+            l3=(List) o3.get();
+        }
+        if(o4.isPresent())
+        {
+            l4=(List) o4.get();
+        }
+        System.out.println("listeeee");
+        System.out.println(l1);
+        System.out.println(l2);
+        System.out.println(l3);
+        System.out.println(l4);
+
+
+        List a1=inter(l1,l2);
+        List a2=inter(l3,l4);
+        System.out.println(inter(a1,a2));
+        return inter(a1,a2);
+
+
+    }
+
+    public List inter(List l1,List l2)
+    {
+        List a1=new ArrayList<>();
+        for (Object item:l1
+        ) {
+            if(l2.contains(item))
+            {
+                a1.add(item);
+            }
+        }
+        return a1;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public ObservableList<String> allCheck(CheckComboBox box) {
