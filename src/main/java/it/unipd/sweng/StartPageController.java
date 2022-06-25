@@ -272,16 +272,17 @@ public class StartPageController implements Initializable {
         stage=(Stage)search.getScene().getWindow();
 
         //creates a model array to pass in the new controller, so the ccb can maintain their checkModel
-        IndexedCheckModel nations=nationCCB.getCheckModel();
-        IndexedCheckModel tsp=tspCCB.getCheckModel();
-        IndexedCheckModel types=typeCCB.getCheckModel();
-        IndexedCheckModel status=statusCCB.getCheckModel();
+        ObservableList nations=copy(nationCCB.getCheckModel().getCheckedItems());
+        ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
+        ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
+        ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
 
-        IndexedCheckModel[] models=new IndexedCheckModel[4];
+        ObservableList[] models=new ObservableList[4];
         models[0]=nations;
         models[1]=tsp;
         models[2]=types;
         models[3]=status;
+        initFilters(models);
         //launch a method in the new controller passing the models
         controller.initFilters(models);//lencia il metodono nel MainController
         //launhes the query in the new controller
@@ -359,6 +360,7 @@ public class StartPageController implements Initializable {
         takes the selected filters and creates a ServiceFilter
          */
         //TODO certe combinazioni di filtri generano complementari vuote capire perches
+        //in teoria ho capito
         ObservableList nations;
         ObservableList tsp;
         ObservableList types;
