@@ -311,7 +311,7 @@ public class StartPageController implements Initializable {
         }
 
         //TODO
-        /*
+
         System.out.println(filter.countries());
         System.out.println(filter.providers());
         System.out.println(filter.types());
@@ -321,7 +321,7 @@ public class StartPageController implements Initializable {
         System.out.println(model.getComplementaryFilter(filter).providers());
         System.out.println(model.getComplementaryFilter(filter).types());
         System.out.println(model.getComplementaryFilter(filter).statuses());
-         */
+
 
 
         IndexedCheckModel[] models=new IndexedCheckModel[4];
@@ -458,6 +458,7 @@ public class StartPageController implements Initializable {
         }
 
     }
+
 
 
 
