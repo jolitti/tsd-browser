@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +144,7 @@
       <workItem from="1656169022633" duration="11844000" />
       <workItem from="1656229051846" duration="178000" />
       <workItem from="1656240585548" duration="6613000" />
-      <workItem from="1656260971076" duration="2919000" />
+      <workItem from="1656260971076" duration="6406000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>
@@ -229,6 +230,11 @@
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
           <option name="timeStamp" value="4" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java</url>
+          <line>606</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

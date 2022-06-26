@@ -253,6 +253,10 @@ public class MainController implements Initializable {
 
 
         serviceGP.getChildren().clear();
+        if(services.isEmpty()) {
+            serviceGP.add(new Text("no results"),2,0);
+            return;
+        }
         serviceGP.add(new Text("nation"),0,0);
         serviceGP.add(new Text("provider"),1,0);
         serviceGP.add(new Text("name"),2,0);
@@ -260,7 +264,8 @@ public class MainController implements Initializable {
         serviceGP.add(new Text("status"),4,0);
         String oldSp = "";
         int i = 1;
-        /*
+
+        //TODO CAPIRE COME STAMPARE I FILTRI SENZA FARLI SOVRAPPORRE
         for (Service service : services) {
             serviceGP.add(new Text(nationName.get(service.countryCode()).toString()), 0, i);
             serviceGP.add(new Text(providersName.get(service.tspId()).toString()), 1, i);
@@ -269,8 +274,9 @@ public class MainController implements Initializable {
             serviceGP.add(new Text(service.currentStatus()), 4, i);
             i++;
         }
-        */
-        //tanto pesante con tanti servizi 
+
+        //tanto pesante con tanti servizi
+        /*
         for (Service service : services) {
             serviceGP.add(new ScrollPane(new Text(nationName.get(service.countryCode()).toString())), 0, i);
             serviceGP.add(new ScrollPane(new Text(providersName.get(service.tspId()).toString())), 1, i);
@@ -279,6 +285,8 @@ public class MainController implements Initializable {
             serviceGP.add(new ScrollPane(new Text(service.currentStatus())), 4, i);
             i++;
         }
+
+         */
 
 
 
@@ -431,7 +439,7 @@ public class MainController implements Initializable {
 
     //method used to return a lst with all the itmes in case of select all
     public ObservableList<String> allCheck(CheckComboBox box) {
-        ObservableList<String> list = FXCollections.observableArrayList(box.getItems().subList(1, box.getItems().size() - 1));
+        ObservableList<String> list = FXCollections.observableArrayList(box.getItems().subList(1, box.getItems().size() ));
         return list;
     }
 
@@ -590,6 +598,11 @@ public class MainController implements Initializable {
         {
             l4=(List) o4.get();
         }
+        System.out.println("liste");
+        System.out.println(l1);
+        System.out.println(l2);
+        System.out.println(l3);
+        System.out.println(l4);
 
         List a1=inter(l1,l2);
         List a2=inter(l3,l4);

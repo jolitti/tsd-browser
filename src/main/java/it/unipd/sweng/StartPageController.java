@@ -439,7 +439,7 @@ public class StartPageController implements Initializable {
 
     //return all the items in the ccb, to use in case of select all
     public ObservableList<String> allCheck(CheckComboBox box) {
-        ObservableList<String> list = FXCollections.observableArrayList(box.getItems().subList(1, box.getItems().size() - 1));
+        ObservableList<String> list = FXCollections.observableArrayList(box.getItems().subList(1, box.getItems().size()));
         return list;
     }
 
@@ -579,7 +579,7 @@ public class StartPageController implements Initializable {
        // stampaTest();
 
     }
-    
+
     //method used to create a deep copy of Observable lists
     public  ObservableList copy(ObservableList list)
     {

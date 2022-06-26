@@ -42,15 +42,15 @@
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin></TreeView>
-                  <ScrollPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="789.0">
+                  <ScrollPane maxWidth="-Infinity" minHeight="-Infinity" prefHeight="400.0" prefWidth="789.0">
                      <content>
                         <GridPane fx:id="serviceGP" alignment="TOP_CENTER" prefWidth="798.0">
                           <columnConstraints>
-                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
-                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
-                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
-                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" percentWidth="20.0" />
-                            <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
+                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
+                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
                           </columnConstraints>
                           <rowConstraints>
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
