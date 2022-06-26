@@ -260,6 +260,17 @@ public class MainController implements Initializable {
         serviceGP.add(new Text("status"),4,0);
         String oldSp = "";
         int i = 1;
+        /*
+        for (Service service : services) {
+            serviceGP.add(new Text(nationName.get(service.countryCode()).toString()), 0, i);
+            serviceGP.add(new Text(providersName.get(service.tspId()).toString()), 1, i);
+            serviceGP.add(new Text(service.serviceName()), 2, i);
+            serviceGP.add(new Text(service.type()), 3, i);
+            serviceGP.add(new Text(service.currentStatus()), 4, i);
+            i++;
+        }
+        */
+        //tanto pesante con tanti servizi 
         for (Service service : services) {
             serviceGP.add(new ScrollPane(new Text(nationName.get(service.countryCode()).toString())), 0, i);
             serviceGP.add(new ScrollPane(new Text(providersName.get(service.tspId()).toString())), 1, i);
@@ -268,6 +279,8 @@ public class MainController implements Initializable {
             serviceGP.add(new ScrollPane(new Text(service.currentStatus())), 4, i);
             i++;
         }
+
+
 
         TextFlow text=new TextFlow();
 

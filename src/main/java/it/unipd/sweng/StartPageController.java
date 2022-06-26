@@ -161,6 +161,8 @@ public class StartPageController implements Initializable {
             img.setFitHeight(45);
             img.setFitWidth(60);
             Button nation = new Button("", img);
+            nation.setMinSize(64,49);
+            nation.setMaxSize(64,49);
 
             flags.getChildren().add(nation);
             flags.getChildren().add(new Pane());
@@ -287,6 +289,7 @@ public class StartPageController implements Initializable {
         initFilters(models);
         //launch a method in the new controller passing the models
         controller.initFilters(models);//lencia il metodono nel MainController
+        controller.getComplementaryFilters();
         //launhes the query in the new controller
         controller.searchByFilters();
         //sets and show the new scene
@@ -576,8 +579,7 @@ public class StartPageController implements Initializable {
        // stampaTest();
 
     }
-
-
+    
     //method used to create a deep copy of Observable lists
     public  ObservableList copy(ObservableList list)
     {

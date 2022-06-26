@@ -36,21 +36,21 @@
                   <Insets bottom="10.0" />
                </padding>
             </FlowPane>
-            <Pane prefHeight="0.0" prefWidth="600.0" />
-            <HBox prefHeight="646.0" prefWidth="1000.0">
+            <HBox prefHeight="632.0" prefWidth="1000.0">
                <children>
-                  <Pane prefHeight="306.0" prefWidth="14.0" />
-                  <TreeView fx:id="selectedFilters" editable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="8.0" prefWidth="100.0" showRoot="false" HBox.hgrow="ALWAYS" />
-                  <Pane prefHeight="637.0" prefWidth="8.0" />
-                  <ScrollPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="892.0">
+                  <TreeView fx:id="selectedFilters" editable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0" showRoot="false" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></TreeView>
+                  <ScrollPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="789.0">
                      <content>
-                        <GridPane fx:id="serviceGP" alignment="TOP_CENTER">
+                        <GridPane fx:id="serviceGP" alignment="TOP_CENTER" prefWidth="798.0">
                           <columnConstraints>
-                              <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" prefWidth="178.0" />
-                              <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" prefWidth="178.0" />
-                              <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" prefWidth="178.0" />
-                              <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" prefWidth="178.0" />
-                            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" prefWidth="178.0" />
+                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
+                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" minWidth="10.0" percentWidth="20.0" />
+                            <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="20.0" />
                           </columnConstraints>
                           <rowConstraints>
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
@@ -64,6 +64,9 @@
                            </children>
                         </GridPane>
                      </content>
+                     <HBox.margin>
+                        <Insets left="2.0" right="5.0" />
+                     </HBox.margin>
                   </ScrollPane>
                </children>
             </HBox>
