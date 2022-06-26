@@ -9,8 +9,11 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +142,9 @@
       <workItem from="1655914944002" duration="84000" />
       <workItem from="1655976426519" duration="929000" />
       <workItem from="1655987928221" duration="4354000" />
-      <workItem from="1656169022633" duration="11742000" />
+      <workItem from="1656169022633" duration="11844000" />
+      <workItem from="1656229051846" duration="178000" />
+      <workItem from="1656240585548" duration="6497000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>

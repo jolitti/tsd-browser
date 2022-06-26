@@ -52,7 +52,7 @@ public class StartPageController implements Initializable {
    private FlowPane flags;
 
    @FXML
-   private TextArea aaa;
+
 
    private ModelInterface model;
     private Map providersName;
@@ -88,8 +88,8 @@ public class StartPageController implements Initializable {
         fullFilter=full;
 
         //initialisng state checkComboBox
-        nationCCB.setTitle("nation");
-        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(nationCCB);});
+        nationCCB.setTitle("NATION");
+        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         //adding a listner to implement the select all function
         nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
@@ -101,8 +101,8 @@ public class StartPageController implements Initializable {
 
 
         //initialising provider checkComboBox
-        tspCCB.setTitle("tsp");
-        tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(tspCCB);});
+        tspCCB.setTitle("PROVIDER");
+        tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
         //adding a listner to implement the select all function
         tspCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -112,8 +112,8 @@ public class StartPageController implements Initializable {
         });
 
         //initialising service type checkComboBox
-        typeCCB.setTitle("type");
-        typeCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(typeCCB);});
+        typeCCB.setTitle("TYPE");
+        typeCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
         //adding a listner to implement the select all function
         typeCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -125,8 +125,8 @@ public class StartPageController implements Initializable {
 
 
         //initialising status checkComboBox
-        statusCCB.setTitle("status");
-        statusCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(statusCCB);});
+        statusCCB.setTitle("STATUS");
+        statusCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
         //adding a listner to implement the select all function
         statusCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -143,11 +143,11 @@ public class StartPageController implements Initializable {
 
     }
 
-    public void printFlags(ServiceFilter filter) {//TODO mettere lista nazioni complete al posto di test
+    public void printFlags(ServiceFilter filter) {
 
         //setting gaps between flags
         flags.setHgap(30);
-        flags.setVgap(15);
+        flags.setVgap(30);
 
         //creating a button flag for each state that has a service, adding the image and size
         for(String state: filter.countries().get()) {
@@ -158,11 +158,10 @@ public class StartPageController implements Initializable {
                 throw new RuntimeException(e);
             }
             ImageView img = new ImageView(new Image(input));
-            img.setFitHeight(30);
-            img.setFitWidth(40);
+            img.setFitHeight(45);
+            img.setFitWidth(60);
             Button nation = new Button("", img);
-            nation.setMaxHeight(1);
-            nation.setMaxWidth(2);
+
             flags.getChildren().add(nation);
             flags.getChildren().add(new Pane());
 
@@ -246,7 +245,7 @@ public class StartPageController implements Initializable {
     {
         change.next();
         if(change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0)))
-        {//TODO getAddedSubList da errore di out of bound exceptions ma penso sia per un bug in controlsfx DA VERIFICARE
+        {
             for(int i=1;i<ccb.getItems().size();i++)
             {
                 if(ccb.getCheckModel().isChecked(i))
@@ -295,95 +294,38 @@ public class StartPageController implements Initializable {
         stage.show();
     }
 
-   /* public void getComplementaryFilters(CheckComboBox box)
+
+
+    //method used to implement the filters complementairty
+    public void getComplementaryFilters()
     {
+        //save a copy of the ChecModels
         ObservableList nations=copy(nationCCB.getCheckModel().getCheckedItems());
-        ObservableList nationsitems=copy(nationCCB.getItems());
         ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
-        ObservableList tspItems=copy(tspCCB.getItems());
         ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
-        ObservableList typesItems=copy(typeCCB.getItems());
         ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
-        ObservableList statusItems=copy(statusCCB.getItems());
         System.out.println(status);
-
-        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size()));
-
+        //gets the selected items from the ccb
         ServiceFilter filter=getFilter();
-        System.out.println(filter.statuses());
-        nationCCB.getCheckModel().clearChecks();
-        nationCCB.getItems().clear();
-        tspCCB.getCheckModel().clearChecks();
-        tspCCB.getItems().clear();
-        typeCCB.getCheckModel().clearChecks();
-        typeCCB.getItems().clear();
-        statusCCB.getCheckModel().clearChecks();
-        statusCCB.getItems().clear();
-
-        setFilters(model.getComplementaryFilter(filter));
-        System.out.println(filter.statuses());
-        box.getItems().clear();
-        for (String item:backUp
-             ) {
-            box.getItems().add(item);
-        }
-
-        //TODO
-        System.out.println("filtri");
-        System.out.println(filter.countries());
-        System.out.println(filter.providers());
-        System.out.println(filter.types());
-        System.out.println(filter.statuses());
-        System.out.println("---------");
-        System.out.println(model.getComplementaryFilter(filter).countries());
-        System.out.println(model.getComplementaryFilter(filter).providers());
-        System.out.println(model.getComplementaryFilter(filter).types());
-        System.out.println(model.getComplementaryFilter(filter).statuses());
-        ObservableList[] models=new ObservableList[4];
-        models[0]=nations;
-        models[1]=tsp;
-        models[2]=types;
-        models[3]=status;
-        initFilters(models);
-    }
-
-    */
-
-
-    public void getComplementaryFilters(CheckComboBox box)
-    {
-        ObservableList nations=copy(nationCCB.getCheckModel().getCheckedItems());
-        ObservableList nationsItems=toNationId(copy(nationCCB.getItems()));
-        ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
-        ObservableList tspItems=toTspId(copy(tspCCB.getItems()));
-        ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
-        ObservableList typesItems=copy(typeCCB.getItems());
-        ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
-        ObservableList statusItems=copy(statusCCB.getItems());
-        System.out.println(status);
-
-        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size()));
-
-        ServiceFilter filter=getFilter();
-
+        //create a filter for every checkBox
         ServiceFilter natFilter=new ServiceFilter(filter.countries(), Optional.empty(), Optional.empty(), Optional.empty());
         ServiceFilter tspFilter=new ServiceFilter(Optional.empty(), filter.providers(), Optional.empty(), Optional.empty());
         ServiceFilter typeFilter=new ServiceFilter(Optional.empty(), Optional.empty(), filter.types(), Optional.empty());
         ServiceFilter statusFilter=new ServiceFilter(Optional.empty(), Optional.empty(), Optional.empty(), filter.statuses());
-
-
-
+        //gets the complemtary of every ccb
         ServiceFilter nationsResult=model.getComplementaryFilter(natFilter);
         ServiceFilter tspResult=model.getComplementaryFilter(tspFilter);
         ServiceFilter typeResult=model.getComplementaryFilter(typeFilter);
         ServiceFilter statusResult=model.getComplementaryFilter(statusFilter);
-
+        //intersect all the results
         List auxNat=intersection(fullFilter.countries(),tspResult.countries(),typeResult.countries(),statusResult.countries());
         List auxTsp=intersection(nationsResult.providers(),fullFilter.providers(),typeResult.providers(),statusResult.providers());
         List auxType=intersection(nationsResult.types(),tspResult.types(),fullFilter.types(),statusResult.types());
         List auxStat=intersection(nationsResult.statuses(),tspResult.statuses(),typeResult.statuses(),fullFilter.statuses());
 
+        //creates the final filter
         ServiceFilter finFilter=new ServiceFilter(Optional.of(auxNat),Optional.of(auxTsp),Optional.of(auxType),Optional.of(auxStat));
+        //resets all the ccb
         System.out.println(filter.statuses());
         nationCCB.getCheckModel().clearChecks();
         nationCCB.getItems().clear();
@@ -393,9 +335,10 @@ public class StartPageController implements Initializable {
         typeCCB.getItems().clear();
         statusCCB.getCheckModel().clearChecks();
         statusCCB.getItems().clear();
-
+        //sets the filter
         setFilters(finFilter);
         System.out.println(filter.statuses());
+        /*
         //TODO
         System.out.println("filtri");
         System.out.println(filter.countries());
@@ -408,11 +351,9 @@ public class StartPageController implements Initializable {
         System.out.println(finFilter.types());
         System.out.println(finFilter.statuses());
 
+         */
 
-
-
-
-
+        //sets the cehcks
         ObservableList[] models=new ObservableList[4];
         models[0]=nations;
         models[1]=tsp;
@@ -424,7 +365,7 @@ public class StartPageController implements Initializable {
     }
 
 
-    ObservableList toNationId(ObservableList nat)
+    /*ObservableList toNationId(ObservableList nat)
     {
         ObservableList ret=FXCollections.observableArrayList();
         for (Object n:nat)
@@ -445,6 +386,10 @@ public class StartPageController implements Initializable {
         }
         return ret;
     }
+
+     */
+
+    //makes the intersection of the 4 Optional contained in the filters
     public List intersection(Optional o1,Optional o2,Optional o3,Optional o4)
     {
         List l1=new ArrayList();
@@ -452,7 +397,7 @@ public class StartPageController implements Initializable {
         List l3=new ArrayList();
         List l4=new ArrayList();
 
-        if(o2.isPresent())
+        if(o1.isPresent())
         {
             l1=(List) o1.get();
         }
@@ -468,21 +413,14 @@ public class StartPageController implements Initializable {
         {
             l4=(List) o4.get();
         }
-        System.out.println("listeeee");
-        System.out.println(l1);
-        System.out.println(l2);
-        System.out.println(l3);
-        System.out.println(l4);
-
 
         List a1=inter(l1,l2);
         List a2=inter(l3,l4);
-        System.out.println(inter(a1,a2));
+
         return inter(a1,a2);
-
-
     }
 
+    //intersects 2 lists
     public List inter(List l1,List l2)
     {
         List a1=new ArrayList<>();
@@ -496,50 +434,23 @@ public class StartPageController implements Initializable {
         return a1;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //return all the items in the ccb, to use in case of select all
     public ObservableList<String> allCheck(CheckComboBox box) {
         ObservableList<String> list = FXCollections.observableArrayList(box.getItems().subList(1, box.getItems().size() - 1));
         return list;
     }
 
+
+    //returns the items selected in the ccb
     public ServiceFilter getFilter()
     {
-         /*
-        takes the selected filters and creates a ServiceFilter
-         */
-        //TODO certe combinazioni di filtri generano complementari vuote capire perches
-        //in teoria ho capito
+        //takes the selected filters and creates a ServiceFilter
+
         ObservableList nations;
         ObservableList tsp;
         ObservableList types;
         ObservableList status;
-        System.out.println(".......getFilter......");
-        System.out.println(statusCCB.getCheckModel().getCheckedItems());
+
         //creates observable list with all the checked nations
         if (nationCCB.getCheckModel().isChecked(0)) {
             nations = allCheck(nationCCB);
@@ -577,10 +488,13 @@ public class StartPageController implements Initializable {
             p.add(providerid.get(tsp.get(i)));
         }
 
+
         Optional<List<String>> natList;
         Optional<List<String>> tspList;
         Optional<List<String>> typesList;
         Optional<List<String>> statusList;
+
+        //initializes the optionals, if the list is empty creates assing  Optional.empty
         if(n.isEmpty())
         {
             natList=Optional.empty();
@@ -616,12 +530,14 @@ public class StartPageController implements Initializable {
         {
             statusList = Optional.of(status);
         }
-        System.out.println(statusList);
-        System.out.println("------getFilter----");
+
+        //creates and return the filter
         ServiceFilter filter = new ServiceFilter(natList, tspList, typesList, statusList);
         return filter;
     }
 
+
+    //sets the check in the ccbs
     public void initFilters(ObservableList[] models) {
         for (Object state : models[0]
         ) {
@@ -648,29 +564,22 @@ public class StartPageController implements Initializable {
             }
 
         }
-        System.out.println("checkmodels");
+
+        /*System.out.println("checkmodels");
         System.out.println(nationCCB.getCheckModel().getCheckedItems());
         System.out.println(tspCCB.getCheckModel().getCheckedItems());
         System.out.println(typeCCB.getCheckModel().getCheckedItems());
         System.out.println(statusCCB.getCheckModel().getCheckedItems());
         //TODO togliere
-        stampaTest();
+
+         */
+       // stampaTest();
 
     }
 
-    public void stampaTest()
-    {
-        aaa.setText(nationCCB.getItems().toString()+"\n" +
-                    nationCCB.getCheckModel().getCheckedItems()+"\n"+
-                tspCCB.getItems().toString()+"\n"+
-                tspCCB.getCheckModel().getCheckedItems()+"\n"+
-                typeCCB.getItems().toString()+"\n"+
-                typeCCB.getCheckModel().getCheckedItems()+"\n"+
-                statusCCB.getItems().toString()+"\n"+
-                statusCCB.getCheckModel().getCheckedItems()+"\n");
-    }
 
-    public ObservableList copy(ObservableList list)
+    //method used to create a deep copy of Observable lists
+    public  ObservableList copy(ObservableList list)
     {
         ObservableList ret=FXCollections.observableArrayList();
         for (Object item: list

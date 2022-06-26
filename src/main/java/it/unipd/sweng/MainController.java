@@ -4,7 +4,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.TextFlow;
 import org.controlsfx.control.CheckComboBox;
 import javafx.collections.FXCollections;
 import java.io.IOException;
@@ -21,7 +23,7 @@ import lib.interfaces.ModelInterface;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.controlsfx.control.IndexedCheckModel;
+
 
 public class MainController implements Initializable {
 
@@ -74,7 +76,7 @@ public class MainController implements Initializable {
 
         //stato
         nationCCB.setTitle("nation");
-        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(nationCCB);});
+        nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
         nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends String> nat) {
@@ -85,7 +87,7 @@ public class MainController implements Initializable {
 
         //provider
         tspCCB.setTitle("tsp");
-        tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(tspCCB);});
+        tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         tspCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -96,7 +98,7 @@ public class MainController implements Initializable {
 
         //tipo di servizio
         typeCCB.setTitle("type");
-        typeCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(typeCCB);});
+        typeCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         typeCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -108,7 +110,7 @@ public class MainController implements Initializable {
 
         //stato del servizi
         statusCCB.setTitle("status");
-        statusCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters(statusCCB);});
+        statusCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         statusCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -248,19 +250,26 @@ public class MainController implements Initializable {
 
 
     public void printServices(List<Service> services) {
-        //TODO provare a implementare con scrollpane
-       // System.out.println(services.toString());
+
+
+        serviceGP.getChildren().clear();
+        serviceGP.add(new Text("nation"),0,0);
+        serviceGP.add(new Text("provider"),1,0);
+        serviceGP.add(new Text("name"),2,0);
+        serviceGP.add(new Text("type"),3,0);
+        serviceGP.add(new Text("status"),4,0);
         String oldSp = "";
         int i = 1;
         for (Service service : services) {
-            serviceGP.add(new Text(nationName.get(service.countryCode()).toString()), 0, i);
-            //serviceGP.add(new Text(String.valueOf(service.tspId())),1,i);//
-            serviceGP.add(new Text(providersName.get(service.tspId()).toString()), 1, i);
-            serviceGP.add(new Text(service.serviceName()), 2, i);
-            serviceGP.add(new Text(service.type()), 3, i);
-            serviceGP.add(new Text(service.currentStatus()), 4, i);
+            serviceGP.add(new ScrollPane(new Text(nationName.get(service.countryCode()).toString())), 0, i);
+            serviceGP.add(new ScrollPane(new Text(providersName.get(service.tspId()).toString())), 1, i);
+            serviceGP.add(new ScrollPane(new Text(service.serviceName())), 2, i);
+            serviceGP.add(new ScrollPane(new Text(service.type())), 3, i);
+            serviceGP.add(new ScrollPane(new Text(service.currentStatus())), 4, i);
             i++;
         }
+
+        TextFlow text=new TextFlow();
 
 
     }
@@ -333,44 +342,41 @@ public class MainController implements Initializable {
         stage = (Stage) homeButton.getScene().getWindow();
         //changes the scene to the startPage one and sets the stage
         stage.setScene(scene);
+        stage.setMinWidth(1000);
+        stage.setMinHeight(750);
         stage.show();
     }
 
 
-    public void getComplementaryFilters(CheckComboBox box)
+    public void getComplementaryFilters()
     {
+        //save a copy of the ChecModels
         ObservableList nations=copy(nationCCB.getCheckModel().getCheckedItems());
-        ObservableList nationsItems=toNationId(copy(nationCCB.getItems()));
         ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
-        ObservableList tspItems=toTspId(copy(tspCCB.getItems()));
         ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
-        ObservableList typesItems=copy(typeCCB.getItems());
         ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
-        ObservableList statusItems=copy(statusCCB.getItems());
         System.out.println(status);
-
-        ObservableList<String> backUp=FXCollections.observableArrayList(box.getItems().subList(0, box.getItems().size()));
-
+        //gets the selected items from the ccb
         ServiceFilter filter=getFilter();
-
+        //create a filter for every checkBox
         ServiceFilter natFilter=new ServiceFilter(filter.countries(), Optional.empty(), Optional.empty(), Optional.empty());
         ServiceFilter tspFilter=new ServiceFilter(Optional.empty(), filter.providers(), Optional.empty(), Optional.empty());
         ServiceFilter typeFilter=new ServiceFilter(Optional.empty(), Optional.empty(), filter.types(), Optional.empty());
         ServiceFilter statusFilter=new ServiceFilter(Optional.empty(), Optional.empty(), Optional.empty(), filter.statuses());
-
-
-
+        //gets the complemtary of every ccb
         ServiceFilter nationsResult=model.getComplementaryFilter(natFilter);
         ServiceFilter tspResult=model.getComplementaryFilter(tspFilter);
         ServiceFilter typeResult=model.getComplementaryFilter(typeFilter);
         ServiceFilter statusResult=model.getComplementaryFilter(statusFilter);
-
+        //intersect all the results
         List auxNat=intersection(fullFilter.countries(),tspResult.countries(),typeResult.countries(),statusResult.countries());
         List auxTsp=intersection(nationsResult.providers(),fullFilter.providers(),typeResult.providers(),statusResult.providers());
         List auxType=intersection(nationsResult.types(),tspResult.types(),fullFilter.types(),statusResult.types());
         List auxStat=intersection(nationsResult.statuses(),tspResult.statuses(),typeResult.statuses(),fullFilter.statuses());
 
+        //creates the final filter
         ServiceFilter finFilter=new ServiceFilter(Optional.of(auxNat),Optional.of(auxTsp),Optional.of(auxType),Optional.of(auxStat));
+        //resets all the ccb
         System.out.println(filter.statuses());
         nationCCB.getCheckModel().clearChecks();
         nationCCB.getItems().clear();
@@ -380,9 +386,10 @@ public class MainController implements Initializable {
         typeCCB.getItems().clear();
         statusCCB.getCheckModel().clearChecks();
         statusCCB.getItems().clear();
-
+        //sets the filter
         setFilters(finFilter);
         System.out.println(filter.statuses());
+        /*
         //TODO
         System.out.println("filtri");
         System.out.println(filter.countries());
@@ -395,6 +402,9 @@ public class MainController implements Initializable {
         System.out.println(finFilter.types());
         System.out.println(finFilter.statuses());
 
+         */
+
+        //sets the cehcks
         ObservableList[] models=new ObservableList[4];
         models[0]=nations;
         models[1]=tsp;
@@ -415,17 +425,13 @@ public class MainController implements Initializable {
 
     public ServiceFilter getFilter()
     {
-         /*
-        takes the selected filters and creates a ServiceFilter
-         */
-        //TODO certe combinazioni di filtri generano complementari vuote capire perches
-        //in teoria ho capito
+        //takes the selected filters and creates a ServiceFilter
+
         ObservableList nations;
         ObservableList tsp;
         ObservableList types;
         ObservableList status;
-        System.out.println(".......getFilter......");
-        System.out.println(statusCCB.getCheckModel().getCheckedItems());
+
         //creates observable list with all the checked nations
         if (nationCCB.getCheckModel().isChecked(0)) {
             nations = allCheck(nationCCB);
@@ -463,10 +469,13 @@ public class MainController implements Initializable {
             p.add(providerid.get(tsp.get(i)));
         }
 
+
         Optional<List<String>> natList;
         Optional<List<String>> tspList;
         Optional<List<String>> typesList;
         Optional<List<String>> statusList;
+
+        //initializes the optionals, if the list is empty creates assing  Optional.empty
         if(n.isEmpty())
         {
             natList=Optional.empty();
@@ -502,13 +511,14 @@ public class MainController implements Initializable {
         {
             statusList = Optional.of(status);
         }
-        System.out.println(statusList);
-        System.out.println("------getFilter----");
+
+        //creates and return the filter
         ServiceFilter filter = new ServiceFilter(natList, tspList, typesList, statusList);
         return filter;
     }
 
-    public ObservableList copy(ObservableList list)
+    //method used to create a deep copy of Observable lists
+    public  ObservableList copy(ObservableList list)
     {
         ObservableList ret=FXCollections.observableArrayList();
         for (Object item: list
@@ -518,7 +528,7 @@ public class MainController implements Initializable {
         return ret;
     }
 
-    ObservableList toNationId(ObservableList nat)
+   /* ObservableList toNationId(ObservableList nat)
     {
         ObservableList ret=FXCollections.observableArrayList();
         for (Object n:nat)
@@ -540,7 +550,10 @@ public class MainController implements Initializable {
         return ret;
     }
 
+    */
 
+
+    //makes the intersection of the 4 Optional contained in the filters
     public List intersection(Optional o1,Optional o2,Optional o3,Optional o4)
     {
         List l1=new ArrayList();
@@ -548,7 +561,7 @@ public class MainController implements Initializable {
         List l3=new ArrayList();
         List l4=new ArrayList();
 
-        if(o2.isPresent())
+        if(o1.isPresent())
         {
             l1=(List) o1.get();
         }
@@ -564,21 +577,14 @@ public class MainController implements Initializable {
         {
             l4=(List) o4.get();
         }
-        System.out.println("listeeee");
-        System.out.println(l1);
-        System.out.println(l2);
-        System.out.println(l3);
-        System.out.println(l4);
-
 
         List a1=inter(l1,l2);
         List a2=inter(l3,l4);
-        System.out.println(inter(a1,a2));
+
         return inter(a1,a2);
-
-
     }
 
+    //intersects 2 lists
     public List inter(List l1,List l2)
     {
         List a1=new ArrayList<>();
@@ -591,6 +597,5 @@ public class MainController implements Initializable {
         }
         return a1;
     }
-
 
 }
