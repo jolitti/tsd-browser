@@ -16,6 +16,16 @@ import java.util.TreeMap;
 
 public class APIClient {
 
+    /*
+        Prefix for type in json (will be discarded for brevity)
+     */
+    private static final String TYPE_PREFIX =
+            "http://uri.etsi.org/TrstSvc/Svctype/";
+
+    private static final String STATUS_PREFIX =
+            "http://uri.etsi.org/TrstSvc/TrustedList/Svcstatus/";
+
+
     /**
      * Builds a DataHolder record with all data needed
      * @param url URL of the API
@@ -37,6 +47,7 @@ public class APIClient {
             for(Object serviceObject: serviceArray) {
                 // Create a Service object for each service in the provider object's "services" field
                 Service service = buildServiceFromJSONObject((JSONObject) serviceObject);
+                //System.out.println(service.type());
                 // Add the newly created Service into the list
                 serviceList.add(service);
             }
@@ -97,16 +108,30 @@ public class APIClient {
         try { tb = o.getString("tob)"); }
         catch(JSONException je){ tb = "/NULL"; }
 
+        // OPERATIONS FOR COMPLEX FIELDS
+
+        // 1: id
         String idstring = o.getString("countryCode") + " " + o.getInt("tspId");
 
+        // 2: type
+        //System.out.println(o.getString("type"));
+        String typeAfterPrefix = o.getString("type");
+        if (typeAfterPrefix.contains(TYPE_PREFIX))
+            typeAfterPrefix = o.getString("type").split(TYPE_PREFIX)[1];
+        //System.out.println(typeAfterPrefix);
+
+        // 3: status
+        //System.out.println(o.getString("currentStatus"));
+        String statusAfterPrefix = o.getString("currentStatus")
+                .split(STATUS_PREFIX)[1];
 
         return new Service(
                 idstring,
                 o.getInt("serviceId"),
                 o.getString("countryCode"),
                 o.getString("serviceName"),
-                o.getString("type"),
-                o.getString("currentStatus"),
+                typeAfterPrefix,
+                statusAfterPrefix,
                 tb,
                 qServiceTypes);
     }
