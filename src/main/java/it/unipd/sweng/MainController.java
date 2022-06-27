@@ -376,7 +376,7 @@ public class MainController implements Initializable {
         ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
         ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
         ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
-        System.out.println(status);
+        //System.out.println(status);
         //gets the selected items from the ccb
         ServiceFilter filter=getFilter();
         //create a filter for every checkBox
@@ -398,7 +398,7 @@ public class MainController implements Initializable {
         //creates the final filter
         ServiceFilter finFilter=new ServiceFilter(Optional.of(auxNat),Optional.of(auxTsp),Optional.of(auxType),Optional.of(auxStat));
         //resets all the ccb
-        System.out.println(filter.statuses());
+        //System.out.println(filter.statuses());
         nationCCB.getCheckModel().clearChecks();
         nationCCB.getItems().clear();
         tspCCB.getCheckModel().clearChecks();
@@ -409,7 +409,7 @@ public class MainController implements Initializable {
         statusCCB.getItems().clear();
         //sets the filter
         setFilters(finFilter);
-        System.out.println(filter.statuses());
+        //System.out.println(filter.statuses());
         /*
         //TODO
         System.out.println("filtri");
@@ -598,11 +598,11 @@ public class MainController implements Initializable {
         {
             l4=(List) o4.get();
         }
-        System.out.println("liste");
+        /*System.out.println("liste");
         System.out.println(l1);
         System.out.println(l2);
         System.out.println(l3);
-        System.out.println(l4);
+        System.out.println(l4);*/
 
         List a1=inter(l1,l2);
         List a2=inter(l3,l4);

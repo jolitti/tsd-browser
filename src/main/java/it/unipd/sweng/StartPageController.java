@@ -307,7 +307,7 @@ public class StartPageController implements Initializable {
         ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
         ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
         ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
-        System.out.println(status);
+        //System.out.println(status);
         //gets the selected items from the ccb
         ServiceFilter filter=getFilter();
         //create a filter for every checkBox
@@ -329,7 +329,7 @@ public class StartPageController implements Initializable {
         //creates the final filter
         ServiceFilter finFilter=new ServiceFilter(Optional.of(auxNat),Optional.of(auxTsp),Optional.of(auxType),Optional.of(auxStat));
         //resets all the ccb
-        System.out.println(filter.statuses());
+        //System.out.println(filter.statuses());
         nationCCB.getCheckModel().clearChecks();
         nationCCB.getItems().clear();
         tspCCB.getCheckModel().clearChecks();
@@ -340,7 +340,7 @@ public class StartPageController implements Initializable {
         statusCCB.getItems().clear();
         //sets the filter
         setFilters(finFilter);
-        System.out.println(filter.statuses());
+        //System.out.println(filter.statuses());
         /*
         //TODO
         System.out.println("filtri");
