@@ -270,7 +270,7 @@ public class MainController implements Initializable {
             serviceGP.add(new Text(nationName.get(service.countryCode()).toString()), 0, i);
             serviceGP.add(new Text(providersName.get(service.tspId()).toString()), 1, i);
             serviceGP.add(new Text(service.serviceName()), 2, i);
-            serviceGP.add(new Text(service.type()), 3, i);
+            serviceGP.add(new Text(qServiceToString(service.qServiceTypes())), 3, i);
             serviceGP.add(new Text(service.currentStatus()), 4, i);
             i++;
         }
@@ -292,7 +292,17 @@ public class MainController implements Initializable {
 
         TextFlow text=new TextFlow();
 
+    }
 
+    public String qServiceToString(String[] q)
+    {
+        String ret="";
+        for (String s:q
+             ) {
+            ret=" "+ret+s+" ";
+        }
+
+        return ret;
     }
 
     //method that sets the filters in the checkComboBoxes using a services filter as a data container
