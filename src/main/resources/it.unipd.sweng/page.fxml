@@ -26,10 +26,10 @@
                      <font>
                         <Font size="20.0" />
                      </font></Text>
-                  <CheckComboBox fx:id="nationCCB" prefHeight="36.0" prefWidth="155.0" />
-                  <CheckComboBox fx:id="tspCCB" prefHeight="36.0" prefWidth="156.0" />
-                  <CheckComboBox fx:id="typeCCB" prefHeight="36.0" prefWidth="156.0" />
-                  <CheckComboBox fx:id="statusCCB" prefHeight="36.0" prefWidth="156.0" />
+                  <CheckComboBox fx:id="nationCCB" prefHeight="36.0" prefWidth="155.0" title="NATION" />
+                  <CheckComboBox fx:id="tspCCB" prefHeight="36.0" prefWidth="156.0" title="PROVIDER" />
+                  <CheckComboBox fx:id="typeCCB" prefHeight="36.0" prefWidth="156.0" title="TYPE" />
+                  <CheckComboBox fx:id="statusCCB" prefHeight="36.0" prefWidth="156.0" title="STATUS" />
                   <Button fx:id="search" mnemonicParsing="false" onAction="#searchByFilters" prefHeight="36.0" prefWidth="140.0" text="Search" />
                </children>
                <padding>
