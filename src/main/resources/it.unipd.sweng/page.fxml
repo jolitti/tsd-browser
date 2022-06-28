@@ -38,25 +38,28 @@
             </FlowPane>
             <HBox prefHeight="632.0" prefWidth="1000.0">
                <children>
-                  <TreeView fx:id="selectedFilters" editable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0" showRoot="false" HBox.hgrow="ALWAYS">
+                  <TreeView fx:id="selectedFilters" editable="true" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="200.0" showRoot="false" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin></TreeView>
-                  <ScrollPane maxWidth="-Infinity" minHeight="-Infinity" prefHeight="400.0" prefWidth="789.0">
+                  <ScrollPane minHeight="400.0" minWidth="789.0">
                      <content>
-                        <GridPane fx:id="serviceGP" alignment="TOP_CENTER" prefWidth="798.0">
+                        <GridPane fx:id="serviceGP" alignment="TOP_CENTER" minWidth="785.0">
                           <columnConstraints>
-                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
-                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
-                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
-                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
-                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="20.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="0.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="0.0" />
+                              <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="NEVER" percentWidth="0.0" />
+                              <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="0.0" />
+                            <ColumnConstraints halignment="LEFT" hgrow="NEVER" percentWidth="0.0" />
                           </columnConstraints>
                           <rowConstraints>
                               <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
                           </rowConstraints>
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nation" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nation">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin></Text>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="2" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Types" GridPane.columnIndex="3" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" GridPane.columnIndex="4" />
@@ -76,8 +79,8 @@
    <top>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeScene" prefHeight="36.0" prefWidth="92.0" text="Home" textAlignment="CENTER" />
-            <Pane prefHeight="60.0" prefWidth="107.0" />
+            <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeScene" prefHeight="36.0" prefWidth="92.0" text="HOME" textAlignment="CENTER" />
+            <Pane prefHeight="67.0" prefWidth="128.0" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust List Navigator" textAlignment="CENTER" wrappingWidth="412.90472412109375" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="48.0" />

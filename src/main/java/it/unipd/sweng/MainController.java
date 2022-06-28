@@ -75,7 +75,7 @@ public class MainController implements Initializable {
         fullFilter=full;
 
         //stato
-        nationCCB.setTitle("nation");
+        nationCCB.setTitle("NATION");
         nationCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
         nationCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
             @Override
@@ -86,7 +86,7 @@ public class MainController implements Initializable {
 
 
         //provider
-        tspCCB.setTitle("tsp");
+        tspCCB.setTitle("PROVIDER");
         tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         tspCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
@@ -97,7 +97,7 @@ public class MainController implements Initializable {
         });
 
         //tipo di servizio
-        typeCCB.setTitle("type");
+        typeCCB.setTitle("TYPE");
         typeCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         typeCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
@@ -109,7 +109,7 @@ public class MainController implements Initializable {
 
 
         //stato del servizi
-        statusCCB.setTitle("status");
+        statusCCB.setTitle("STATUS");
         statusCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
 
         statusCCB.getCheckModel().getCheckedItems().addListener(new ListChangeListener<String>() {
@@ -253,27 +253,51 @@ public class MainController implements Initializable {
 
 
         serviceGP.getChildren().clear();
+        serviceGP.setGridLinesVisible(true);
+
+
+
         if(services.isEmpty()) {
             serviceGP.add(new Text("no results"),2,0);
             return;
         }
-        serviceGP.add(new Text("nation"),0,0);
-        serviceGP.add(new Text("provider"),1,0);
-        serviceGP.add(new Text("name"),2,0);
-        serviceGP.add(new Text("type"),3,0);
-        serviceGP.add(new Text("status"),4,0);
-        String oldSp = "";
+
+        serviceGP.add(new Text("  nation  "),0,0);
+        serviceGP.add(new Text("  provider  "),1,0);
+        serviceGP.add(new Text("  name  "),2,0);
+        serviceGP.add(new Text("  type  "),3,0);
+        serviceGP.add(new Text("  status  "),4,0);
         int i = 1;
 
         //TODO CAPIRE COME STAMPARE I FILTRI SENZA FARLI SOVRAPPORRE
         for (Service service : services) {
-            serviceGP.add(new Text(nationName.get(service.countryCode()).toString()), 0, i);
-            serviceGP.add(new Text(providersName.get(service.tspId()).toString()), 1, i);
-            serviceGP.add(new Text(service.serviceName()), 2, i);
-            serviceGP.add(new Text(qServiceToString(service.qServiceTypes())), 3, i);
-            serviceGP.add(new Text(service.currentStatus()), 4, i);
+
+            Text nation=new Text();
+            nation.setWrappingWidth(serviceGP.getWidth()/5);
+
+            Text provider=new Text();
+            provider.setWrappingWidth(serviceGP.getWidth()/5);
+
+            Text name=new Text();
+            name.setWrappingWidth(serviceGP.getWidth()/5);
+
+            Text type=new Text();
+            type.setWrappingWidth(serviceGP.getWidth()/5);
+
+            Text status=new Text();
+            status.setWrappingWidth(serviceGP.getWidth()/5);
+            
+
+            nation.setText(nationName.get(service.countryCode()).toString()+"    ");
+            provider.setText(providersName.get(service.tspId()).toString()+"    ");
+            name.setText(service.serviceName()+"    ");
+            type.setText(qServiceToString(service.qServiceTypes())+"    ");
+            status.setText(service.currentStatus()+"    ");
+
+            serviceGP.addRow(i,nation,provider,name,type,status);
             i++;
         }
+
 
         //tanto pesante con tanti servizi
         /*
