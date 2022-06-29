@@ -1,24 +1,16 @@
 package it.unipd.sweng;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.text.TextFlow;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.controlsfx.control.CheckComboBox;
 import javafx.collections.FXCollections;
-
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import javafx.scene.text.Text;
-
 import java.util.*;
-
 import static it.unipd.sweng.ModelSpawner.getModelInstance;
 
 import lib.ServiceFilter;
@@ -43,7 +35,7 @@ public class MainController implements Initializable {
     private TreeView selectedFilters;
 
     @FXML
-    private GridPane serviceGP;
+    private TableView serviceGP;
     @FXML
     private Button homeButton;
     private ModelInterface model;
@@ -253,20 +245,25 @@ public class MainController implements Initializable {
     }
 
 
+    /*
     public void printServices(List<Service> services) {
-
+     */
+/*
         serviceGP.getChildren().clear();
         if(services.isEmpty()) {
             serviceGP.add(new Text("no results"),2,0);
             return;
         }
 
-        serviceGP.add(new Text("  nation  "),0,0);
-        serviceGP.add(new Text("  provider  "),1,0);
-        serviceGP.add(new Text("  name  "),2,0);
-        serviceGP.add(new Text("  type  "),3,0);
-        serviceGP.add(new Text("  status  "),4,0);
-        int i = 1;
+        Pane natTitle=new Pane(new Text("NATION"));
+        natTitle.getStylesheets().add(getClass().getResource("/css/gridPane.css").toExternalForm());
+        Pane tspTitle=new Pane(new Text("PROVIDER"));
+        Pane nameTitle=new Pane(new Text("NAME"));
+        Pane typeTitle=new Pane(new Text("TYPE"));
+        Pane statTitle=new Pane(new Text("STATUS"));
+
+        serviceGP.addRow(1,natTitle,tspTitle,nameTitle,typeTitle,statTitle);
+        int i = 2;
 
         //TODO CAPIRE COME STAMPARE I FILTRI SENZA FARLI SOVRAPPORRE
         for (Service service : services) {
@@ -289,32 +286,50 @@ public class MainController implements Initializable {
             type.setText("   "+qServiceToString(service.qServiceTypes())+"   ");
             status.setText("   "+service.currentStatus()+"   ");
 
-            serviceGP.addRow(i,nation,provider,name,type,status);
+            serviceGP.addRow(i,natPane,tspPane,namePane,typePane,statPane);
 
 
             i++;
         }
+    }
+    */
 
 
 
 
-        //tanto pesante con tanti servizi
-        /*
-        for (Service service : services) {
-            serviceGP.add(new ScrollPane(new Text(nationName.get(service.countryCode()).toString())), 0, i);
-            serviceGP.add(new ScrollPane(new Text(providersName.get(service.tspId()).toString())), 1, i);
-            serviceGP.add(new ScrollPane(new Text(service.serviceName())), 2, i);
-            serviceGP.add(new ScrollPane(new Text(service.type())), 3, i);
-            serviceGP.add(new ScrollPane(new Text(service.currentStatus())), 4, i);
-            i++;
+    public void printServices(List<Service> services) {
+        {
+            serviceGP.getColumns().clear();
+            serviceGP.getItems().clear();
+            TableColumn<Service,String> natioColumn=new TableColumn<>("NATION");
+            natioColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().countryCode()));
+
+            TableColumn<Service,String> providerColumn=new TableColumn<>("PROVIDER");
+            providerColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().tspId()));
+
+            TableColumn<Service,String> nameColumn=new TableColumn<>("NAME");
+            nameColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().serviceName()));
+
+            TableColumn<Service,String> typeColumn=new TableColumn<>("TYPE");
+            typeColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().type()));
+
+            TableColumn<Service,String> statusColumn=new TableColumn<>("STATUS");
+            statusColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().currentStatus()));
+
+            serviceGP.getColumns().add(natioColumn);
+            serviceGP.getColumns().add(providerColumn);
+            serviceGP.getColumns().add(nameColumn);
+            serviceGP.getColumns().add(typeColumn);
+            serviceGP.getColumns().add(statusColumn);
+
+            for (Service service:services
+                 ) {
+                String[] empty=new String[0];
+                Service aux=new Service((String) providersName.get(service.tspId()),0,(String) nationName.get(service.countryCode()),service.serviceName(),qServiceToString(service.qServiceTypes()),service.currentStatus(),"",empty );
+                serviceGP.getItems().add(aux);
+
+            }
         }
-
-         */
-
-
-
-
-
     }
 
     public String qServiceToString(String[] q)
