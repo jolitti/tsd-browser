@@ -1,4 +1,4 @@
-/*package org.example;
+package org.example;
 
 import static org.junit.Assert.assertTrue;
 
@@ -13,14 +13,14 @@ import java.util.Set;
  * Unit test for simple App.
  */
 
-/*
+
 public class AppTest 
 {
     /**
      * Rigorous Test :-)
      */
 
-/*
+
     @Test
     public void shouldAnswerWithTrue()
     {
@@ -34,7 +34,7 @@ public class AppTest
 
     @Test
     public void shouldMatchAnyQTypes() {
-        Service s = ExampleServices.quickServiceGen(1,"IT","on",new String[]{"A","B"});
+        Service s = ExampleServices.quickServiceGen("IT 1","IT","on",new String[]{"A","B"});
         HashSet<String> qtypes = new HashSet<>();
         qtypes.add("A");
         qtypes.add("C");
@@ -43,4 +43,3 @@ public class AppTest
         assertTrue(f.matches(s));
     }
 }
-*/

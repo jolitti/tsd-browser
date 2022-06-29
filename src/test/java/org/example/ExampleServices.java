@@ -1,4 +1,4 @@
-/*package org.example;
+package org.example;
 import lib.Service;
 import lib.ServiceFilter;
 
@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class ExampleServices {
 
-    public static Service quickServiceGen(int tspId, String countryCode, String status, String[] qServiceTypes) {
+    public static Service quickServiceGen(String tspId, String countryCode, String status, String[] qServiceTypes) {
         return new Service(
                 tspId,
                 0,
@@ -21,7 +21,7 @@ public class ExampleServices {
     }
 
     public static ServiceFilter quickQTypeFilter(Set<String> types) {
-        return new ServiceFilter(
+        return ServiceFilter.buildFilterFromSets(
                 Optional.empty(),
                 Optional.empty(),
                 Optional.ofNullable(types),
@@ -29,7 +29,7 @@ public class ExampleServices {
         );
     }
     public static Service example = new Service(
-            0,
+            "IT 0",
             1,
             "IT",
             "PosteIta",
@@ -48,4 +48,3 @@ public class ExampleServices {
             Optional.empty()
     );
 }
-*/
