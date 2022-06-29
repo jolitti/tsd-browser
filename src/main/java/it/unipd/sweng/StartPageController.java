@@ -18,6 +18,7 @@ import lib.ServiceFilter;
 import lib.interfaces.ModelInterface;
 import org.controlsfx.control.CheckComboBox;
 
+import java.awt.*;
 import java.util.*;
 
 
@@ -25,6 +26,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -292,6 +294,13 @@ public class StartPageController implements Initializable {
         controller.getComplementaryFilters();
         //launhes the query in the new controller
         controller.searchByFilters();
+
+        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        stage.setMinWidth(screenSize.width/2);
+        stage.setMinHeight(screenSize.height/2);
+        stage.setMaxHeight(screenSize.height);
+        stage.setMaxWidth(screenSize.width);
+
         //sets and show the new scene
         stage.setScene(scene);
         stage.show();

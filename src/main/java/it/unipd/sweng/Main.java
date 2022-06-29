@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-
+import java.awt.*;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -16,8 +16,12 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Trusted List");
         stage.setScene(scene);
-        stage.setMinWidth(1000);
-        stage.setMinHeight(750);
+
+        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        stage.setMinWidth(screenSize.width/2);
+        stage.setMinHeight(screenSize.height/2);
+        stage.setMaxHeight(screenSize.height);
+        stage.setMaxWidth(screenSize.width);
         stage.show();
 
     }

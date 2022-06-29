@@ -6,9 +6,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.TextFlow;
 import org.controlsfx.control.CheckComboBox;
 import javafx.collections.FXCollections;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import javafx.scene.text.Text;
@@ -251,12 +255,7 @@ public class MainController implements Initializable {
 
     public void printServices(List<Service> services) {
 
-
         serviceGP.getChildren().clear();
-        serviceGP.setGridLinesVisible(true);
-
-
-
         if(services.isEmpty()) {
             serviceGP.add(new Text("no results"),2,0);
             return;
@@ -273,30 +272,30 @@ public class MainController implements Initializable {
         for (Service service : services) {
 
             Text nation=new Text();
-            nation.setWrappingWidth(serviceGP.getWidth()/5);
-
             Text provider=new Text();
-            provider.setWrappingWidth(serviceGP.getWidth()/5);
-
             Text name=new Text();
-            name.setWrappingWidth(serviceGP.getWidth()/5);
-
             Text type=new Text();
-            type.setWrappingWidth(serviceGP.getWidth()/5);
-
             Text status=new Text();
-            status.setWrappingWidth(serviceGP.getWidth()/5);
-            
 
-            nation.setText(nationName.get(service.countryCode()).toString()+"    ");
-            provider.setText(providersName.get(service.tspId()).toString()+"    ");
-            name.setText(service.serviceName()+"    ");
-            type.setText(qServiceToString(service.qServiceTypes())+"    ");
-            status.setText(service.currentStatus()+"    ");
+            Pane natPane=new Pane(nation);
+            Pane tspPane=new Pane(provider);
+            Pane namePane=new Pane(name);
+            Pane typePane=new Pane(type);
+            Pane statPane=new Pane(status);
+
+            nation.setText("   "+nationName.get(service.countryCode()).toString()+"   ");
+            provider.setText("   "+providersName.get(service.tspId()).toString()+"   ");
+            name.setText("   "+service.serviceName()+"   ");
+            type.setText("   "+qServiceToString(service.qServiceTypes())+"   ");
+            status.setText("   "+service.currentStatus()+"   ");
 
             serviceGP.addRow(i,nation,provider,name,type,status);
+
+
             i++;
         }
+
+
 
 
         //tanto pesante con tanti servizi
@@ -314,7 +313,7 @@ public class MainController implements Initializable {
 
 
 
-        TextFlow text=new TextFlow();
+
 
     }
 

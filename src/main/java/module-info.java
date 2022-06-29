@@ -11,6 +11,7 @@ module it.unipd.sweng {
     //requires eu.hansolo.tilesfx;
     //requires com.almasb.fxgl.all;
     requires org.json;
+    requires java.desktop;
 
     opens it.unipd.sweng to javafx.fxml;
     exports it.unipd.sweng;
