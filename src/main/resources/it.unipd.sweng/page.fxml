@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -40,14 +39,7 @@
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin></TreeView>
-                  <ScrollPane minHeight="400.0" minWidth="789.0">
-                     <HBox.margin>
-                        <Insets left="2.0" right="5.0" />
-                     </HBox.margin>
-                     <content>
-                        <TableView fx:id="serviceGP" prefHeight="634.0" prefWidth="791.0" />
-                     </content>
-                  </ScrollPane>
+                  <TableView fx:id="serviceGP" minHeight="634.0" minWidth="700.0" />
                </children>
             </HBox>
          </children>

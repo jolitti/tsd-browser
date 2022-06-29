@@ -38,12 +38,15 @@
                         <CheckComboBox fx:id="statusCCB" prefHeight="36.0" prefWidth="156.0" title="STATUS" />
                         <Button fx:id="search" mnemonicParsing="false" onAction="#changeToSearchScene" prefHeight="36.0" prefWidth="140.0" text="SEARCH" />
                </children>
+               <opaqueInsets>
+                  <Insets left="20.0" />
+               </opaqueInsets>
             </FlowPane>
                 <Pane prefHeight="38.0" prefWidth="1000.0" />
                 <HBox prefHeight="306.0" prefWidth="600.0">
                     <children>
-                        <Pane prefHeight="306.0" prefWidth="24.0" />
-                  <FlowPane fx:id="flags" columnHalignment="CENTER" prefWrapLength="0.0" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="306.0" prefWidth="87.0" />
+                  <FlowPane fx:id="flags" columnHalignment="CENTER" prefHeight="306.0" prefWidth="943.0" prefWrapLength="0.0" HBox.hgrow="ALWAYS" />
                     </children>
                 </HBox>
             </children>

@@ -301,20 +301,27 @@ public class MainController implements Initializable {
         {
             serviceGP.getColumns().clear();
             serviceGP.getItems().clear();
+
             TableColumn<Service,String> natioColumn=new TableColumn<>("NATION");
+            //natioColumn.setPrefWidth(100);
             natioColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().countryCode()));
+            natioColumn.setMinWidth(150);
 
             TableColumn<Service,String> providerColumn=new TableColumn<>("PROVIDER");
             providerColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().tspId()));
+            providerColumn.setMinWidth(150);
 
             TableColumn<Service,String> nameColumn=new TableColumn<>("NAME");
             nameColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().serviceName()));
+            nameColumn.setMinWidth(150);
 
             TableColumn<Service,String> typeColumn=new TableColumn<>("TYPE");
             typeColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().type()));
+            typeColumn.setMinWidth(150);
 
             TableColumn<Service,String> statusColumn=new TableColumn<>("STATUS");
             statusColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().currentStatus()));
+            statusColumn.setMinWidth(150);
 
             serviceGP.getColumns().add(natioColumn);
             serviceGP.getColumns().add(providerColumn);
@@ -329,7 +336,10 @@ public class MainController implements Initializable {
                 serviceGP.getItems().add(aux);
 
             }
+
+           //.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
         }
+
     }
 
     public String qServiceToString(String[] q)
@@ -337,7 +347,7 @@ public class MainController implements Initializable {
         String ret="";
         for (String s:q
              ) {
-            ret=" "+ret+s+" ";
+            ret=" "+ret+s+"  ";
         }
 
         return ret;

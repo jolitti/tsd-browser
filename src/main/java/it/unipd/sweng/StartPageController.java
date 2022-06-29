@@ -148,7 +148,7 @@ public class StartPageController implements Initializable {
     public void printFlags(ServiceFilter filter) {
 
         //setting gaps between flags
-        flags.setHgap(30);
+        flags.setHgap(35);
         flags.setVgap(30);
 
         //creating a button flag for each state that has a service, adding the image and size
@@ -160,11 +160,11 @@ public class StartPageController implements Initializable {
                 throw new RuntimeException(e);
             }
             ImageView img = new ImageView(new Image(input));
-            img.setFitHeight(45);
-            img.setFitWidth(60);
+            img.setFitHeight(60);
+            img.setFitWidth(80);
             Button nation = new Button("", img);
-            nation.setMinSize(64,49);
-            nation.setMaxSize(64,49);
+            nation.setMinSize(84,64);
+            nation.setMaxSize(84,64);
 
             flags.getChildren().add(nation);
             flags.getChildren().add(new Pane());

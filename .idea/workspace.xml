@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/gridPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/gridPane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +149,8 @@
       <workItem from="1656260971076" duration="6450000" />
       <workItem from="1656346448492" duration="2855000" />
       <workItem from="1656359503505" duration="1086000" />
-      <workItem from="1656433148267" duration="12684000" />
+      <workItem from="1656433148267" duration="12793000" />
+      <workItem from="1656529790684" duration="5503000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>
