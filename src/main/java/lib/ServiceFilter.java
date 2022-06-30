@@ -38,10 +38,19 @@ public class ServiceFilter {
     ) {
 
         // null-check (ensures the integrity of the filters)
+        // will convert nulls into Optional.empty()
         if (aCountries == null) aCountries = Optional.empty();
         if (aProviders == null) aProviders = Optional.empty();
         if (aTypes == null) aTypes = Optional.empty();
         if (aStatuses == null) aStatuses = Optional.empty();
+
+        // Zero-size check
+        // Will convert any zero-size filters into Optional.empty()
+        // (otherwise it would not match anything)
+        if (aCountries.isPresent()) if (aCountries.get().size() <= 0) aCountries = Optional.empty();
+        if (aProviders.isPresent()) if (aProviders.get().size() <= 0) aProviders = Optional.empty();
+        if (aTypes.isPresent()) if (aTypes.get().size() <= 0) aTypes = Optional.empty();
+        if (aStatuses.isPresent()) if (aStatuses.get().size() <= 0) aStatuses = Optional.empty();
 
         // Basic assignment
         countries = aCountries;
@@ -64,6 +73,7 @@ public class ServiceFilter {
             Optional<Set<String>> aStatusesSet
     ) {
         // null-check (ensures the integrity of the filters)
+        // will convert nulls into Optional.empty()
         if (aCountriesSet == null) aCountriesSet = Optional.empty();
         if (aProvidersSet == null) aProvidersSet = Optional.empty();
         if (aTypesSet == null) aTypesSet = Optional.empty();

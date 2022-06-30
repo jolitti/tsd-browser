@@ -96,8 +96,48 @@ public class FilterTest {
         );
 
         assertEquals(Optional.empty(),filterWithNulls.countries());
-        assertEquals(2,filterWithNulls.providers().get().size());
+        assertEquals(2,filterWithNulls.getProvidersSet().get().size());
         assertEquals(Optional.empty(),filterWithNulls.types());
         assertEquals(Optional.empty(),filterWithNulls.statuses());
+
+        // Second test: from sets instead of lists
+        ServiceFilter filterWithNullSets = ServiceFilter.buildFilterFromSets(
+                Optional.of(new HashSet<>(Arrays.asList("EE","DK"))),
+                null,
+                null,
+                null
+        );
+
+        assertEquals(2,filterWithNullSets.countries().get().size());
+        assertEquals(Optional.empty(),filterWithNullSets.providers());
+        assertEquals(Optional.empty(),filterWithNullSets.types());
+        assertEquals(Optional.empty(),filterWithNullSets.statuses());
+    }
+
+    @Test
+    public void shouldConvertEmptyListsIntoEmpty() {
+        ServiceFilter filterWithEmptyLists = new ServiceFilter(
+                Optional.of(new ArrayList<String>()),
+                Optional.of(new ArrayList<String>()),
+                Optional.of(new ArrayList<String>()),
+                Optional.of(new ArrayList<String>())
+                );
+
+        assertEquals(Optional.empty(),filterWithEmptyLists.countries());
+        assertEquals(Optional.empty(),filterWithEmptyLists.providers());
+        assertEquals(Optional.empty(),filterWithEmptyLists.types());
+        assertEquals(Optional.empty(),filterWithEmptyLists.statuses());
+
+        ServiceFilter filterWithEmptySets = ServiceFilter.buildFilterFromSets(
+                Optional.of(new HashSet<String>()),
+                Optional.of(new HashSet<String>()),
+                Optional.of(new HashSet<String>()),
+                Optional.of(new HashSet<String>())
+                );
+
+        assertEquals(Optional.empty(),filterWithEmptySets.countries());
+        assertEquals(Optional.empty(),filterWithEmptySets.providers());
+        assertEquals(Optional.empty(),filterWithEmptySets.types());
+        assertEquals(Optional.empty(),filterWithEmptySets.statuses());
     }
 }
