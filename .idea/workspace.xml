@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added null guards for ServiceFilter">
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added and tested conversion of empty lists into Optional.empty() for ServiceFilter">
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar3.xml" beforeDir="false" />
@@ -12,8 +12,7 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/ServiceFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/FilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656583808001</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added and tested conversion of empty lists into Optional.empty() for ServiceFilter">
+      <created>1656585582945</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656585582945</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +246,8 @@
     <MESSAGE value="Added initial test for database" />
     <MESSAGE value="Removed jar artefacts" />
     <MESSAGE value="Added null guards for ServiceFilter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added null guards for ServiceFilter" />
+    <MESSAGE value="Added and tested conversion of empty lists into Optional.empty() for ServiceFilter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added and tested conversion of empty lists into Optional.empty() for ServiceFilter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
