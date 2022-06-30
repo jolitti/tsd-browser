@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added map coherence test for ServiceDatabase">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ServiceTest.java" afterDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added simple test for Service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ServiceDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ServiceDatabaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656597104854</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added simple test for Service">
+      <created>1656599490117</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656599490117</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +264,8 @@
     <MESSAGE value="Added and tested conversion of empty lists into Optional.empty() for ServiceFilter" />
     <MESSAGE value="Added data coherence check for ServiceDatabase" />
     <MESSAGE value="Added map coherence test for ServiceDatabase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added map coherence test for ServiceDatabase" />
+    <MESSAGE value="Added simple test for Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added simple test for Service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

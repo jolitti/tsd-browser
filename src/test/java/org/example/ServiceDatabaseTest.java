@@ -63,6 +63,25 @@ public class ServiceDatabaseTest {
                 assertNotEquals(everyService.get(i),everyService.get(j));
             }
         }
+
+        // Complementary test 1
+        ServiceFilter denmarkFilter = new ServiceFilter(
+                Optional.of(Arrays.asList("DK")),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty()
+        );
+        ServiceFilter complementOfDenmarkFilter = database.getComplementaryFilter(denmarkFilter);
+
+        assert(complementOfDenmarkFilter.getCountriesSet().isPresent());
+        assertNotEquals(new HashSet<>(Arrays.asList("DK","EE")),complementOfDenmarkFilter.getCountriesSet().get());
+        assertEquals(new HashSet<>(Arrays.asList("DK")),complementOfDenmarkFilter.getCountriesSet().get());
+        assert(complementOfDenmarkFilter.getProvidersSet().isPresent());
+        assertEquals(new HashSet<>(Arrays.asList("DK 1", "DK 2")),complementOfDenmarkFilter.getProvidersSet().get());
+        assert(complementOfDenmarkFilter.getStatusesSet().isPresent());
+        assertEquals(new HashSet<>(Arrays.asList("granted","pending")),complementOfDenmarkFilter.getStatusesSet().get());
+        assert(complementOfDenmarkFilter.getTypesSet().isPresent());
+        assertEquals(new HashSet<>(Arrays.asList("SEAL","SIGN","TIME","DELIVERY")),complementOfDenmarkFilter.getTypesSet().get());
     }
 
     @Test
