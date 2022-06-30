@@ -302,25 +302,25 @@ public class MainController implements Initializable {
             serviceGP.getColumns().clear();
             serviceGP.getItems().clear();
 
-            TableColumn<Service,String> natioColumn=new TableColumn<>("NATION");
+            TableColumn<PrintableService,String> natioColumn=new TableColumn<>("NATION");
             //natioColumn.setPrefWidth(100);
-            natioColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().countryCode()));
+            natioColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().country()));
             natioColumn.setMinWidth(150);
 
-            TableColumn<Service,String> providerColumn=new TableColumn<>("PROVIDER");
-            providerColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().tspId()));
+            TableColumn<PrintableService,String> providerColumn=new TableColumn<>("PROVIDER");
+            providerColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().provider()));
             providerColumn.setMinWidth(150);
 
-            TableColumn<Service,String> nameColumn=new TableColumn<>("NAME");
-            nameColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().serviceName()));
+            TableColumn<PrintableService,String> nameColumn=new TableColumn<>("NAME");
+            nameColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().name()));
             nameColumn.setMinWidth(150);
 
-            TableColumn<Service,String> typeColumn=new TableColumn<>("TYPE");
+            TableColumn<PrintableService,String> typeColumn=new TableColumn<>("TYPE");
             typeColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().type()));
             typeColumn.setMinWidth(150);
 
-            TableColumn<Service,String> statusColumn=new TableColumn<>("STATUS");
-            statusColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().currentStatus()));
+            TableColumn<PrintableService,String> statusColumn=new TableColumn<>("STATUS");
+            statusColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().status()));
             statusColumn.setMinWidth(150);
 
             serviceGP.getColumns().add(natioColumn);
@@ -331,8 +331,8 @@ public class MainController implements Initializable {
 
             for (Service service:services
                  ) {
-                String[] empty=new String[0];
-                Service aux=new Service((String) providersName.get(service.tspId()),0,(String) nationName.get(service.countryCode()),service.serviceName(),qServiceToString(service.qServiceTypes()),service.currentStatus(),"",empty );
+                
+                PrintableService aux=new PrintableService((String) providersName.get(service.tspId()),(String) nationName.get(service.countryCode()),service.serviceName(),qServiceToString(service.qServiceTypes()),service.currentStatus() );
                 serviceGP.getItems().add(aux);
 
             }
