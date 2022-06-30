@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added data coherence check for ServiceDatabase">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar3.xml" beforeDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added map coherence test for ServiceDatabase">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/ServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/internal/ServiceDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ServiceDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ServiceDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lib/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656586148448</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added map coherence test for ServiceDatabase">
+      <created>1656597104854</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656597104854</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +257,8 @@
     <MESSAGE value="Added null guards for ServiceFilter" />
     <MESSAGE value="Added and tested conversion of empty lists into Optional.empty() for ServiceFilter" />
     <MESSAGE value="Added data coherence check for ServiceDatabase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added data coherence check for ServiceDatabase" />
+    <MESSAGE value="Added map coherence test for ServiceDatabase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added map coherence test for ServiceDatabase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
