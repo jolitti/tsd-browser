@@ -36,6 +36,13 @@ public class ServiceFilter {
             Optional<List<String>> aTypes,
             Optional<List<String>> aStatuses
     ) {
+
+        // null-check (ensures the integrity of the filters)
+        if (aCountries == null) aCountries = Optional.empty();
+        if (aProviders == null) aProviders = Optional.empty();
+        if (aTypes == null) aTypes = Optional.empty();
+        if (aStatuses == null) aStatuses = Optional.empty();
+
         // Basic assignment
         countries = aCountries;
         providers = aProviders;
@@ -56,6 +63,12 @@ public class ServiceFilter {
             Optional<Set<String>> aTypesSet,
             Optional<Set<String>> aStatusesSet
     ) {
+        // null-check (ensures the integrity of the filters)
+        if (aCountriesSet == null) aCountriesSet = Optional.empty();
+        if (aProvidersSet == null) aProvidersSet = Optional.empty();
+        if (aTypesSet == null) aTypesSet = Optional.empty();
+        if (aStatusesSet == null) aStatusesSet = Optional.empty();
+
         // Functional-style assignment of lists
         Optional<List<String>> aCountries = aCountriesSet.map(ArrayList::new);
         Optional<List<String>> aProviders = aProvidersSet.map(ArrayList::new);

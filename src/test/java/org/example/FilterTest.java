@@ -84,4 +84,20 @@ public class FilterTest {
         assertEquals(1,filter.statuses().get().size());
         assertTrue(filter.statuses().get().contains("active"));
     }
+
+    @Test
+    public void shouldConvertNullParameters() {
+        // This tests if the ServiceFilter constructor converts null into Optional.empty
+        ServiceFilter filterWithNulls = new ServiceFilter(
+                null,
+                Optional.of(Arrays.asList("FR 2","SP 5")),
+                null,
+                null
+        );
+
+        assertEquals(Optional.empty(),filterWithNulls.countries());
+        assertEquals(2,filterWithNulls.providers().get().size());
+        assertEquals(Optional.empty(),filterWithNulls.types());
+        assertEquals(Optional.empty(),filterWithNulls.statuses());
+    }
 }
