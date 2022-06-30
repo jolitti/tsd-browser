@@ -64,4 +64,42 @@ public class ServiceDatabaseTest {
             }
         }
     }
+
+    @Test
+    public void shouldExceptIncompleteCountryMap() {
+        List<Service> services = Arrays.asList(
+                ExampleServices.quickServiceGen("IT 2","IT","active",new String[]{"TIME"}),
+                ExampleServices.quickServiceGen("FR 4","FR","active",new String[]{"SIGN"})
+        );
+        Map<String,String> wrongCountryMap = new HashMap<>();
+        wrongCountryMap.put("FR","France");
+        wrongCountryMap.put("SP","Spain");
+
+        Map<String,String> correctProviderMap = new HashMap<>();
+        correctProviderMap.put("IT 2","Ministero degli interni");
+        correctProviderMap.put("FR 4","Le boutique du email");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ServiceDatabase(services,wrongCountryMap,correctProviderMap);
+        });
+    }
+
+    @Test
+    public void shouldExceptIncompleteProviderMap() {
+        List<Service> services = Arrays.asList(
+                ExampleServices.quickServiceGen("IT 2","IT","active",new String[]{"TIME"}),
+                ExampleServices.quickServiceGen("FR 4","FR","active",new String[]{"SIGN"})
+        );
+        Map<String,String> correctCountryMap = new HashMap<>();
+        correctCountryMap.put("FR","France");
+        correctCountryMap.put("IT","Italy");
+
+        Map<String,String> wrongProviderMap = new HashMap<>();
+        wrongProviderMap.put("SP 2","Registro maritimo");
+        wrongProviderMap.put("FR 4","Le boutique du email");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ServiceDatabase(services,correctCountryMap,wrongProviderMap);
+        });
+    }
 }
