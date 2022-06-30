@@ -63,5 +63,62 @@ public class ServiceDatabaseTest {
                 assertNotEquals(everyService.get(i),everyService.get(j));
             }
         }
+
+        // Complementary test 1
+        ServiceFilter denmarkFilter = new ServiceFilter(
+                Optional.of(Arrays.asList("DK")),
+                Optional.empty(),
+                Optional.empty(),
+                Optional.empty()
+        );
+        ServiceFilter complementOfDenmarkFilter = database.getComplementaryFilter(denmarkFilter);
+
+        assert(complementOfDenmarkFilter.getCountriesSet().isPresent());
+        assertNotEquals(new HashSet<>(Arrays.asList("DK","EE")),complementOfDenmarkFilter.getCountriesSet().get());
+        assertEquals(new HashSet<>(Arrays.asList("DK")),complementOfDenmarkFilter.getCountriesSet().get());
+        assert(complementOfDenmarkFilter.getProvidersSet().isPresent());
+        assertEquals(new HashSet<>(Arrays.asList("DK 1", "DK 2")),complementOfDenmarkFilter.getProvidersSet().get());
+        assert(complementOfDenmarkFilter.getStatusesSet().isPresent());
+        assertEquals(new HashSet<>(Arrays.asList("granted","pending")),complementOfDenmarkFilter.getStatusesSet().get());
+        assert(complementOfDenmarkFilter.getTypesSet().isPresent());
+        assertEquals(new HashSet<>(Arrays.asList("SEAL","SIGN","TIME","DELIVERY")),complementOfDenmarkFilter.getTypesSet().get());
+    }
+
+    @Test
+    public void shouldExceptIncompleteCountryMap() {
+        List<Service> services = Arrays.asList(
+                ExampleServices.quickServiceGen("IT 2","IT","active",new String[]{"TIME"}),
+                ExampleServices.quickServiceGen("FR 4","FR","active",new String[]{"SIGN"})
+        );
+        Map<String,String> wrongCountryMap = new HashMap<>();
+        wrongCountryMap.put("FR","France");
+        wrongCountryMap.put("SP","Spain");
+
+        Map<String,String> correctProviderMap = new HashMap<>();
+        correctProviderMap.put("IT 2","Ministero degli interni");
+        correctProviderMap.put("FR 4","Le boutique du email");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ServiceDatabase(services,wrongCountryMap,correctProviderMap);
+        });
+    }
+
+    @Test
+    public void shouldExceptIncompleteProviderMap() {
+        List<Service> services = Arrays.asList(
+                ExampleServices.quickServiceGen("IT 2","IT","active",new String[]{"TIME"}),
+                ExampleServices.quickServiceGen("FR 4","FR","active",new String[]{"SIGN"})
+        );
+        Map<String,String> correctCountryMap = new HashMap<>();
+        correctCountryMap.put("FR","France");
+        correctCountryMap.put("IT","Italy");
+
+        Map<String,String> wrongProviderMap = new HashMap<>();
+        wrongProviderMap.put("SP 2","Registro maritimo");
+        wrongProviderMap.put("FR 4","Le boutique du email");
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new ServiceDatabase(services,correctCountryMap,wrongProviderMap);
+        });
     }
 }

@@ -25,9 +25,9 @@ public class ServiceDatabase implements ModelInterface
 
         // Checking for the validity of the country name and provider name maps
         for (Service service : services) {
-            if (countryCodeMap.getOrDefault(service.countryCode(),"Not found") == "Not found")
+            if (Objects.equals(countryCodeMap.getOrDefault(service.countryCode(), "Not found"), "Not found"))
                 throw new IllegalArgumentException("Country "+service.countryCode()+" not found in map!");
-            if (providerIdMap.getOrDefault(service.tspId(),"Not found") == "Not found")
+            if (Objects.equals(providerIdMap.getOrDefault(service.tspId(), "Not found"), "Not found"))
                 throw new IllegalArgumentException("Provider "+service.tspId()+" not found in map!");
         }
     }
