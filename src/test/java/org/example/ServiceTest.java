@@ -142,4 +142,21 @@ public class ServiceTest {
             );
         });
     }
+
+    @Test
+    public void shouldRequireCountryPrefix() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Service(
+                    "NOT_FR 1",
+                    1,
+                    "FR",
+                    "X",
+                    "Y",
+                    "granted",
+                    "t",
+                    new String[]{}
+
+            );
+        });
+    }
 }

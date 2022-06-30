@@ -33,11 +33,11 @@ public record Service(
         if (currentStatus == null) throw new IllegalArgumentException("CurrentStatus is null!");
         if (tob == null) throw new IllegalArgumentException("Tob is null!");
         if (qServiceTypes == null) throw new IllegalArgumentException("QServiceTypes is null!");
-        //if (qServiceTypes.length <= 0) throw new IllegalArgumentException("QServiceTypes is empty!");
+        if (qServiceTypes.length <= 0) throw new IllegalArgumentException("QServiceTypes is empty!");
 
         // does the service provider id begin with the country code?
-        //if (!tspId.startsWith(countryCode))
-        //    throw new IllegalArgumentException("TspID doesn't start with country code "+countryCode);
+        if (!tspId.startsWith(countryCode))
+            throw new IllegalArgumentException("TspID doesn't start with country code "+countryCode);
     }
 
     public String toString() {
