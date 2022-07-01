@@ -377,29 +377,7 @@ public class StartPageController implements Initializable {
     }
 
 
-    /*ObservableList toNationId(ObservableList nat)
-    {
-        ObservableList ret=FXCollections.observableArrayList();
-        for (Object n:nat)
-        {
-            if(n!="select all")
-            ret.add(nationId.get(n));
-        }
-        return ret;
-    }
 
-    ObservableList toTspId(ObservableList tsp)
-    {
-        ObservableList ret=FXCollections.observableArrayList();
-        for (Object t:tsp)
-        {
-            if(t!="select all")
-            ret.add(providerid.get(t));
-        }
-        return ret;
-    }
-
-     */
 
     //makes the intersection of the 4 Optional contained in the filters
     public List intersection(Optional o1,Optional o2,Optional o3,Optional o4)

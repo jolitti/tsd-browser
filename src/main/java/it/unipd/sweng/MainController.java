@@ -245,58 +245,6 @@ public class MainController implements Initializable {
     }
 
 
-    /*
-    public void printServices(List<Service> services) {
-     */
-/*
-        serviceGP.getChildren().clear();
-        if(services.isEmpty()) {
-            serviceGP.add(new Text("no results"),2,0);
-            return;
-        }
-
-        Pane natTitle=new Pane(new Text("NATION"));
-        natTitle.getStylesheets().add(getClass().getResource("/css/gridPane.css").toExternalForm());
-        Pane tspTitle=new Pane(new Text("PROVIDER"));
-        Pane nameTitle=new Pane(new Text("NAME"));
-        Pane typeTitle=new Pane(new Text("TYPE"));
-        Pane statTitle=new Pane(new Text("STATUS"));
-
-        serviceGP.addRow(1,natTitle,tspTitle,nameTitle,typeTitle,statTitle);
-        int i = 2;
-
-        //TODO CAPIRE COME STAMPARE I FILTRI SENZA FARLI SOVRAPPORRE
-        for (Service service : services) {
-
-            Text nation=new Text();
-            Text provider=new Text();
-            Text name=new Text();
-            Text type=new Text();
-            Text status=new Text();
-
-            Pane natPane=new Pane(nation);
-            Pane tspPane=new Pane(provider);
-            Pane namePane=new Pane(name);
-            Pane typePane=new Pane(type);
-            Pane statPane=new Pane(status);
-
-            nation.setText("   "+nationName.get(service.countryCode()).toString()+"   ");
-            provider.setText("   "+providersName.get(service.tspId()).toString()+"   ");
-            name.setText("   "+service.serviceName()+"   ");
-            type.setText("   "+qServiceToString(service.qServiceTypes())+"   ");
-            status.setText("   "+service.currentStatus()+"   ");
-
-            serviceGP.addRow(i,natPane,tspPane,namePane,typePane,statPane);
-
-
-            i++;
-        }
-    }
-    */
-
-
-
-
     public void printServices(List<Service> services) {
         {
             serviceGP.getColumns().clear();
@@ -331,7 +279,7 @@ public class MainController implements Initializable {
 
             for (Service service:services
                  ) {
-                
+
                 PrintableService aux=new PrintableService((String) providersName.get(service.tspId()),(String) nationName.get(service.countryCode()),service.serviceName(),qServiceToString(service.qServiceTypes()),service.currentStatus() );
                 serviceGP.getItems().add(aux);
 
@@ -471,7 +419,7 @@ public class MainController implements Initializable {
         /*
         //TODO
         System.out.println("filtri");
-        System.out.println(filter.countries());
+        System.out.println(fHilter.countries());
         System.out.println(filter.providers());
         System.out.println(filter.types());
         System.out.println(filter.statuses());
