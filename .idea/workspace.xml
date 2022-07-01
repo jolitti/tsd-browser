@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Completed ServiceTest">
-      <change afterPath="$PROJECT_DIR$/doc/overview.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/user_manual.md" afterDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,11 +302,6 @@
           <properties class="java.lang.reflect.InvocationTargetException" package="java.lang.reflect" />
           <option name="timeStamp" value="4" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java</url>
-          <line>664</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
