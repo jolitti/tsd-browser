@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Added complementary test for ServiceDatabaseTest">
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Completed ServiceTest">
+      <change afterPath="$PROJECT_DIR$/doc/overview.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/user_manual.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lib/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lib/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656600709443</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Completed ServiceTest">
+      <created>1656602337998</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1656602337998</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +281,8 @@
     <MESSAGE value="Added map coherence test for ServiceDatabase" />
     <MESSAGE value="Added simple test for Service" />
     <MESSAGE value="Added complementary test for ServiceDatabaseTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added complementary test for ServiceDatabaseTest" />
+    <MESSAGE value="Completed ServiceTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed ServiceTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
