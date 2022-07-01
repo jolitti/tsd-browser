@@ -424,7 +424,7 @@ public class MainController implements Initializable {
         ObservableList<String> list = FXCollections.observableArrayList(box.getItems().subList(1, box.getItems().size() ));
         return list;
     }
-    
+
     public ServiceFilter getFilter()
     {
         //takes the selected filters and creates a ServiceFilter

@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/gridPane.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

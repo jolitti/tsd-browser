@@ -295,7 +295,6 @@ public class StartPageController implements Initializable {
         stage.setMinHeight(screenSize.height/2);
         stage.setMaxHeight(screenSize.height);
         stage.setMaxWidth(screenSize.width);
-        scene.getStylesheets().add(getClass().getResource("/css/gridPane.css").toExternalForm());
         //sets and show the new scene
         stage.setScene(scene);
         stage.show();
