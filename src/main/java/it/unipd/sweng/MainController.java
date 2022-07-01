@@ -336,17 +336,23 @@ public class MainController implements Initializable {
     //method used to implement the mutual exclusion of select all and a any other choice inside a filter
     public void checkall(CheckComboBox ccb, ListChangeListener.Change change) {
         //TODO getAddedSubList da errore di out of bound exceptions ma penso sia per un bug in controlsfx DA VERIFICARE
-        change.next();
-        if (change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0))) {//getAddedSubList da errore di out of bound exceptions ma penso sia per un bug in controlsfx DA VERIFICARE
-            for (int i = 1; i < ccb.getItems().size(); i++) {
-                if (ccb.getCheckModel().isChecked(i)) {
-                    ccb.getCheckModel().clearCheck(i);
+        try {
+            change.next();
+            if (change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0))) {//getAddedSubList da errore di out of bound exceptions ma penso sia per un bug in controlsfx DA VERIFICARE
+                for (int i = 1; i < ccb.getItems().size(); i++) {
+                    if (ccb.getCheckModel().isChecked(i)) {
+                        ccb.getCheckModel().clearCheck(i);
+                    }
+                }
+            } else {
+                if (ccb.getCheckModel().isChecked(0) && change.getRemovedSize() == 0) {
+                    ccb.getCheckModel().clearCheck(0);
                 }
             }
-        } else {
-            if (ccb.getCheckModel().isChecked(0) && change.getRemovedSize() == 0) {
-                ccb.getCheckModel().clearCheck(0);
-            }
+        }
+        catch ( IndexOutOfBoundsException e)
+        {
+
         }
     }
 

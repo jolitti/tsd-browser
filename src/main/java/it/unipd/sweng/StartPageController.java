@@ -19,6 +19,7 @@ import lib.interfaces.ModelInterface;
 import org.controlsfx.control.CheckComboBox;
 
 import java.awt.*;
+import java.security.spec.ECField;
 import java.util.*;
 
 
@@ -242,23 +243,22 @@ public class StartPageController implements Initializable {
     //method used to implement the mutual exclusion of select all and a any other choice inside a filter
     public void checkall(CheckComboBox ccb, ListChangeListener.Change change)
     {
-        change.next();
-        if(change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0)))
-        {
-            for(int i=1;i<ccb.getItems().size();i++)
-            {
-                if(ccb.getCheckModel().isChecked(i))
-                {
-                    ccb.getCheckModel().clearCheck(i);
+        try {
+            change.next();
+            if (change.getAddedSubList().contains(ccb.getItems().get(0)) && !change.getRemoved().contains(ccb.getItems().get(0))) {
+                for (int i = 1; i < ccb.getItems().size(); i++) {
+                    if (ccb.getCheckModel().isChecked(i)) {
+                        ccb.getCheckModel().clearCheck(i);
+                    }
+                }
+            } else {
+                if (ccb.getCheckModel().isChecked(0) && change.getRemovedSize() == 0) {
+                    ccb.getCheckModel().clearCheck(0);
                 }
             }
         }
-        else
+        catch (IndexOutOfBoundsException es)
         {
-            if(ccb.getCheckModel().isChecked(0)&& change.getRemovedSize()==0)
-            {
-                ccb.getCheckModel().clearCheck(0);
-            }
         }
     }
 
