@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.controlsfx.control.CheckComboBox;
 import javafx.collections.FXCollections;
 import java.io.IOException;
@@ -80,7 +79,6 @@ public class MainController implements Initializable {
             }
         });
 
-
         //provider
         tspCCB.setTitle("PROVIDER");
         tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
@@ -102,7 +100,6 @@ public class MainController implements Initializable {
                 checkall(typeCCB, ty);
             }
         });
-
 
         //stato del servizi
         statusCCB.setTitle("STATUS");
@@ -128,7 +125,6 @@ public class MainController implements Initializable {
         printFilters();
         //print the services in the window
         printServices(services);
-
 
     }
 
@@ -157,7 +153,6 @@ public class MainController implements Initializable {
             if(statusCCB.getItems().contains(status)) {
                 statusCCB.getCheckModel().check(status);
             }
-
         }
     }
 
@@ -244,49 +239,45 @@ public class MainController implements Initializable {
         selectedFilters.setRoot(root);
     }
 
-
     public void printServices(List<Service> services) {
-        {
-            serviceGP.getColumns().clear();
-            serviceGP.getItems().clear();
 
-            TableColumn<PrintableService,String> natioColumn=new TableColumn<>("NATION");
-            //natioColumn.setPrefWidth(100);
-            natioColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().country()));
-            natioColumn.setMinWidth(150);
+        serviceGP.getColumns().clear();
+        serviceGP.getItems().clear();
 
-            TableColumn<PrintableService,String> providerColumn=new TableColumn<>("PROVIDER");
-            providerColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().provider()));
-            providerColumn.setMinWidth(150);
+        TableColumn<PrintableService,String> natioColumn=new TableColumn<>("NATION");
+        //natioColumn.setPrefWidth(100);
+        natioColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().country()));
+        natioColumn.setMinWidth(150);
 
-            TableColumn<PrintableService,String> nameColumn=new TableColumn<>("NAME");
-            nameColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().name()));
-            nameColumn.setMinWidth(150);
+        TableColumn<PrintableService,String> providerColumn=new TableColumn<>("PROVIDER");
+        providerColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().provider()));
+        providerColumn.setMinWidth(150);
 
-            TableColumn<PrintableService,String> typeColumn=new TableColumn<>("TYPE");
-            typeColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().type()));
-            typeColumn.setMinWidth(150);
+        TableColumn<PrintableService,String> nameColumn=new TableColumn<>("NAME");
+        nameColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().name()));
+        nameColumn.setMinWidth(150);
 
-            TableColumn<PrintableService,String> statusColumn=new TableColumn<>("STATUS");
-            statusColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().status()));
-            statusColumn.setMinWidth(150);
+        TableColumn<PrintableService,String> typeColumn=new TableColumn<>("TYPE");
+        typeColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().type()));
+        typeColumn.setMinWidth(150);
 
-            serviceGP.getColumns().add(natioColumn);
-            serviceGP.getColumns().add(providerColumn);
-            serviceGP.getColumns().add(nameColumn);
-            serviceGP.getColumns().add(typeColumn);
-            serviceGP.getColumns().add(statusColumn);
+        TableColumn<PrintableService,String> statusColumn=new TableColumn<>("STATUS");
+        statusColumn.setCellValueFactory(s-> new SimpleStringProperty(s.getValue().status()));
+        statusColumn.setMinWidth(150);
 
-            for (Service service:services
-                 ) {
+        serviceGP.getColumns().add(natioColumn);
+        serviceGP.getColumns().add(providerColumn);
+        serviceGP.getColumns().add(nameColumn);
+        serviceGP.getColumns().add(typeColumn);
+        serviceGP.getColumns().add(statusColumn);
 
-                PrintableService aux=new PrintableService((String) providersName.get(service.tspId()),(String) nationName.get(service.countryCode()),service.serviceName(),qServiceToString(service.qServiceTypes()),service.currentStatus() );
-                serviceGP.getItems().add(aux);
+        for (Service service:services) {
 
-            }
+            PrintableService aux=new PrintableService((String) providersName.get(service.tspId()),(String) nationName.get(service.countryCode()),service.serviceName(),qServiceToString(service.qServiceTypes()),service.currentStatus() );
+            serviceGP.getItems().add(aux);
 
-           //.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
         }
+
 
     }
 
@@ -416,20 +407,6 @@ public class MainController implements Initializable {
         //sets the filter
         setFilters(finFilter);
         //System.out.println(filter.statuses());
-        /*
-        //TODO
-        System.out.println("filtri");
-        System.out.println(fHilter.countries());
-        System.out.println(filter.providers());
-        System.out.println(filter.types());
-        System.out.println(filter.statuses());
-        System.out.println("---------");
-        System.out.println(finFilter.countries());
-        System.out.println(finFilter.providers());
-        System.out.println(finFilter.types());
-        System.out.println(finFilter.statuses());
-
-         */
 
         //sets the cehcks
         ObservableList[] models=new ObservableList[4];
@@ -439,7 +416,6 @@ public class MainController implements Initializable {
         models[3]=status;
         initFilters(models);
 
-
     }
 
 
@@ -448,8 +424,7 @@ public class MainController implements Initializable {
         ObservableList<String> list = FXCollections.observableArrayList(box.getItems().subList(1, box.getItems().size() ));
         return list;
     }
-
-
+    
     public ServiceFilter getFilter()
     {
         //takes the selected filters and creates a ServiceFilter
@@ -554,31 +529,6 @@ public class MainController implements Initializable {
         }
         return ret;
     }
-
-   /* ObservableList toNationId(ObservableList nat)
-    {
-        ObservableList ret=FXCollections.observableArrayList();
-        for (Object n:nat)
-        {
-            if(n!="select all")
-                ret.add(nationId.get(n));
-        }
-        return ret;
-    }
-
-    ObservableList toTspId(ObservableList tsp)
-    {
-        ObservableList ret=FXCollections.observableArrayList();
-        for (Object t:tsp)
-        {
-            if(t!="select all")
-                ret.add(providerid.get(t));
-        }
-        return ret;
-    }
-
-    */
-
 
     //makes the intersection of the 4 Optional contained in the filters
     public List intersection(Optional o1,Optional o2,Optional o3,Optional o4)

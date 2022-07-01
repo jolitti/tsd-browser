@@ -49,8 +49,8 @@
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeScene" prefHeight="36.0" prefWidth="92.0" text="HOME" textAlignment="CENTER" />
-            <Pane prefHeight="67.0" prefWidth="128.0" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust List Navigator" textAlignment="CENTER" wrappingWidth="412.90472412109375" HBox.hgrow="ALWAYS">
+            <Pane prefHeight="67.0" prefWidth="44.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust List Navigator" textAlignment="CENTER" wrappingWidth="572.221435546875" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="48.0" />
                </font>
@@ -58,7 +58,7 @@
                   <Insets bottom="10.0" />
                </HBox.margin>
             </Text>
-            <Pane prefHeight="57.0" prefWidth="225.0" />
+            <Pane prefHeight="67.0" prefWidth="147.0" />
          </children>
       </HBox>
    </top>

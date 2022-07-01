@@ -16,7 +16,6 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Trusted List");
         stage.setScene(scene);
-
         Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         stage.setMinWidth(screenSize.width/2);
         stage.setMinHeight(screenSize.height/2);

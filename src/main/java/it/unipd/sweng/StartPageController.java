@@ -101,7 +101,6 @@ public class StartPageController implements Initializable {
             }
         });
 
-
         //initialising provider checkComboBox
         tspCCB.setTitle("PROVIDER");
         tspCCB.addEventHandler(ComboBox.ON_HIDDEN, event -> {getComplementaryFilters();});
@@ -123,8 +122,6 @@ public class StartPageController implements Initializable {
                 checkall(typeCCB,ty);
             }
         });
-
-
 
         //initialising status checkComboBox
         statusCCB.setTitle("STATUS");
@@ -194,8 +191,6 @@ public class StartPageController implements Initializable {
         changeToSearchScene();
 
     }
-
-
 
     //method that sets the filters in the checkComboBoxes using a services filter as a data container
     public void setFilters(ServiceFilter filter)
@@ -306,8 +301,6 @@ public class StartPageController implements Initializable {
         stage.show();
     }
 
-
-
     //method used to implement the filters complementairty
     public void getComplementaryFilters()
     {
@@ -349,21 +342,7 @@ public class StartPageController implements Initializable {
         statusCCB.getItems().clear();
         //sets the filter
         setFilters(finFilter);
-        //System.out.println(filter.statuses());
-        /*
-        //TODO
-        System.out.println("filtri");
-        System.out.println(filter.countries());
-        System.out.println(filter.providers());
-        System.out.println(filter.types());
-        System.out.println(filter.statuses());
-        System.out.println("---------");
-        System.out.println(finFilter.countries());
-        System.out.println(finFilter.providers());
-        System.out.println(finFilter.types());
-        System.out.println(finFilter.statuses());
 
-         */
 
         //sets the cehcks
         ObservableList[] models=new ObservableList[4];
@@ -375,9 +354,6 @@ public class StartPageController implements Initializable {
 
 
     }
-
-
-
 
     //makes the intersection of the 4 Optional contained in the filters
     public List intersection(Optional o1,Optional o2,Optional o3,Optional o4)
@@ -552,19 +528,7 @@ public class StartPageController implements Initializable {
             if(statusCCB.getItems().contains(status)) {
                 statusCCB.getCheckModel().check(status);
             }
-
         }
-
-        /*System.out.println("checkmodels");
-        System.out.println(nationCCB.getCheckModel().getCheckedItems());
-        System.out.println(tspCCB.getCheckModel().getCheckedItems());
-        System.out.println(typeCCB.getCheckModel().getCheckedItems());
-        System.out.println(statusCCB.getCheckModel().getCheckedItems());
-        //TODO togliere
-
-         */
-       // stampaTest();
-
     }
 
     //method used to create a deep copy of Observable lists
