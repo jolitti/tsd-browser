@@ -70,23 +70,19 @@ public class StartPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*
-        chiamo il model e mi faccio passare i filtro completi e creo le observable list che poi passo alle Check
-        Combo box
-         */
-
+        //gets an  instance of the model and uses it to initialise the nodes
         try {
             model = getModelInstance();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //initialising maps for code to nome conversions
+        //get from the model 2 maps to conver ids into names
         providersName=model.getCodeToProviderNames();
         nationName=model.getCountryCodeToNames();
-        //creating map to go back form names to ids
+        //creating 2 maps to go back form names to ids
         nationId = new TreeMap();
         providerid = new TreeMap();
-        //creating a complete filter for initialisation
+        //ask the model for the complete filters and saves a copy
         ServiceFilter full = model.getComplementaryFilter(ServiceFilter.nullFilter);
         fullFilter=full;
 
@@ -143,6 +139,7 @@ public class StartPageController implements Initializable {
 
     }
 
+    //metod used to print the flags in the start page
     public void printFlags(ServiceFilter filter) {
 
         //setting gaps between flags
@@ -164,6 +161,7 @@ public class StartPageController implements Initializable {
             nation.setMinSize(84,64);
             nation.setMaxSize(84,64);
 
+            //adds the flag to the flowPane
             flags.getChildren().add(nation);
             flags.getChildren().add(new Pane());
 
@@ -180,7 +178,7 @@ public class StartPageController implements Initializable {
 
     //method launched after a flag is clicked, launches a query with only the state
     public void flagButton(String state) throws IOException {
-        //set all the filters to empty excepts the nations that contains the flag nation
+        //set all the filters to empty excepts the nation corresponding to the selected flag
         nationCCB.getCheckModel().clearChecks();
         tspCCB.getCheckModel().clearChecks();
         typeCCB.getCheckModel().clearChecks();
@@ -257,19 +255,21 @@ public class StartPageController implements Initializable {
                 }
             }
         }
-        catch (IndexOutOfBoundsException es)
-        {
-        }
+        catch (IndexOutOfBoundsException es) {}
     }
 
     //method used to launch the initials query, and change scene to the result page
     public void changeToSearchScene() throws IOException
     {
-        //creates a new scene
+        //creates a new scene and loads the resultsPage FXML
         Stage stage;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/it.unipd.sweng/page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+
+        //gets an instance of the controller of the results page
         MainController controller=fxmlLoader.getController();
+
+        //gets the stage from the window
         stage=(Stage)search.getScene().getWindow();
 
         //creates a model array to pass in the new controller, so the ccb can maintain their checkModel
@@ -277,24 +277,29 @@ public class StartPageController implements Initializable {
         ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
         ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
         ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
-
         ObservableList[] models=new ObservableList[4];
         models[0]=nations;
         models[1]=tsp;
         models[2]=types;
         models[3]=status;
         initFilters(models);
+
         //launch a method in the new controller passing the models
-        controller.initFilters(models);//lencia il metodono nel MainController
+        controller.initFilters(models);
+
+        //launch the getComplemtaryFilter metod of the results page
         controller.getComplementaryFilters();
+
         //launhes the query in the new controller
         controller.searchByFilters();
 
+        //sets the window size according to the screen size
         Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         stage.setMinWidth(screenSize.width/2);
         stage.setMinHeight(screenSize.height/2);
         stage.setMaxHeight(screenSize.height);
         stage.setMaxWidth(screenSize.width);
+
         //sets and show the new scene
         stage.setScene(scene);
         stage.show();
@@ -308,19 +313,22 @@ public class StartPageController implements Initializable {
         ObservableList tsp=copy(tspCCB.getCheckModel().getCheckedItems());
         ObservableList types=copy(typeCCB.getCheckModel().getCheckedItems());
         ObservableList status=copy(statusCCB.getCheckModel().getCheckedItems());
-        //System.out.println(status);
+
         //gets the selected items from the ccb
         ServiceFilter filter=getFilter();
+
         //create a filter for every checkBox
         ServiceFilter natFilter=new ServiceFilter(filter.countries(), Optional.empty(), Optional.empty(), Optional.empty());
         ServiceFilter tspFilter=new ServiceFilter(Optional.empty(), filter.providers(), Optional.empty(), Optional.empty());
         ServiceFilter typeFilter=new ServiceFilter(Optional.empty(), Optional.empty(), filter.types(), Optional.empty());
         ServiceFilter statusFilter=new ServiceFilter(Optional.empty(), Optional.empty(), Optional.empty(), filter.statuses());
+
         //gets the complemtary of every ccb
         ServiceFilter nationsResult=model.getComplementaryFilter(natFilter);
         ServiceFilter tspResult=model.getComplementaryFilter(tspFilter);
         ServiceFilter typeResult=model.getComplementaryFilter(typeFilter);
         ServiceFilter statusResult=model.getComplementaryFilter(statusFilter);
+
         //intersect all the results
         List auxNat=intersection(fullFilter.countries(),tspResult.countries(),typeResult.countries(),statusResult.countries());
         List auxTsp=intersection(nationsResult.providers(),fullFilter.providers(),typeResult.providers(),statusResult.providers());
@@ -329,8 +337,8 @@ public class StartPageController implements Initializable {
 
         //creates the final filter
         ServiceFilter finFilter=new ServiceFilter(Optional.of(auxNat),Optional.of(auxTsp),Optional.of(auxType),Optional.of(auxStat));
-        //resets all the ccb
-        //System.out.println(filter.statuses());
+
+        //clears all the ccb
         nationCCB.getCheckModel().clearChecks();
         nationCCB.getItems().clear();
         tspCCB.getCheckModel().clearChecks();
@@ -339,9 +347,9 @@ public class StartPageController implements Initializable {
         typeCCB.getItems().clear();
         statusCCB.getCheckModel().clearChecks();
         statusCCB.getItems().clear();
+
         //sets the filter
         setFilters(finFilter);
-
 
         //sets the cehcks
         ObservableList[] models=new ObservableList[4];
@@ -350,8 +358,6 @@ public class StartPageController implements Initializable {
         models[2]=types;
         models[3]=status;
         initFilters(models);
-
-
     }
 
     //makes the intersection of the 4 Optional contained in the filters
@@ -443,17 +449,19 @@ public class StartPageController implements Initializable {
             status = copy(statusCCB.getCheckModel().getCheckedItems());
         }
 
+        //convert the nation name to id
         List n = new LinkedList();
-
         for (int i = 0; i < nations.size(); i++) {
             n.add(nationId.get(nations.get(i)));
         }
+
+        //convert the provider name to id
         List p = new LinkedList();
         for (int i = 0; i < tsp.size(); i++) {
             p.add(providerid.get(tsp.get(i)));
         }
 
-
+        //creates the optional for the filter
         Optional<List<String>> natList;
         Optional<List<String>> tspList;
         Optional<List<String>> typesList;
