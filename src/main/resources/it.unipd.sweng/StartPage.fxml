@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unipd.sweng.StartPageController">
     <top>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust List Navigator" textAlignment="CENTER" wrappingWidth="975.11376953125" BorderPane.alignment="CENTER">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Trust Service Browser" textAlignment="CENTER" wrappingWidth="975.11376953125" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets bottom="10.0" />
             </BorderPane.margin>

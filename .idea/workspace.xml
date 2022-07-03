@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Completed ServiceTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/ResultPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/StartPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/ResultPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unipd/sweng/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/ResultPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/ResultPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/it.unipd.sweng/StartPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +144,7 @@
       <workItem from="1656346448492" duration="2855000" />
       <workItem from="1656359503505" duration="1086000" />
       <workItem from="1656765055646" duration="573000" />
-      <workItem from="1656792554774" duration="3078000" />
+      <workItem from="1656792554774" duration="3878000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>
