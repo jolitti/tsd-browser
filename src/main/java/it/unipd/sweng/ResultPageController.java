@@ -20,7 +20,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class MainController implements Initializable {
+public class ResultPageController implements Initializable {
 
     @FXML
     private CheckComboBox nationCCB;

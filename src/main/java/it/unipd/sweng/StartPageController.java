@@ -3,23 +3,19 @@ package it.unipd.sweng;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
-import lib.Service;
 import lib.ServiceFilter;
 import lib.interfaces.ModelInterface;
 import org.controlsfx.control.CheckComboBox;
 
 import java.awt.*;
-import java.security.spec.ECField;
 import java.util.*;
 
 
@@ -32,7 +28,6 @@ import java.util.List;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.controlsfx.control.IndexedCheckModel;
 
 
 import static it.unipd.sweng.ModelSpawner.getModelInstance;
@@ -263,11 +258,11 @@ public class StartPageController implements Initializable {
     {
         //creates a new scene and loads the resultsPage FXML
         Stage stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/it.unipd.sweng/page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/it.unipd.sweng/ResultPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         //gets an instance of the controller of the results page
-        MainController controller=fxmlLoader.getController();
+        ResultPageController controller=fxmlLoader.getController();
 
         //gets the stage from the window
         stage=(Stage)search.getScene().getWindow();
