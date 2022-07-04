@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Avoid pushing 100+MB files to github ###
+out/

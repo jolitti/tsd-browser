@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Attempted, and failed, to create jar">
-      <change afterPath="$PROJECT_DIR$/doc/pictures/filter_bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/pictures/home_screen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/pictures/result_screen.png" afterDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Completed the user manual">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/overview.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/user_manual.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/user_manual.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,12 +262,12 @@
       <option name="project" value="LOCAL" />
       <updated>1656686849008</updated>
     </task>
-    <task id="LOCAL-00018" summary="Made png references relative, now jar is working">
-      <created>1656952254337</created>
+    <task id="LOCAL-00018" summary="Completed the user manual">
+      <created>1656945815491</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1656952254337</updated>
+      <updated>1656945815491</updated>
     </task>
     <option name="localTasksCounter" value="19" />
     <servers />
@@ -310,8 +305,8 @@
     <MESSAGE value="Completed ServiceTest" />
     <MESSAGE value="Began work on user manual" />
     <MESSAGE value="Attempted, and failed, to create jar" />
-    <MESSAGE value="Made png references relative, now jar is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made png references relative, now jar is working" />
+    <MESSAGE value="Completed the user manual" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the user manual" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -330,9 +325,5 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
