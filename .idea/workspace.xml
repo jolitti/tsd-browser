@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="tsd-browser:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Completed ServiceTest">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar.xml" afterDir="false" />
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Attempted, and failed, to create jar">
+      <change afterPath="$PROJECT_DIR$/doc/pictures/filter_bar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/pictures/home_screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/pictures/result_screen.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/overview.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/user_manual.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/user_manual.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,17 +65,17 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "/home/rizoma/IdeaProjects/Trust-able-App",
+    "last_opened_file_path": "/home/rizoma/IdeaProjects/tsd-browser/doc/pictures",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/doc/pictures" />
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/lib/ext" />
     </key>
@@ -97,25 +92,10 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.unipd.sweng.Main" />
       <module name="tsd-browser" />
+      <option name="VM_PARAMETERS" value="--add-modules=javafx.base,javafx.controls,javafx.graphics" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="tsd-browser-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/target/tsd-browser-1.0-SNAPSHOT.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tsd-browser.jar (1)" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/tsd_browser_jar3/tsd-browser.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tsd-browser.jar (2)" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/tsd_browser_jar2/tsd-browser.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tsd-browser.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/tsd_browser_jar/tsd-browser.jar" />
-      <method v="2" />
     </configuration>
     <configuration name="tsd-browser" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
@@ -142,20 +122,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JAR Application.tsd-browser-1.0-SNAPSHOT.jar" />
-      <item itemvalue="JAR Application.tsd-browser.jar" />
-      <item itemvalue="JAR Application.tsd-browser.jar (1)" />
-      <item itemvalue="JAR Application.tsd-browser.jar (2)" />
       <item itemvalue="Maven.tsd-browser" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JAR Application.tsd-browser-1.0-SNAPSHOT.jar" />
-        <item itemvalue="JAR Application.tsd-browser.jar" />
-        <item itemvalue="JAR Application.tsd-browser.jar (2)" />
-        <item itemvalue="JAR Application.tsd-browser.jar (1)" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -179,8 +147,6 @@
       <workItem from="1656260971076" duration="6450000" />
       <workItem from="1656346448492" duration="2855000" />
       <workItem from="1656359503505" duration="1086000" />
-      <workItem from="1656765055646" duration="573000" />
-      <workItem from="1656792554774" duration="7381000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>
@@ -287,7 +253,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656602337998</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Began work on user manual">
+      <created>1656684654548</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1656684654551</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Attempted, and failed, to create jar">
+      <created>1656686849008</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656686849008</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +301,9 @@
     <MESSAGE value="Added simple test for Service" />
     <MESSAGE value="Added complementary test for ServiceDatabaseTest" />
     <MESSAGE value="Completed ServiceTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed ServiceTest" />
+    <MESSAGE value="Began work on user manual" />
+    <MESSAGE value="Attempted, and failed, to create jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempted, and failed, to create jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
