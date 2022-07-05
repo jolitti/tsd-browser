@@ -16,6 +16,7 @@ import lib.interfaces.ModelInterface;
 import org.controlsfx.control.CheckComboBox;
 
 import java.awt.*;
+import java.io.InputStream;
 import java.util.*;
 
 
@@ -143,10 +144,10 @@ public class StartPageController implements Initializable {
 
         //creating a button flag for each state that has a service, adding the image and size
         for(String state: filter.countries().get()) {
-            FileInputStream input = null;
+            InputStream input = null;
             try {
-                input = new FileInputStream("src/main/resources/images/"+state+".png");
-            } catch (FileNotFoundException e) {
+                input = getClass().getResourceAsStream("/images/"+state+".png");
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
             ImageView img = new ImageView(new Image(input));
