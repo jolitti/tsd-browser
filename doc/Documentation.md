@@ -237,7 +237,7 @@ In terms of internal backend behavior, the use case where the user selects a Cou
 
 <u>**Application init sequence diagram**</u>
 
-| ![Application init sequence diagram](.UML/Application init sequence diagram.jpg) |
+| ![Application init sequence diagram](./UML/Application init sequence diagram.jpg) |
 | :----------------------------------------------------------: |
 | *When the application starts, the GUI controller asks for a model instance (that is a singleton) to the ModelSpawner. Model spawner requests to the APIClient to query the remote API to retrieve data, and this returns the downloaded resources wrapped in a DatahHolder datatype. The ModelSpawner requests another dataset from the API through the APIClient's getCountryMap() method, that uses another API call to get all the country codes. Once the ModelSpawner has all it needs to initialize the database, it creates the ServiceDatabase singleton and passes it back to the Controller.* |
 
@@ -253,7 +253,7 @@ In terms of internal backend behavior, the use case where the user selects a Cou
 
 **<u>Filter selection sequence diagram</u>**
 
-| ![Filter selection sequence diagram](./Filter selection sequence diagram2.jpg) |
+| ![Filter selection sequence diagram](./UML/Filter selection sequence diagram2.jpg) |
 | :----------------------------------------------------------: |
 | *When the user selects a filter, the controller instantiates four ServiceFilter objects, one per filter type, and asks to the ServiceDatabase for each complementary ServiceFilter, so that the view can print out the options available. The ServiceDatabase uses an algorithm to extract the parameters of the complementary filter and then calls a static method of the ServiceFIlter class that intantiates a ServiceFilter from four sets.* |
 
