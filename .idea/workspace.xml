@@ -10,37 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/doc/UML/Application-init-sequence-diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Filter-selection-sequence-diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Filter-selection-sequence-diagram2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/StartPage-Filters.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Use-Case-Diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/result-page-go-home.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/result-page-internal-query.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/result-page-normal-query.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/results-page-initialisation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/start-page-flags.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/start-page-initialiasation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/start-page-search.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/frontend/Main.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/frontend/MainWrapper.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/frontend/PrintableService.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/frontend/ResultsPageController.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/frontend/StartPageController.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_05_22__16_03__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_05_22__16_03__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_20_22__11_10_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_20_22__11_10_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Documentation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/Application init sequence diagram.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/Filter selection sequence diagram.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/Filter selection sequence diagram2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/StartPage Filters.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/Use Case Diagram.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/result page go home.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/result page internal query.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/result page normal query.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/results page initialisation.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/star page search.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/start page flags.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/UML/start page initialiasation.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,26 +55,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/rizoma/IdeaProjects/tsd-browser/doc/pictures&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "D:/dev/libraries/javafx-sdk-18.0.1/lib",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/doc/pictures" />
@@ -118,7 +90,7 @@
       <recent name="lib.internal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JAR Application.tsd-browser.jar">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.unipd.sweng.Main" />
       <module name="tsd-browser" />
