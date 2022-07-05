@@ -27,7 +27,9 @@ and the data presented is unaltered from the one you
 ## Launching the program
 
 The simplest way to launch the program is to download the 
-release `jar`s for your operating system and launch them 
+release `jar`s for your operating system (available at 
+[this google drive archive](https://drive.google.com/drive/u/1/folders/111Ufl503BJWrWKbe4ecP7LkENZYOoRU1))
+and launch them 
 using `java -jar [filename].jar`.  
 You can also download the source code, open the root 
 folder with Intellij Idea and run the app with it
