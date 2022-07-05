@@ -72,7 +72,7 @@ The application allows to perform a search for services based on filters or by s
 
 
 
-![Use Case Diagram](./UML/Use Case Diagram.jpg) 
+![Use Case Diagram](./UML/Use-Case-Diagram.jpg) 
 
 
 
@@ -237,7 +237,7 @@ In terms of internal backend behavior, the use case where the user selects a Cou
 
 <u>**Application init sequence diagram**</u>
 
-| ![Application init sequence diagram](./UML/Application init sequence diagram.jpg) |
+| ![Application init sequence diagram](./UML/Application-init-sequence-diagram.jpg) |
 | :----------------------------------------------------------: |
 | *When the application starts, the GUI controller asks for a model instance (that is a singleton) to the ModelSpawner. Model spawner requests to the APIClient to query the remote API to retrieve data, and this returns the downloaded resources wrapped in a DatahHolder datatype. The ModelSpawner requests another dataset from the API through the APIClient's getCountryMap() method, that uses another API call to get all the country codes. Once the ModelSpawner has all it needs to initialize the database, it creates the ServiceDatabase singleton and passes it back to the Controller.* |
 
@@ -253,7 +253,7 @@ In terms of internal backend behavior, the use case where the user selects a Cou
 
 **<u>Filter selection sequence diagram</u>**
 
-| ![Filter selection sequence diagram](./UML/Filter selection sequence diagram2.jpg) |
+| ![Filter selection sequence diagram](./UML/Filter-selection-sequence-diagram2.jpg) |
 | :----------------------------------------------------------: |
 | *When the user selects a filter, the controller instantiates four ServiceFilter objects, one per filter type, and asks to the ServiceDatabase for each complementary ServiceFilter, so that the view can print out the options available. The ServiceDatabase uses an algorithm to extract the parameters of the complementary filter and then calls a static method of the ServiceFIlter class that intantiates a ServiceFilter from four sets.* |
 
@@ -343,7 +343,7 @@ When the user performs a search the page is changed to show the user the results
 
 **<u>Start Page initialization sequence diagram</u>**
 
-| ![start page initialiasation](./UML/start page initialiasation.jpg) |
+| ![start page initialiasation](./UML/start-page-initialiasation.jpg) |
 | :----------------------------------------------------------- |
 | *When the user starts the program the view is loaded by the FXMLLoader, which also launches the initialize method in the controller and then creates an instance of the model (Service Database) using the ModelSpawner class. The controller then makes the following operations: first, it requests the controller 2 maps used for the conversion of the country and provider IDs to the respective names (points 9,10). Then, it adds an event handler to the CheckComboBoxes (drop down menus) used to implement the complementarity of the filters, and adds a Listerner to manage the “select all” choice (points 11,12). After that, it creates a filter (Service Filter) that contains all the possible selections and uses the data to initialize the CheckComboBoxes (points 13-16). Finally, for each nation that offers a service, creates a flag (Button) used for the quick search (points 17,18). The system is now ready to be used by the user.* |
 
@@ -359,7 +359,7 @@ When the user performs a search the page is changed to show the user the results
 
 **<u>Filter selection (from Start Page) sequence diagram</u>**
 
-| ![StartPage Filters](./UML/StartPage Filters.jpg)            |
+| ![StartPage Filters](./UML/StartPage-Filters.jpg)            |
 | :----------------------------------------------------------- |
 | *The user can now use the CheckComboBoxes to select the desired filters. After the selection, when the drop down menu is closed a method is launched in the controller to get the complementary of the selected items. For each CCB it retrieves the selected items and with them it instantiates a ServiceFilter(1 for each CCb) that will be used to ask the controller for its complementary (point 3). After getting the 4 filters it intersects them to create the complementary of all the selections in the 4 CCBs and sets the values (points 5-9). It then resets the checked values to the ones selected by the user(point 9).* |
 
@@ -383,7 +383,7 @@ When the user performs a search the page is changed to show the user the results
 
 **<u>Search by filters (from Start Page) sequence diagram</u>**
 
-| ![star page search](./UML/star page search.jpg)              |
+| ![star page search](./UML/start-page-search.jpg)             |
 | :----------------------------------------------------------- |
 | *After the user selects the desired filter, they can start the query by pressing the search Button; this will launch the changeToSearchScene method in the controller. In this method the results page is loaded from the FXML and we obtain an instance of its controller(Points 3-5). Then the program will get the selection from the start page CCBs and set the same data in the ones in the results page using the initFilter method of the results page controller(points 6-8). It then will launch the getComplementaryFilter method to make sure that the CCBs contain the right data to continue the search in the other page. Finally, it will start the actual query and load the new page(Points 9,10).* |
 
@@ -421,7 +421,7 @@ When the user performs a search the page is changed to show the user the results
 
 <u>**Search by flag (from Start Page) sequence diagram**</u>
 
-| ![start page flags](./UML/start page flags.jpg)              |
+| ![start page flags](./UML/start-page-flags.jpg)              |
 | :----------------------------------------------------------- |
 | *The user can also make the search selecting a flag; this will check the correspondent country in the nation CCB and then make a search using the filters (the process is the same as before).* |
 
@@ -459,7 +459,7 @@ When the user performs a search the page is changed to show the user the results
 
 **<u>Result Page initialization sequence diagram</u>**
 
-| ![results page initialisation](./UML/results page initialisation.jpg) |
+| ![results page initialisation](./UML/results-page-initialisation.jpg) |
 | :----------------------------------------------------------- |
 | *The steps are the same of the start page initialization except for the creation of the flags.* |
 
@@ -478,7 +478,7 @@ When the user performs a search the page is changed to show the user the results
 
 
 **<u>Filter query (from Start Page) sequence diagram</u>**
-| <img src="./UML/result page normal query.jpg" style="zoom:50%" /> |
+| <img src="./UML/result-page-normal-query.jpg" style="zoom:50%" /> |
 | :----------------------------------------------------------- |
 | *After the start page controller loads the results page controller, as we said it calls three of its methods: initFilter, which receives the checkModels from the startPage and sets the selected items in the CCBs of the results page (Points 1,2); getComplementaryFilter, which is the same as in the start page, it’s used to set the complementarity of the filters so the user can continue the query started in the start page; searchByFilters, which gets the selected items form the CCBs(points 3-5) and uses them to get the services from the model (points 6,7); it will then insert the selected filters in the treeView (Points 8-10), and print the services in the tableView(Points 11,12).* |
 
@@ -486,7 +486,7 @@ When the user performs a search the page is changed to show the user the results
 
 **<u>Filter selection (from Result Page) sequence diagram</u>**
 
-| ![StartPage Filters](./UML/StartPage Filters.jpg)            |
+| ![StartPage Filters](./UML/StartPage-Filters.jpg)            |
 | :----------------------------------------------------------- |
 | *After seeing the results of the first query, the user can change the selected filters. This will cause the same sequences as in the start page.* |
 
@@ -516,7 +516,7 @@ When the user performs a search the page is changed to show the user the results
 
 **<u>Search by filters (from Result Page) sequence diagram</u>**
 
-| ![result page internal query](./UML/result page internal query.jpg) |
+| ![result page internal query](./UML/result-page-internal-query.jpg) |
 | :----------------------------------------------------------- |
 | *After the user changes the filters he can start a new query by pressing search; this will launch the searchByFilter method, the same launched by the start page controller, and, as before, this will get the services from the model, print the filters in the treeView and the services tableView.* |
 
@@ -524,7 +524,7 @@ When the user performs a search the page is changed to show the user the results
 
 **<u>Return to Start Page</u>**
 
-| <img src="./UML/result page go home.jpg" style="zoom:70%" /> |
+| <img src="./UML/result-page-go-home.jpg" style="zoom:70%" /> |
 | :----------------------------------------------------------- |
 | *The user can press the home button in the results page; this will launch the homeScene method in the controller, that will load the startPage using the FXMLLoader and then change the page using setScene.* |
 

@@ -10,25 +10,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Inserita documentazione">
-      <change afterPath="$PROJECT_DIR$/doc/Documentation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Application init sequence diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Filter selection sequence diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Filter selection sequence diagram2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Screenshot_result-page.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Screenshot_start_page.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/StartPage Filters.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/Use Case Diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/result page go home.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/result page internal query.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/result page normal query.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/results page initialisation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/search-sequence-diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/star page search.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/start page flags.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/start page initialiasation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/tsd-browser-class-diagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/UML/tsd-browser_domain_model.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Documentation.pdf" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/Application-init-sequence-diagram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/Filter-selection-sequence-diagram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/Filter-selection-sequence-diagram2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/StartPage-Filters.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/Use-Case-Diagram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/result-page-go-home.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/result-page-internal-query.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/result-page-normal-query.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/results-page-initialisation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/start-page-flags.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/start-page-initialiasation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/UML/start-page-search.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/Documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Documentation.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/Application init sequence diagram.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/Filter selection sequence diagram.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/Filter selection sequence diagram2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/StartPage Filters.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/Use Case Diagram.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/result page go home.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/result page internal query.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/result page normal query.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/results page initialisation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/star page search.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/start page flags.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/UML/start page initialiasation.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +330,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657032639452</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Inserita documentazione">
+      <created>1657033452350</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1657033452350</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Inserita documentazione">
+      <created>1657033652136</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1657033652136</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
