@@ -24,6 +24,19 @@ and the data presented is unaltered from the one you
 
 ---
 
+## Launching the program
+
+The simplest way to launch the program is to download the 
+release `jar`s for your operating system and launch them 
+using `java -jar [filename].jar`.  
+You can also download the source code, open the root 
+folder with Intellij Idea and run the app with it
+(the project is organized 
+using Maven, which will take some time on your first 
+launch to download all your dependencies).
+
+---
+
 ## The home screen
 
 ![The home screen](./pictures/home_screen.png)
