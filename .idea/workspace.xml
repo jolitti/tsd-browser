@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Made png references relative, now jar is working">
+      <change afterPath="$PROJECT_DIR$/doc/Documentation.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -286,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656945815491</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Inserita documentazione">
+      <created>1657032283130</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1657032283131</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +331,8 @@
     <MESSAGE value="Began work on user manual" />
     <MESSAGE value="Attempted, and failed, to create jar" />
     <MESSAGE value="Completed the user manual" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the user manual" />
+    <MESSAGE value="Inserita documentazione" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserita documentazione" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
