@@ -13,6 +13,7 @@
       <change afterPath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +160,7 @@
       <workItem from="1656260971076" duration="6450000" />
       <workItem from="1656346448492" duration="2855000" />
       <workItem from="1656359503505" duration="1086000" />
+      <workItem from="1657009968996" duration="50000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>
