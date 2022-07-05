@@ -32,7 +32,7 @@ release `jar`s for your operating system (available at
 and launch them 
 using `java -jar [filename].jar`.  
 You can also download the source code, open the root 
-folder with Intellij Idea and run the app with it
+folder with Intellij Idea and run the app with it using MainWrapper as the main class
 (the project is organized 
 using Maven, which will take some time on your first 
 launch to download all your dependencies).
@@ -95,4 +95,4 @@ to the one in the starting screen, except for
 the <kbd>HOME</kbd> button, which allows you to quickly 
 reset the program.
 
-x
+
