@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Inserita documentazione">
+    <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/doc/UML/Application-init-sequence-diagram.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/UML/Filter-selection-sequence-diagram.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/UML/Filter-selection-sequence-diagram2.jpg" afterDir="false" />
@@ -22,6 +22,12 @@
       <change afterPath="$PROJECT_DIR$/doc/UML/start-page-flags.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/UML/start-page-initialiasation.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/UML/start-page-search.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/frontend/Main.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/frontend/MainWrapper.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/frontend/PrintableService.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/frontend/ResultsPageController.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/frontend/StartPageController.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/Documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Documentation.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/UML/Application init sequence diagram.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/doc/UML/Filter selection sequence diagram.jpg" beforeDir="false" />
