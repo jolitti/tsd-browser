@@ -1,0 +1,55 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="tsd-browser:jarWindowsx64">
+    <output-path>$PROJECT_DIR$/out/artifacts/tsd_browser_jarWindowsx64</output-path>
+    <root id="archive" name="tsd-browser.jar">
+      <element id="module-output" name="tsd-browser" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/thoughtworks/qdox/qdox/2.0.1/qdox-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/18/javafx-graphics-18.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/18/javafx-base-18-mac.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/18/javafx-graphics-18-mac.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-compiler-manager/2.11.1/plexus-compiler-manager-2.11.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/maven/shared/maven-shared-utils/3.3.4/maven-shared-utils-3.3.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/18/javafx-controls-18.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/18/javafx-controls-18-mac.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/controlsfx/controlsfx/11.1.1/controlsfx-11.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm/9.2/asm-9.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20220320/json-20220320.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-java/1.1.1/plexus-java-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.6/commons-io-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/18/javafx-fxml-18.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-compiler-plugin/3.10.1/maven-compiler-plugin-3.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-compiler-javac/2.11.1/plexus-compiler-javac-2.11.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/18/javafx-fxml-18-mac.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/18/javafx-base-18.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-compiler-api/2.11.1/plexus-compiler-api-2.11.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: org.json:json:20220320" />
+      <element id="library" level="project" name="Maven: org.apache.maven.plugins:maven-compiler-plugin:3.10.1" />
+      <element id="library" level="project" name="Maven: org.apache.maven.shared:maven-shared-utils:3.3.4" />
+      <element id="library" level="project" name="Maven: commons-io:commons-io:2.6" />
+      <element id="library" level="project" name="Maven: org.apache.maven.shared:maven-shared-incremental:1.1" />
+      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-component-annotations:1.5.5" />
+      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-java:1.1.1" />
+      <element id="library" level="project" name="Maven: org.ow2.asm:asm:9.2" />
+      <element id="library" level="project" name="Maven: com.thoughtworks.qdox:qdox:2.0.1" />
+      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-compiler-api:2.11.1" />
+      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-utils:3.4.1" />
+      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-compiler-manager:2.11.1" />
+      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-compiler-javac:2.11.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:18" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:mac:18" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:18" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:mac:18" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:18" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:mac:18" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:18" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:mac:18" />
+      <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.1.1" />
+      <element id="dir-copy" path="$PROJECT_DIR$/../cartella senza nome/javafx-sdk-18.0.1/lib" />
+      <element id="dir-copy" path="$PROJECT_DIR$/../cartella senza nome/javafx-sdk-18.0.1" />
+      <element id="dir-copy" path="$PROJECT_DIR$/../x64/javafx-sdk-18.0.1/bin" />
+    </root>
+  </artifact>
+</component>

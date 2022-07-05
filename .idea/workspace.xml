@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="tsd-browser:jar" />
+      <artifact name="tsd-browser:jarLinux" />
+      <artifact name="tsd-browser:jarMac" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,8 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0faeb2-cf6f-48e7-b7c9-19de69ea60a6" name="Changes" comment="Made png references relative, now jar is working">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/tsd_browser_jarLinux.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +160,7 @@
       <workItem from="1656260971076" duration="6450000" />
       <workItem from="1656346448492" duration="2855000" />
       <workItem from="1656359503505" duration="1086000" />
-      <workItem from="1657009968996" duration="949000" />
+      <workItem from="1657009968996" duration="1946000" />
     </task>
     <task id="LOCAL-00001" summary="Created Service object builder from JSONObject">
       <created>1652780473867</created>
